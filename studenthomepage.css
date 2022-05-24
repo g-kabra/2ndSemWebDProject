@@ -1,0 +1,121 @@
+body {
+  border: 0;
+  margin: 0;
+}
+
+/* navbar */
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.733);
+  color: white;
+  height: 75px;
+}
+
+.navb-links-container {
+  height: 75px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: larger;
+}
+
+.navb-link {
+  text-decoration: none;
+  color: gray;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-duration: 1000ms;
+}
+
+.navb-link:hover {
+  color: teal;
+  transition: 1000ms cubic-bezier(0.19, 1, 0.22, 1) all;
+  /* transition-duration: 1000ms; */
+  border: rgb(173, 255, 230) solid 2px;
+  background-color: aquamarine;
+  border-radius: 10px;
+}
+
+/* navbar end */
+
+/* footer */
+
+.main-footer{
+    background-color: gray;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+  padding : 1%;
+  width : 70%;
+}
+
+.footer-container .row {
+  justify-content: space-around;
+}
+
+.footer-section-heading {
+  font-family : 'Roboto', sans-serif;
+  color : white;
+  font-size: 20px;
+}
+
+.footer-link-list li a {
+  text-decoration: none;
+  color: rgb(35, 35, 35);
+}
+
+.footer-link-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* button-sample */
+
+.styled-button {
+  width: 130px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+background: linear-gradient(0deg, rgb(33,37,41) 0%, rgb(33,37,41) 100%);
+color: white;
+font-size: 18px;
+}
+.styled-button:hover {
+  color: white;
+  background: transparent;
+   border-bottom: gray 1px solid;
+   font-size: 20px;
+
+
+}
+.styled-button:before,
+.styled-button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: gray;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.styled-button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.styled-button:hover:before{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/* button-sample-end */
