@@ -6,15 +6,52 @@ body {
 /* navbar */
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.733);
+  /* position: fixed; */
+  /* top: 0; */
+  background-color: rgb(33,37,41);
   color: white;
   height: 75px;
+  transition: all 800ms ease;
+  border-bottom: solid 4px teal;
+}
+
+.navbar:after, .navbar:before{
+  height: 4px;
+  content: "";
+  transition: all 400ms ease;
+}
+
+.navbar:after {
+  position: absolute;
+  top: 0;
+  background-color: gray;
+  width:0;
+}
+
+.navbar:before {
+  position: absolute;
+  top : 71px;
+  background-color: rgb(33, 37, 41);
+  width:100%;
+  z-index: 0;
+}
+
+.navbar:hover::after {
+  transition: all 800ms ease;
+  width : 100%;
+}
+
+.navbar:hover::before {
+  transition: all 800ms ease;
+  width : 0;
 }
 
 .navb-links-container {
+  /* position:fixed; */
+  /* top:0; */
   height: 75px;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: larger;
 }
 
@@ -36,20 +73,30 @@ body {
 
 /* navbar end */
 
+/* content */
+.content {
+  height: 100vh;
+  background-color: lightgray;
+  width: 100%;
+}
+
+/* content-end */
+
 /* footer */
 
-.main-footer{
-    background-color: gray;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.main-footer {
+  background-color: gray;
+  position: relative;
+  bottom: 0;
+  /* top : 0; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-container {
-  padding : 1%;
-  width : 70%;
+  padding: 1%;
+  width: 70%;
 }
 
 .footer-container .row {
@@ -57,8 +104,8 @@ body {
 }
 
 .footer-section-heading {
-  font-family : 'Roboto', sans-serif;
-  color : white;
+  font-family: "Roboto", sans-serif;
+  color: white;
   font-size: 20px;
 }
 
@@ -80,42 +127,18 @@ body {
   padding: 0;
   border: none;
   background: transparent;
-background: linear-gradient(0deg, rgb(33,37,41) 0%, rgb(33,37,41) 100%);
-color: white;
-font-size: 18px;
+  background:rgb(33, 37, 41);
+  color: white;
+  font-size: 18px;
+  transition: 200ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
 }
 .styled-button:hover {
   color: white;
   background: transparent;
-   border-bottom: gray 1px solid;
-   font-size: 20px;
-
-
-}
-.styled-button:before,
-.styled-button:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: gray;
-  box-shadow:
-   -1px -1px 5px 0px #fff,
-   7px 7px 20px 0px #0003,
-   4px 4px 5px 0px #0002;
-  transition:400ms ease all;
-}
-.styled-button:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.styled-button:hover:before{
-  width:100%;
-  transition:800ms ease all;
+  border-bottom: gray 1px solid;
+  font-size: 20px;
+  width: 200px;
+  transition: 200ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
 }
 
 /* button-sample-end */
