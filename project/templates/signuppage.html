@@ -61,9 +61,9 @@
         </div>
         <div class="rightmainbox">
           <div class="signupchoice">
-            <div class="btn">STUDENT</div>
-            <div class="btn">TEACHER</div>
-            <div class="btn">ADMIN</div>
+            <button>Student</button>
+            <button>Teacher</button>
+            <button>Admin</button>
           </div>
           <div class="teachersignup">
             <form action="" method="post">
@@ -71,8 +71,7 @@
                 <tr>
                   <td>
                     <input
-                      type="text"
-                      class="teacher-input-half"
+                      type="text" class = "teacher-input-half"
                       name="fname"
                       id=""
                       placeholder="First Name"
@@ -80,8 +79,7 @@
                   </td>
                   <td>
                     <input
-                      type="text"
-                      class="teacher-input-half"
+                      type="text" class = "teacher-input-half"
                       name="lname"
                       id=""
                       placeholder="Last Name"
@@ -89,87 +87,12 @@
                   </td>
                 </tr>
               </table>
-              <input
-                type="text"
-                class="teacher-input"
-                placeholder="Subject"
-              /><br />
-              <input
-                type="text"
-                class="teacher-input"
-                placeholder="Email"
-              /><br />
-              <input
-                type="password"
-                class="teacher-input"
-                placeholder="Password"
-              />
+              <input type="text" class = "teacher-input" placeholder="Subject" /><br>
+              <input type="text" class = "teacher-input" placeholder="Email"><br>
+              <input type="password" class = "teacher-input" placeholder="Password">
             </form>
           </div>
-
-          <div class="studentsignup">
-            <form action="" method="post">
-              <table>
-                <tr>
-                  <td>
-                    <input
-                      type="text"
-                      class="student-input-half"
-                      name="fname"
-                      id=""
-                      placeholder="First Name"
-                    />
-                  </td>
-                  <td>
-                    <input
-                      type="text"
-                      class="student-input-half"
-                      name="lname"
-                      id=""
-                      placeholder="Last Name"
-                    />
-                  </td>
-                </tr>
-                <tr colspan="2">
-                  <td>
-                    <input list="branch" class="branch" placeholder="Branch" />
-
-                    <datalist id="branch">
-                      <option value="CSAI"></option>
-                      <option value="CSB"></option>
-                      <option value="CS"></option>
-                      <option value="IT"></option>
-                    </datalist>
-                  </td>
-                  <td>
-                    <input list="year" class="year" placeholder="Year" />
-                    <datalist id="year">
-                      <option value="2019"></option>
-                      <option value="2020"></option>
-                      <option value="2021"></option>
-                      <option value="2022"></option>
-                    </datalist>
-                  </td>
-                </tr>
-                <tr colspan="2">
-                  <td>
-                    <input
-                      type="text"
-                      class="student-input"
-                      placeholder="Email"
-                    /><br />
-                  </td>
-                  <td>
-                    <input
-                      type="password"
-                      class="student-input"
-                      placeholder="Password"
-                    />
-                  </td>
-                </tr>
-              </table>
-            </form>
-          </div>
+          <div class="studentsignup"></div>
         </div>
       </div>
     </center>

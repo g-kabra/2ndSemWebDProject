@@ -3,9 +3,7 @@
   initial-value: 132deg;
   inherits: false;
 }
-.studentsignup{
-  display:none;
-}
+
 body {
   margin: 0;
   border: 0;
@@ -86,10 +84,6 @@ body {
   width: 20vw;
   height: 70vh;
 }
-
- /* .teachersignup{
-  display: none;
-}  */
 
 @keyframes spin {
   0% {
@@ -185,46 +179,6 @@ body {
   
   /* navbar end */
 
-  /* .signuptable{
-    
-  } */
-  .student-input, .student-input-half, .branch, .year {
-    
-    /* border-color: white;
-    margin: 36px;
-    padding: 2em 1.6em;
-    border-radius: 0;
-    color: white;
-    position: relative;
-    
-    letter-spacing: 0.2ch; 
-    color: #000;
-    border: 2px solid white;
-    border-radius: 0px;
-    */
-    padding: 18px 36px;
-    
-    font-family: "Lucida Console", Monaco, monospace;
-    
-    letter-spacing: 1px; 
-    
-
-    border-radius: 5px;
-    border: none;
-    height: 5vh;
-    padding: 1vh;
-    margin-bottom: 2vh;
-    width: 95%;
-  }
-
-  
-
-  .student:nth-of-type(0) {
-    margin-right: 100%;
-  }
-
-
-
   .teacher-input, .teacher-input-half {
     border-radius: 5px;
     border: none;
@@ -232,44 +186,16 @@ body {
     padding: 1vh;
     margin-bottom: 2vh;
     width: 95%;
-    
   }
 
   .teacher-input:nth-of-type(0) {
     margin-right: 100%;
   }
 
-
-  .btn{
-  border-color: white;
-  margin: 36px;
-  padding: 2em 1.6em;
-  border-radius: 0;
-  color: white;
-  position: relative;
-  box-shadow:  0 0 0 0 purple;
-  letter-spacing: 0.2ch; 
-  color: #FFF;
-  border: 2px solid white;
-  border-radius: 0px;
-  padding: 18px 36px;
-  display: inline-block;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 0 #D80286;
-  transition: ease-out 0.4s;
-
+  .teacher-input {
+    width: 90%;
   }
-  .btn:hover{
-    color: white;
-    box-shadow: inset 0 0 50px 50px rgb(192, 2, 176);
-    
-  }
-  
 
   .rightmainbox table {
     width: 90%;
   }
-  
