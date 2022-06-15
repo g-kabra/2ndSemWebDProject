@@ -3,9 +3,9 @@
   initial-value: 132deg;
   inherits: false;
 }
-.studentsignup{
+/* .studentsignup{
   display:none;
-}
+} */
 body {
   margin: 0;
   border: 0;
@@ -87,9 +87,9 @@ body {
   height: 70vh;
 }
 
- /* .teachersignup{
+ .teachersignup{
   display: none;
-}  */
+} 
 
 @keyframes spin {
   0% {

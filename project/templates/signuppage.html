@@ -108,7 +108,7 @@
           </div>
 
           <div class="studentsignup">
-            <form action="" method="post">
+            <form action="/signup/student" method="post">
               <table>
                 <tr>
                   <td>
@@ -132,7 +132,7 @@
                 </tr>
                 <tr colspan="2">
                   <td>
-                    <input list="branch" class="branch" placeholder="Branch" />
+                    <input list="branch" class="branch" placeholder="Branch" name="branch"/>
 
                     <datalist id="branch">
                       <option value="CSAI"></option>
@@ -142,7 +142,7 @@
                     </datalist>
                   </td>
                   <td>
-                    <input list="year" class="year" placeholder="Year" />
+                    <input list="year" class="year" placeholder="Year" name = "year"/>
                     <datalist id="year">
                       <option value="2019"></option>
                       <option value="2020"></option>
@@ -157,6 +157,7 @@
                       type="text"
                       class="student-input"
                       placeholder="Email"
+                      name="email"
                     /><br />
                   </td>
                   <td>
@@ -164,10 +165,12 @@
                       type="password"
                       class="student-input"
                       placeholder="Password"
+                      name = "password"
                     />
                   </td>
                 </tr>
               </table>
+              <button href = "/signup/">Submit</button>
             </form>
           </div>
         </div>
