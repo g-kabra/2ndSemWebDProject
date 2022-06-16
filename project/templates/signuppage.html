@@ -61,12 +61,13 @@
         </div>
         <div class="rightmainbox">
           <div class="signupchoice">
-            <div class="btn">STUDENT</div>
-            <div class="btn">TEACHER</div>
-            <div class="btn">ADMIN</div>
+            <div class="btn" id="studentbtn">STUDENT</div>
+            <div class="btn" id="teacherbtn">TEACHER</div>
+            <div class="btn" id="adminbtn">ADMIN</div>
           </div>
-          <div class="teachersignup">
-            <form action="" method="post">
+          <div class="teachersignup" id="teachersignup">
+            <form action="/signup/teacher" method="post">
+              <h1 class="belhead">Teacher Signup</h1>
               <table>
                 <tr>
                   <td>
@@ -93,22 +94,28 @@
                 type="text"
                 class="teacher-input"
                 placeholder="Subject"
+                name = "subject"
               /><br />
               <input
                 type="text"
                 class="teacher-input"
                 placeholder="Email"
+                name = "email"
               /><br />
               <input
                 type="password"
                 class="teacher-input"
                 placeholder="Password"
+                name="password"
               />
+              <br />
+              <button>Submit</button>
             </form>
           </div>
 
-          <div class="studentsignup">
+          <div class="studentsignup" id="studentsignup">
             <form action="/signup/student" method="post">
+              <h1 class="belhead">Student Signup</h1>
               <table>
                 <tr>
                   <td>
@@ -130,9 +137,20 @@
                     />
                   </td>
                 </tr>
+                <input
+                      type="text"
+                      class="student-input-half"
+                      placeholder="Roll Number"
+                      name="rollno"
+                    />
                 <tr colspan="2">
                   <td>
-                    <input list="branch" class="branch" placeholder="Branch" name="branch"/>
+                    <input
+                      list="branch"
+                      class="student-input-half"
+                      placeholder="Branch"
+                      name="branch"
+                    />
 
                     <datalist id="branch">
                       <option value="CSAI"></option>
@@ -142,7 +160,12 @@
                     </datalist>
                   </td>
                   <td>
-                    <input list="year" class="year" placeholder="Year" name = "year"/>
+                    <input
+                      list="year"
+                      class="student-input-half"
+                      placeholder="Year"
+                      name="year"
+                    />
                     <datalist id="year">
                       <option value="2019"></option>
                       <option value="2020"></option>
@@ -155,7 +178,7 @@
                   <td>
                     <input
                       type="text"
-                      class="student-input"
+                      class="student-input-half"
                       placeholder="Email"
                       name="email"
                     /><br />
@@ -163,14 +186,15 @@
                   <td>
                     <input
                       type="password"
-                      class="student-input"
+                      class="student-input-half"
                       placeholder="Password"
-                      name = "password"
+                      name="password"
                     />
                   </td>
                 </tr>
               </table>
-              <button href = "/signup/">Submit</button>
+              <br />
+              <button>Submit</button>
             </form>
           </div>
         </div>
@@ -183,5 +207,6 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script src="../static/signuppage.js"></script>
   </body>
 </html>
