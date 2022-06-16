@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, redirect, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import Student, Teacher
 from flask_login import login_user, login_required, logout_user
-from .teacher import enterMarks
 from .main import profile
 from . import db
 

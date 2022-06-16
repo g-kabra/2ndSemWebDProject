@@ -201,4 +201,18 @@ th {
   transition: 200ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
 }
 
+#add-assignment-form {
+  position: fixed;
+  margin: auto;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 40px;
+  background-color: #3e3e3e;
+  transition: 0.4s;
+  transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
 /* navbar end */
