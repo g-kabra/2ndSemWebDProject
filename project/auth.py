@@ -1,9 +1,11 @@
-from flask import Blueprint, render_template, redirect, request
+from flask import Blueprint, render_template, redirect, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import Student, Teacher
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 from .main import profile
 from . import db
+
+print("auth.py", current_user)
 
 auth = Blueprint('auth', __name__)
 
@@ -16,8 +18,8 @@ def signup():
     return render_template('signuppage.html')
 
 @auth.route('/logout')
-@login_required
 def logout():
+    print("logged out", current_user)
     logout_user()
     return render_template('loginpage.html')
 
@@ -71,8 +73,10 @@ def loginStudent():
     
     if not student or not check_password_hash(student.password, password):
         return "Kya be"
+    session['role'] = 'student'
     login_user(student)
-    return profile(student)
+    print("Logged in", current_user)
+    return profile()
 
 @auth.route('/login/teacher', methods = ['POST'])
 def loginTeacher():
@@ -83,7 +87,9 @@ def loginTeacher():
     
     if not teacher or not check_password_hash(teacher.password, password):
         return "Kya be"
+    session['role'] = 'teacher'
     login_user(teacher)
-    return profile(teacher)
+    print("Logged in", current_user)
+    return profile()
 
 

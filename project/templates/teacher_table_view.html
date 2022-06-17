@@ -75,9 +75,7 @@
       </select>
       <button>Submit</button>
     </form>
-    {%if assignment%}
     <div style="overflow-x: auto">
-      <form action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{assignment.assignment}}" method="post">
       <table
         id="teacher_table"
         cellspacing="0"
@@ -96,23 +94,20 @@
           </tr>
         </thead>
         <tbody>
-          {%for student in students%}
+          {%for student in results%}
           <tr>
-            <td>{{student.branch}}</td>
-            <td>{{student.rollno}}</td>
-            <td>{{student.fname}}</td>
+            <td>{{student[0].branch}}</td>
+            <td>{{student[0].rollno}}</td>
+            <td>{{student[0].fname + ' ' + student[0].lname}}</td>
             <td>{{assignment.assignment}}</td>
-            <td><input type="text" placeholder="Enter marks" name = "{{student.rollno}}"/></td>
+            <td>{{student[1].marks}}</td>
             <td>Picture baaki hai</td>
             <td>Picture baaki hai</td>
           </tr>
           {%endfor%}
         </tbody>
       </table>
-      <button>Submit</button>
-    </form>
     </div>
-    {%endif%}
     <script
       type="text/javascript"
       charset="utf8"

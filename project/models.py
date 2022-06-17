@@ -11,7 +11,7 @@ class Student(db.Model, UserMixin):
     branch = db.Column(db.String(4))
     year = db.Column(db.Integer)
     password = db.Column(db.String(30))
-    role = "student"
+    role = db.Column(db.String(30), default='student')
 
 
 class Teacher(db.Model, UserMixin):
@@ -19,9 +19,9 @@ class Teacher(db.Model, UserMixin):
     email = db.Column(db.String(30), unique=True)
     fname = db.Column(db.String(30))
     lname = db.Column(db.String(30))
-    subject = db.Column(db.String(30))
+    subject = db.Column(db.String(30), db.ForeignKey("subject.subject"))
     password = db.Column(db.String(30))
-    role = "teacher"
+    role = db.Column(db.String(30), default='teacher')
 
 
 class Assignments(db.Model):
@@ -34,6 +34,13 @@ class Assignments(db.Model):
     
 class Marks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    assignment = db.Column(db.String(30), db.ForeignKey('assignments.assignment'))
+    assignment_id = db.Column(db.Integer, db.ForeignKey('assignments.id'))
+    assignment = db.Column(db.String(30))
     marks = db.Column(db.Integer)
     rollno = db.Column(db.String(30), db.ForeignKey('student.rollno'))
+    
+class Subject(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    branch = db.Column(db.String(4))
+    year = db.Column(db.Integer)
+    subject = db.Column(db.String(30))
