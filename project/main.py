@@ -17,5 +17,7 @@ def profile():
         return render_template('student_profile.html', email = current_user.email, name = current_user.fname + " " + current_user.lname, branch = current_user.branch, rollno = current_user.rollno)
     if(session['role'] == 'teacher'):
         return render_template('teacher_profile.html', email = current_user.email, name = current_user.fname + " " + current_user.lname, subject = current_user.subject)
+    if(session['role'] == 'admin'):
+        return render_template('admin_profile.html', email = current_user.email, name = current_user.fname + " " + current_user.lname, dept = current_user.dept, designation = current_user.designation)
     return "F"
     

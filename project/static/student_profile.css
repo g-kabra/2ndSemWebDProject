@@ -44,7 +44,7 @@ body {
   margin: 5%;
   width: 60vw;
   height: 70vh;
-  border-radius: 40px;
+  border-radius: 8px;
   background-color: #3e3e3e;
   transition: 0.4s;
   transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
@@ -60,13 +60,13 @@ body {
   height: 71vh;
   z-index: -1;
   position: absolute;
-  border-radius: 40px;
+  border-radius: 8px;
   background-image: linear-gradient(
     var(--rotate),
     rgb(255, 135, 135),
     rgb(59, 28, 255)
   );
-  filter: blur(2vh);
+  filter: blur(1vh);
   animation: spin 5s linear infinite;
 }
 
@@ -87,8 +87,8 @@ body {
 
 .leftmainbox {
   background-color: rgba(214, 0, 214, 0.407);
-  border-top-left-radius: 40px;
-  border-bottom-left-radius: 40px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   width: 20vw;
   height: 70vh;
   display: flex;

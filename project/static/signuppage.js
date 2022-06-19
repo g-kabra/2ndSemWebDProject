@@ -3,6 +3,7 @@ const teacherbtn = document.getElementById("teacherbtn");
 const adminbtn = document.getElementById("adminbtn");
 const teachersignup = document.getElementById("teachersignup");
 const studentsignup = document.getElementById("studentsignup");
+const adminsignup = document.getElementById("adminsignup");
 
 function fade(element) {
   element.style.display = "none";
@@ -23,11 +24,19 @@ function unfade(element) {
 }
 
 teacherbtn.addEventListener("click", function () {
-  unfade(teachersignup);
   fade(studentsignup);
+  fade(adminsignup);
+  unfade(teachersignup);
 });
 
 studentbtn.addEventListener("click", function () {
   fade(teachersignup);
+  fade(adminsignup);
   unfade(studentsignup);
+});
+
+adminbtn.addEventListener("click", function () {
+  fade(teachersignup);
+  fade(studentsignup);
+  unfade(adminsignup);
 });
