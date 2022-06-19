@@ -11,7 +11,7 @@
       type="text/css"
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
-    <link rel="stylesheet" href="/static/teacher_table.css" />
+    <link rel="stylesheet" href="../static/teacher_table.css"/>
   </head>
   <body>
     <!-- Navbar shit -->
@@ -49,30 +49,6 @@
         </div>
       </div>
     </nav>
-    <button id="add-assignment">Add Assignment</button>
-    <div id = "add-assignment-form">
-      <form action="/teacher/add_assignment" method="post">
-        <select name="year" id="">
-          <option value="{{year}}">{{year}}</option>
-        </select>
-        <select name="branch" id="">
-          <option value="{{branch}}">{{branch}}</option>
-        </select>
-        <select name="subject" id="">
-          <option value="{{subject}}">{{subject}}</option>
-        </select>
-        <input type="text" placeholder="Assignment Name" name = "assignment">
-        <input type="text" placeholder="Maximum Marks" name = "maxmarks">
-        <button>Submit</button>
-      </form>
-      <button id = "add-assignment-back">Back</button>
-    </div>
-    <form action="/teacher/assignment_selected/{{year}}/{{branch}}/{{subject}}" method="post">
-      <select name="assignment" id="">
-        {%for a in assignments%}
-        <option value="{{a.assignment}}">{{a.assignment}}</option>
-        {%endfor%}
-      </select>
       <button>Submit</button>
     </form>
     <div style="overflow-x: auto">
@@ -80,7 +56,7 @@
         id="teacher_table"
         cellspacing="0"
         width="100%"
-        class="hover stripe"
+        class="hover stripe table-view"
       >
         <thead>
           <tr>

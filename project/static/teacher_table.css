@@ -2,7 +2,7 @@
   border-collapse: collapse;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  width: 800px;
+  width: 90vw;
 }
 body {
   margin: 0;
@@ -11,6 +11,8 @@ body {
   font-family: sans-serif;
   font-weight: 100;
 }
+
+
 
 th,
 td {
@@ -33,6 +35,7 @@ th {
   height: 30px;
   text-align: center;
   font-size: 15px;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -216,3 +219,38 @@ th {
   z-index: 2;
 }
 /* navbar end */
+.btn {
+  border-color: black;
+  margin: 36px;
+  padding: 2em 1.6em;
+  border-radius: 0;
+  color:black;
+  position: relative;
+  box-shadow: 0 0 0 0 purple;
+  letter-spacing: 0.2ch;
+
+  border: 2px solid white;
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 30px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #d80286;
+  transition: ease-out 0.4s;
+  height: 15%;
+  width: 20%;
+  margin: 20px 20px 20px 20px;
+}
+/* .btn:hover {
+  color: black;
+  box-shadow: inset 0px 0px 100px 100px rgb(192, 2, 176);
+}
+*/
+
+
+#ch_submit:hover {
+  box-shadow: 0 0 100px 100px inset rgb(28, 206, 37);
+  color: black;
+} 
