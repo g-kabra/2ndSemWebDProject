@@ -8,6 +8,7 @@ body {
   margin: 0;
   border: 0;
   background: linear-gradient(45deg, #49a09d, #5f2c82);
+  /* background: linear-gradient(to left top, #150050, #3F0071);  */
   font-family: sans-serif;
   font-weight: 100;
 }
@@ -221,25 +222,21 @@ th {
 /* navbar end */
 .btn {
   border-color: black;
-  margin: 36px;
-  padding: 2em 1.6em;
   border-radius: 0;
   color:black;
   position: relative;
-  box-shadow: 0 0 0 0 purple;
   letter-spacing: 0.2ch;
-
   border: 2px solid white;
-  border-radius: 0px;
+  border-radius: 50px;
   padding: 18px 36px;
   display: inline-block;
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 30px;
   letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: inset 0 0 0 0 #d80286;
+  box-shadow: inset 0 0 0 0 #25274a7e;
   transition: ease-out 0.4s;
-  height: 15%;
+  height: 10%;
   width: 20%;
   margin: 20px 20px 20px 20px;
 }
@@ -251,6 +248,12 @@ th {
 
 
 #ch_submit:hover {
-  box-shadow: 0 0 100px 100px inset rgb(28, 206, 37);
+  box-shadow: 0 0 100px 100px inset rgb(103, 56, 110);
   color: black;
 } 
+
+.student-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

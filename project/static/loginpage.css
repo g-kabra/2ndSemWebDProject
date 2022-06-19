@@ -33,6 +33,10 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: column;
 }
 .boxs-list {
   z-index: 0;
@@ -68,89 +72,107 @@ body {
   transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
 }
 
-.login-box,
-.signup-box {
-  /* background-color: black; */
-  margin: 30px auto;
-  width: 500px;
-  height: 400px;
-  border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(221, 221, 221, 0.25),
-    -5px -5px 30px 7px rgba(207, 207, 207, 0.22);
-  background: linear-gradient(
-    to left top,
-    rgba(255, 139, 255, 0.564),
-    rgb(117, 225, 255)
-  );
-
-  transition: 0.4s;
-  color: black;
-  transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.signup-box {
-  height: 500px;
-}
-
-.login-details input,
-.signup-details input,
-.signup-details select {
-  width: 40vh;
-  margin-top: 5%;
+.login-box {
+  /* position: absolute;
+  top: 60%;
+  left: 50%; */
+  width: 400px;
+  padding: 5vh;
+  background: linear-gradient(to left top, #150050, #3F0071); 
+  /* box-sizing: border-box; */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  border: none;
-  height: 5vh;
-  font-size: 20px;
-}
-
-.login-submit,
-.signup-submit {
-  width: 210px;
-  height: 70px;
-  border: black solid 1px;
-  background: none;
-  border-radius: 40px;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 800ms all;
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
-  margin-top: 8%;
-}
-
-.login-back {
-  margin-left: 47.69vw;
-  width: 5%;
-  height: 5%;
-  border: black solid 1px;
-  background: none;
-  border-radius: 40px;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 800ms all;
-  font-size: 20px;
-  font-family: "Roboto", sans-serif;
   display: none;
+  margin-top: 50px;
+}
+
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
   position: relative;
 }
 
-#login-type-text {
-  font-size: 30px;
-  font-family: "Roboto", sans-serif;
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
 }
 
-#signup-type-text {
-  font-size: 30px;
-  font-family: "Roboto", sans-serif;
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color:  teal;
+  font-size: 16px;
 }
 
-.login-submit:hover,
-.signup-submit:hover {
-  background: black;
-  color: white;
+.login-box form .subbtn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid teal;
+  background-color: transparent;
+  border-radius: 8px;
+  color:  teal;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
   cursor: pointer;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 800ms all;
 }
+
+.login-box .subbtn:hover {
+  background:  teal;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 2px  teal,
+              0 0 10px  teal,
+}
+
+.login-back {
+  width: 100px;
+  height: 5%;
+  border: white solid 1px;
+  color: white;
+  background: none;
+  border-radius: 40px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 800ms all;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  display: none;
+  margin-top: 40px;
+}
+
+.login-back:hover {
+  color: black;
+  background-color: #fff;
+}
+
 
 .box .box_image {
   width: inherit;

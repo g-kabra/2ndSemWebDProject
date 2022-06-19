@@ -27,6 +27,20 @@ function fade(element) {
 function unfade(element) {
   var op = 0.1; // initial opacity
   element.style.opacity = op;
+  element.style.display = "block";
+  var timer = setInterval(function () {
+    if (op >= 1) {
+      clearInterval(timer);
+    }
+    element.style.opacity = op;
+    element.style.filter = "alpha(opacity=" + op * 100 + ")";
+    op += op * 0.1;
+  }, 10);
+}
+
+function unfadeflex(element) {
+  var op = 0.1; // initial opacity
+  element.style.opacity = op;
   element.style.display = "flex";
   var timer = setInterval(function () {
     if (op >= 1) {
@@ -64,5 +78,5 @@ loginBack.addEventListener("click", function () {
   fade(teacherLoginBox);
   fade(adminLoginBox);
   fade(loginBack);
-  unfade(pathSelector);
+  unfadeflex(pathSelector);
 });

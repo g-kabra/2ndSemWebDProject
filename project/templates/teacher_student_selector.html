@@ -1,5 +1,4 @@
-ear
-l<html>
+<html>
   <head>
     <link
       rel="stylesheet"
@@ -12,7 +11,7 @@ l<html>
       type="text/css"
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
-    <link rel="stylesheet" href="../static/teacher_table.css" />
+    <link rel="stylesheet" href="/static/teacher_table.css" />
   </head>
   <body>
     <!-- Navbar shit -->
@@ -52,15 +51,16 @@ l<html>
     </nav>
 
     <center>
-    <form action="/enter_marks" method="post">
-        <select name="year" id="ch_year" class="btn">
-
+    <form action="/teacher/enter_marks" method="post" class = "student-selector">
+      <div class="row">
+        <select name="year" id="ch_year" class="btn col-4">
+          <!-- <option value="" disabled selected>Year</option> -->
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
         </select>
-        <select name="branch" id="ch_branch" class="btn">
+        <select name="branch" id="ch_branch" class="btn col-4" placeholder = "Branch">
           <div class="dropdown-content">
           <option value="CSAI">CSAI</option>
             <option value="CS">CS</option>
@@ -68,9 +68,10 @@ l<html>
             <option value="IT">IT</option>
           </div>  
         </select>
-        <button class="btn" id="ch_submit">Submit</button>
-      </center>
-    </form>
+        <button class="btn col-12" id="ch_submit">Submit</button>
+      </div>
+      </form>
+    </center>
     <script
       type="text/javascript"
       charset="utf8"

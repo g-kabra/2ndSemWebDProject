@@ -10,13 +10,13 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../static/loginpage.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
-      rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+    rel="stylesheet"
     />
+    <link rel="stylesheet" href="/static/loginpage.css" />
     <title>Student Portal</title>
   </head>
   <body>
@@ -72,7 +72,7 @@
       </button>
     </div>
 
-    <div id="student-login-box" class="login-box">
+    <!-- <div id="student-login-box" class="login-box">
       <div class="login-details">
         <form action="/login/student" method="POST">
           <h1 id="login-type-text">Student's Login</h1>
@@ -83,8 +83,23 @@
           <button class="login-submit">Submit</button>
         </form>
       </div>
+    </div> -->
+    <div class="login-box" id="student-login-box">
+      <form action="/login/student" method="POST">
+        <h2 id = "login-type-text">Student Login</h2>
+        <div class="user-box">
+          <input type="text" name="email" required="" />
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" required="" />
+          <label>Password</label>
+        </div>
+        <button class="subbtn"> Submit </button>
+      </form>
     </div>
-    <div id="teacher-login-box" class="login-box">
+
+    <!-- <div id="teacher-login-box" class="login-box">
       <div class="login-details">
         <form action="/login/teacher" method="POST">
           <h1 id="login-type-text">Teacher's Login</h1>
@@ -95,20 +110,53 @@
           <button class="login-submit">Submit</button>
         </form>
       </div>
+    </div> -->
+
+    <div class="login-box" id="teacher-login-box">
+      <form action="/login/teacher" method="POST">
+        <h2 id = "login-type-text">Teacher Login</h2>
+        <div class="user-box">
+          <input type="text" name="email" required="" />
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" required="" />
+          <label>Password</label>
+        </div>
+        <button class="subbtn"> Submit </button>
+      </form>
     </div>
-    <div id="admin-login-box" class="login-box">
+
+    <!-- <div id="admin-login-box" class="login-box">
       <div class="login-details">
         <form action="/login/admin" method="POST">
           <h1 id="login-type-text">Admin's Login</h1>
-          <input type="text" placeholder="Email" name = 'email'/>
+          <input type="text" placeholder="Email" name="email" />
           <br />
-          <input type="password" placeholder="Password" name = 'password'/>
+          <input type="password" placeholder="Password" name="password" />
           <br />
           <button class="login-submit">Submit</button>
         </form>
       </div>
+    </div> -->
+
+    <div class="login-box" id="admin-login-box">
+      <form action="/login/admin" method="POST">
+        <h2 id = "login-type-text">Admin Login</h2>
+        <div class="user-box">
+          <input type="text" name="email" required="" />
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" required="" />
+          <label>Password</label>
+        </div>
+        <button class="subbtn"> Submit </button>
+      </form>
     </div>
-   <button class="login-back login-submit" id="login-back">Back</button>
+
+
+    <button class="login-back login-submit" id="login-back">Back</button>
     <!-- scripts -->
     <script src="../static/loginpage.js"></script>
   </body>

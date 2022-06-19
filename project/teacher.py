@@ -12,6 +12,7 @@ def enter_selection():
     if(current_user.role == 'teacher'):
         return render_template('teacher_student_selector.html')
     return profile()
+
 @teacher.route('/teacher/enter_marks', methods=['POST'])
 @login_required
 def enter_marks():
