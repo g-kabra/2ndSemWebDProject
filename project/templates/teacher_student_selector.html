@@ -49,20 +49,24 @@
         </div>
       </div>
     </nav>
+    <center>
     <form action="/enter_marks" method="post">
-        <select name="year" id="">
+        <select name="year" id="ch_year" class="btn">
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
         </select>
-        <select name="branch" id="">
-            <option value="CSAI">CSAI</option>
+        <select name="branch" id="ch_branch" class="btn">
+          <div class="dropdown-content">
+          <option value="CSAI">CSAI</option>
             <option value="CS">CS</option>
             <option value="CSB">CSB</option>
             <option value="IT">IT</option>
+          </div>  
         </select>
-        <button>Submit</button>
+        <button class="btn" id="ch_submit">Submit</button>
+      </center>
     </form>
     <script
       type="text/javascript"
