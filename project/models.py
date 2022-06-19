@@ -23,6 +23,15 @@ class Teacher(db.Model, UserMixin):
     password = db.Column(db.String(30))
     role = db.Column(db.String(30), default='teacher')
 
+class Admin(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    fname = db.Column(db.String(30))
+    lname = db.Column(db.String(30))
+    email = db.Column(db.String(30))
+    password = db.Column(db.String(30))
+    designation = db.Column(db.String(30))
+    dept = db.Column(db.String(30))
+    role = db.Column(db.String(30), default = 'admin')
 
 class Assignments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -44,3 +53,12 @@ class Subject(db.Model):
     branch = db.Column(db.String(4))
     year = db.Column(db.Integer)
     subject = db.Column(db.String(30))
+    
+class Complaints(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(50))
+    complaint = db.Column(db.String(200))
+    dept = db.Column(db.String(30), db.ForeignKey('admin.dept'))
+    
+    
+    
