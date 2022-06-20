@@ -50,13 +50,15 @@
         </div>
       </div>
     </nav>
+    <center>
     <button type="button" id="add-assignment" class="button">
       Add Assignment
      <i class="fa-solid fa-file-circle-plus" style="font-size: 30px;"></i>
     
     </button>
+  </center>
     <div id="add-assignment-form">
-      <form action="/teacher/add_assignment" method="post">
+      <form action="/teacher/add_assignment" method="post" class="box">
         <select name="year" id="">
           <option value="{{year}}">{{year}}</option>
         </select>
@@ -126,16 +128,20 @@
             {%endfor%}
           </tbody>
         </table>
-        <button class="button">Submit</button>
+        <center><button class="button">Submit</button></center>
       </form>
     </div>
     {%endif%}
+   
+   
     <script
       type="text/javascript"
       charset="utf8"
       src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
     ></script>
 
+   
+   
     <script
       type="text/javascript"
       charset="utf8"
@@ -147,7 +153,9 @@
       src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"
     ></script>
 
-    <script>
+   
+   
+   <script>
       $(document).ready(function () {
         $("#teacher_table").DataTable({
           // "paging": false;
