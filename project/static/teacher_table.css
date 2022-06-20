@@ -11,6 +11,7 @@ body {
   /* background: linear-gradient(to left top, #150050, #3F0071);  */
   font-family: sans-serif;
   font-weight: 100;
+  /* font-size: 20px; */
 }
 
 
@@ -30,6 +31,10 @@ thead {
 
 th {
   text-align: center;
+}
+
+th h6 {
+  display: inline-block;
 }
 
 #teacher_table input {
@@ -142,7 +147,7 @@ th {
 
 .navbar:before {
   position: absolute;
-  top: 70px;
+  top: 71px;
   left: 0;
   background-color: rgb(33, 37, 41);
   width: 100%;
@@ -256,4 +261,22 @@ th {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.marks-input-box {
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 0;
+  border: 1px solid whitesmoke;
+  width: 70%;
+  font-size: 20px;
+}
+
+.marks-input-box::placeholder{
+  color: whitesmoke
+}
+
+.marks-input-box:focus {
+  outline: unset;
+  border: 0;
 }
