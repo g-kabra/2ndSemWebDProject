@@ -60,5 +60,7 @@ class Complaints(db.Model):
     complaint = db.Column(db.String(200))
     dept = db.Column(db.String(30), db.ForeignKey('admin.dept'))
     
+
+    
     
     
