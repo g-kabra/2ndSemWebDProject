@@ -10,8 +10,8 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/signuppage.css" />
-    <link rel="stylesheet" href="/static/student_profile.css" />
+    <link rel="stylesheet" href="../static/signuppage.css" />
+    <link rel="stylesheet" href="../static/student_profile.css" />
     <title>Register Users</title>
   </head>
   <body>
@@ -74,7 +74,7 @@
                   <td>
                     <input
                       type="text"
-                      class="teacher-input-half"
+                      class="admin-input"
                       name="fname"
                       id=""
                       placeholder="First Name"
@@ -83,34 +83,43 @@
                   <td>
                     <input
                       type="text"
-                      class="teacher-input-half"
+                      class="admin-input"
                       name="lname"
                       id=""
                       placeholder="Last Name"
                     />
                   </td>
                 </tr>
-              </table>
-              <input
-                type="text"
-                class="teacher-input"
-                placeholder="Subject"
-                name = "subject"
-              /><br />
-              <input
-                type="text"
-                class="teacher-input"
-                placeholder="Email"
-                name = "email"
-              /><br />
-              <input
-                type="password"
-                class="teacher-input"
-                placeholder="Password"
-                name="password"
-              />
+              <tr>
+                <td>
+                  <input
+                  type="text"
+                  class="admin-input"
+                  placeholder="Email"
+                  name = "email"
+                />
+              
+              </td>
+              <td>
+                <input
+              type="password"
+              class="admin-input"
+              placeholder="Password"
+              name="password"
+            />
+              </td>
+              </tr>
+               
+                  <input
+                  type="text"
+                  class="admin-input"
+                  placeholder="Subject"
+                  name = "subject"
+                />
+          
+            </table>
               <br />
-              <button>Submit</button>
+              <button class="btn" id="submit">Submit</button>
             </form>
           </div>
 
@@ -122,7 +131,7 @@
                   <td>
                     <input
                       type="text"
-                      class="student-input-half"
+                      class="admin-input"
                       name="fname"
                       id=""
                       placeholder="First Name"
@@ -131,7 +140,7 @@
                   <td>
                     <input
                       type="text"
-                      class="student-input-half"
+                      class="admin-input"
                       name="lname"
                       id=""
                       placeholder="Last Name"
@@ -140,7 +149,7 @@
                 </tr>
                 <input
                       type="text"
-                      class="student-input-half"
+                      class="admin-input"
                       placeholder="Roll Number"
                       name="rollno"
                     />
@@ -148,7 +157,7 @@
                   <td>
                     <input
                       list="branch"
-                      class="student-input-half"
+                      class="admin-input"
                       placeholder="Branch"
                       name="branch"
                     />
@@ -163,7 +172,7 @@
                   <td>
                     <input
                       list="year"
-                      class="student-input-half"
+                      class="admin-input"
                       placeholder="Year"
                       name="year"
                     />
@@ -179,7 +188,7 @@
                   <td>
                     <input
                       type="text"
-                      class="student-input-half"
+                      class="admin-input"
                       placeholder="Email"
                       name="email"
                     /><br />
@@ -187,7 +196,7 @@
                   <td>
                     <input
                       type="password"
-                      class="student-input-half"
+                      class="admin-input"
                       placeholder="Password"
                       name="password"
                     />
@@ -203,19 +212,19 @@
               <h1 class="belhead">Admin Signup</h1>
               <table>
                 <tr>
-                  <td><input type="text" placeholder="First Name" name = "fname"></td>
-                  <td><input type="text" placeholder="Last Name" name = "lname"></td>
+                  <td><input type="text" class="admin-input" placeholder="First Name" name = "fname"></td>
+                  <td><input type="text" class="admin-input" placeholder="Last Name" name = "lname"></td>
                 </tr>
                 <tr>
-                  <td><input type="text" placeholder="Department" name = "dept"></td>
-                  <td><input type="text" placeholder="Designation" name = "designation"></td>
+                  <td><input type="text" class="admin-input" placeholder="Department" name = "dept"></td>
+                  <td><input type="text" class="admin-input" placeholder="Designation" name = "designation"></td>
                 </tr>
                 <tr>
-                  <td><input type="text" placeholder="Email" name = "email"></td>
-                  <td><input type="password" placeholder="Password" name = "password"></td>
+                  <td><input type="text" class="admin-input" placeholder="Email" name = "email"></td>
+                  <td><input type="password" class="admin-input" placeholder="Password" name = "password"></td>
                 </tr>
               </table>
-              <button>Submit</button>
+              <button class="btn" id="submit">Submit</button>
             </form>
           </div>
         </div>
