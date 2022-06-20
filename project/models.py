@@ -45,13 +45,16 @@ class Marks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     assignment_id = db.Column(db.Integer, db.ForeignKey('assignments.id'))
     assignment = db.Column(db.String(30))
-    marks = db.Column(db.Integer)
+    marks = db.Column(db.Integer, default = 0)
+    semester = db.Column(db.Integer)
     rollno = db.Column(db.String(30), db.ForeignKey('student.rollno'))
     
 class Subject(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     branch = db.Column(db.String(4))
     year = db.Column(db.Integer)
+    semester = db.Column(db.Integer)
+    teacher = db.Column(db.Integer, db.ForeignKey('teacher.id'))
     subject = db.Column(db.String(30))
     
 class Complaints(db.Model):
@@ -59,6 +62,11 @@ class Complaints(db.Model):
     title = db.Column(db.String(50))
     complaint = db.Column(db.String(200))
     dept = db.Column(db.String(30), db.ForeignKey('admin.dept'))
+    
+class Timetable(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    branch = db.Column(db.String(4))
+    year = db.Column(db.Integer)
     
     
     
