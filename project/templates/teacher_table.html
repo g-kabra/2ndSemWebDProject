@@ -11,6 +11,7 @@
       type="text/css"
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="/static/teacher_table.css" />
   </head>
   <body>
@@ -49,7 +50,11 @@
         </div>
       </div>
     </nav>
-    <button id="add-assignment">Add Assignment</button>
+    <button type="button" id="add-assignment" class="button">
+      Add Assignment
+     <i class="fa-solid fa-file-circle-plus" style="font-size: 30px;"></i>
+    
+    </button>
     <div id="add-assignment-form">
       <form action="/teacher/add_assignment" method="post">
         <select name="year" id="">
@@ -63,7 +68,7 @@
         </select>
         <input type="text" placeholder="Assignment Name" name="assignment" />
         <input type="text" placeholder="Maximum Marks" name="maxmarks" />
-        <button>Submit</button>
+        <button class="button">Submit</button>
       </form>
       <button id="add-assignment-back">Back</button>
     </div>
@@ -71,12 +76,12 @@
       action="/teacher/assignment_selected/{{year}}/{{branch}}/{{subject}}"
       method="post"
     >
-      <select name="assignment" id="">
+      <select name="assignment" id="" class="button">
         {%for a in assignments%}
         <option value="{{a.assignment}}">{{a.assignment}}</option>
         {%endfor%}
       </select>
-      <button class="btn">Submit</button>
+      <button class="button">Submit</button>
     </form>
   </center>
     {%if assignment%}
@@ -121,7 +126,7 @@
             {%endfor%}
           </tbody>
         </table>
-        <button>Submit</button>
+        <button class="button">Submit</button>
       </form>
     </div>
     {%endif%}
