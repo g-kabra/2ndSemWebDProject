@@ -49,7 +49,7 @@
         </div>
       </div>
     </nav>
-    <button id="add-assignment">Add Assignment</button>
+    <center><button id="add-assignment">Add Assignment</button>
     <div id = "add-assignment-form">
       <form action="/teacher/add_assignment" method="post">
         <select name="year" id="">
@@ -68,13 +68,14 @@
       <button id = "add-assignment-back">Back</button>
     </div>
     <form action="/teacher/assignment_selected/{{year}}/{{branch}}/{{subject}}" method="post">
-      <select name="assignment" id="">
+      <select name="assignment" id="assignment">
         {%for a in assignments%}
         <option value="{{a.assignment}}">{{a.assignment}}</option>
         {%endfor%}
       </select>
-      <button>Submit</button>
+      <button class="btn">Submit</button>
     </form>
+  </center>
     {%if assignment%}
     <div style="overflow-x: auto">
       <form action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{assignment.assignment}}" method="post">
@@ -146,7 +147,7 @@
         });
       });
     </script>
-    <script type="text/javascript" src = "/static/teacher_table.js"></script>
+    <script type="text/javascript" src = "../static/teacher_table.js"></script>
     </body>
   </body>
 </html>
