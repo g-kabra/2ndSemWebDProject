@@ -3,7 +3,7 @@
   initial-value: 132deg;
   inherits: false;
 }
-.studentsignup {
+.studentsignup, .adminsignup,.teachersignup{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -201,10 +201,8 @@ body {
 
 /* navbar end */
 
-/* .signuptable{
-    
-  } */
-.student-input-half {
+
+.admin-input{
   font-family: "Lucida Console", Monaco, monospace;
   letter-spacing: 1px;
   border-radius: 5px;
@@ -214,29 +212,6 @@ body {
   margin-bottom: 2vh;
   width: 15vw;
   margin-right : 1vh;
-}
-
-.student-input-half:focus {
-  outline: none;
-}
-
-.student:nth-of-type(0) {
-  margin-right: 100%;
-}
-
-.teacher-input,
-.teacher-input-half {
-  border-radius: 5px;
-  border: none;
-  height: 5vh;
-  padding: 1vh;
-  margin-bottom: 2vh;
-  width: 60vh;
-}
-
-.teacher-input-half {
-  width: 29vh;
-  margin-right: 1vh;
 }
 
 .btn {

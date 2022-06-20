@@ -12,6 +12,19 @@ body {
   font-family: sans-serif;
   font-weight: 100;
 }
+.box {
+  margin: 30px auto;
+  width: 500px;
+  height: 300px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  color: black;
+  transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
+}
+
 
 
 
@@ -23,9 +36,11 @@ td {
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
+  align-items: center;
+
 }
 thead {
-  background-color: #55608f;
+  background-color: #46538c;
 }
 
 th {
@@ -220,40 +235,70 @@ th {
   z-index: 2;
 }
 /* navbar end */
-.btn {
-  border-color: black;
-  border-radius: 0;
-  color:black;
-  position: relative;
-  letter-spacing: 0.2ch;
-  border: 2px solid white;
-  border-radius: 50px;
-  padding: 18px 36px;
-  display: inline-block;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 30px;
-  letter-spacing: 1px;
+.wrap {
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.button {
+  width: 140px;
+  height: 65px;
+  padding: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
   cursor: pointer;
-  box-shadow: inset 0 0 0 0 #25274a7e;
-  transition: ease-out 0.4s;
-  height: 10%;
-  width: 20%;
-  margin: 20px 20px 20px 20px;
+  outline: none;
+  transform: translateY(1px);
+  margin: 4vh;
+  }
+  #add-assignment{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+   
+  }
+
+.button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
 }
-/* .btn:hover {
-  color: black;
-  box-shadow: inset 0px 0px 100px 100px rgb(192, 2, 176);
-}
-*/
 
 
-#ch_submit:hover {
-  box-shadow: 0 0 100px 100px inset rgb(103, 56, 110);
-  color: black;
-} 
 
 .student-selector {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+.marks-input-box {
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 0;
+  border: 1px solid whitesmoke;
+  width: 70%;
+  font-size: 20px;
+}
+
+.marks-input-box::placeholder{
+  color: whitesmoke
+}
+
+.marks-input-box:focus {
+  outline: unset;
+  border: 0;
 }
