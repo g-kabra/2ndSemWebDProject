@@ -1,8 +1,6 @@
 const addAssignmentForm = document.getElementById("add-assignment-form");
 const addAssignmentBtn = document.getElementById("add-assignment");
 const removeAddAssignmentForm = document.getElementById("add-assignment-back");
-const allMarks = document.querySelectorAll(".marks-input-box");
-const maxmarks = document.getElementById("maxmarks");
 
 function fade(element) {
   element.style.display = "none";
