@@ -55,7 +55,6 @@ def signupTeacher():
     if (current_user.role == 'admin'):
         fname = request.form['fname']
         lname = request.form['lname']
-        subject = request.form['subject']
         email = request.form['email']
         password = request.form['password']
         # rollno = request.form['rollno']
@@ -65,7 +64,7 @@ def signupTeacher():
         if teacher:
             return "Kya be"
         
-        new_user = Teacher(email = email, fname = fname, lname = lname, subject = subject, password = generate_password_hash(password, method='sha256'))
+        new_user = Teacher(email = email, fname = fname, lname = lname, password = generate_password_hash(password, method='sha256'))
         
         db.session.add(new_user)
         db.session.commit()

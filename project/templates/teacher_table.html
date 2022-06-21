@@ -68,14 +68,20 @@
         <select name="subject" id="">
           <option value="{{subject}}">{{subject}}</option>
         </select>
+        <select name="semester" id="">
+          <option value="{{semester}}">{{semester}}</option>
+        </select>
         <input type="text" placeholder="Assignment Name" name="assignment" />
         <input type="text" placeholder="Maximum Marks" name="maxmarks" />
         <button class="button">Submit</button>
       </form>
       <button id = "add-assignment-back">Back</button>
     </div>
+    <h2>{{year}}</h2>
+    <h2>{{branch}}</h2>
+    <h2>{{semester}}</h2>
     <form
-      action="/teacher/assignment_selected/{{year}}/{{branch}}/{{subject}}"
+      action="/teacher/assignment_selected/{{year}}/{{branch}}/{{semester}}/{{subject}}"
       method="post"
     >
       <select name="assignment" id="" class="button">
@@ -88,7 +94,7 @@
   </center>
     {%if assignment%}
     <div style="overflow-x: auto">
-      <form action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{assignment.assignment}}" method="post">
+      <form action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}" method="post">
       <table
         id="teacher_table"
         cellspacing="0"
@@ -102,20 +108,16 @@
             <th>Name</th>
             <th>Exam type</th>
             <th>Marks</th>
-            <th>Current CGPA</th>
-            <th>Overall CGPA</th>
           </tr>
         </thead>
         <tbody>
           {%for student in students%}
           <tr>
-            <td>{{student.branch}}</td>
-            <td>{{student.rollno}}</td>
-            <td>{{student.fname}}</td>
+            <td>{{student[0].branch}}</td>
+            <td>{{student[0].rollno}}</td>
+            <td>{{student[0].fname}}</td>
             <td>{{assignment.assignment}}</td>
-            <td><input type="text" placeholder="Enter marks" name = "{{student.rollno}}"/></td>
-            <td>Picture baaki hai</td>
-            <td>Picture baaki hai</td>
+            <td><input type="text" value = {{student[1].marks}} name = "{{student[0].rollno}}"/></td>
           </tr>
           {%endfor%}
         </tbody>
