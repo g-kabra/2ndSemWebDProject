@@ -54,39 +54,27 @@
     <center>
       <div class="center-align">
         <form
-          action="/teacher/enter_marks"
+          action="/student/marks_selected"
           method="post"
           class="student-selector"
         >
           <div class="row">
-            <select name="year" id="ch_year" class="btn col-4">
+            <select name="semester" id="ch_semester" class="btn col-4">
               <!-- <option value="" disabled selected>Year</option> -->
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
+              {%for i in results%}
+              <option value="{{i[0].semester}}">{{i[0].semester}}</option>
+              {%endfor%}
             </select>
             <select
-              name="branch"
-              id="ch_branch"
+              name="subject"
+              id="ch_subject"
               class="btn col-4"
-              placeholder="Branch"
+              placeholder="Subject"
             >
               <div class="dropdown-content">
-                <option value="CSAI">CSAI</option>
-                <option value="CS">CS</option>
-                <option value="CSB">CSB</option>
-                <option value="IT">IT</option>
-              </div>
-            </select>
-            <select
-              name="semester"
-              id="ch_semester"
-              class="btn col-4"
-              placeholder="Semester"
-            >
-              <div class="dropdown-content">
-                
+                {%for i in results%}
+                <option value="{{i[0].subject}}">{{i[0].subject}}</option>
+                {%endfor%}
               </div>
             </select>
             <button class="btn col-9" id="ch_submit">Submit</button>

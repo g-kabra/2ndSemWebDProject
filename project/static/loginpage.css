@@ -163,7 +163,6 @@ body {
   border-radius: 40px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 800ms all;
   font-size: 20px;
-  font-family: "Roboto", sans-serif;
   display: none;
   margin-top: 40px;
 }

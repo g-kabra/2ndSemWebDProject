@@ -53,10 +53,13 @@
 
     <center>
       <div class="center-align">
+        {%if added%}
+        <h2>Added teacher.</h2>
+        {%endif%} {%if teachers%}
         <form
-          action="/teacher/enter_marks"
+          action="/admin/teacher_assign/selected"
           method="post"
-          class="student-selector"
+          class="teacher-selector"
         >
           <div class="row">
             <select name="year" id="ch_year" class="btn col-4">
@@ -86,12 +89,76 @@
               placeholder="Semester"
             >
               <div class="dropdown-content">
-                
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
               </div>
             </select>
+            <select name="teacher">
+              {%for teacher in teachers%}
+              <option value="{{teacher.id}}">
+                {{teacher.fname + ' ' + teacher.lname}}
+              </option>
+              {%endfor%}
+            </select>
+            <input type="text" name="subject" placeholder="Subject" />
             <button class="btn col-9" id="ch_submit">Submit</button>
+            {%endif%}
           </div>
         </form>
+        {%if timetable%}
+        <form
+          action="/admin/timetable/selected"
+          method="post"
+          class="timetable-selector"
+        >
+          <div class="row">
+            <select name="year" id="ch_year" class="btn col-4">
+              <!-- <option value="" disabled selected>Year</option> -->
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+            </select>
+            <select
+              name="branch"
+              id="ch_branch"
+              class="btn col-4"
+              placeholder="Branch"
+            >
+              <div class="dropdown-content">
+                <option value="CSAI">CSAI</option>
+                <option value="CS">CS</option>
+                <option value="CSB">CSB</option>
+                <option value="IT">IT</option>
+              </div>
+            </select>
+            <select
+              name="semester"
+              id="ch_semester"
+              class="btn col-4"
+              placeholder="Semester"
+            >
+              <div class="dropdown-content">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </div>
+            </select>
+            <button>Submit</button>
+          </div>
+        </form>
+        {%endif%}
       </div>
     </center>
     <script

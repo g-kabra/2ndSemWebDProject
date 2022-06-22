@@ -10,10 +10,7 @@
     
     margin: auto;
 }
-.rowp{
-     display: flex; 
-    justify-content: space-evenly;
-}
+
 ul{
     list-style: none;
 }

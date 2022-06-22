@@ -80,6 +80,7 @@
     <h2>{{year}}</h2>
     <h2>{{branch}}</h2>
     <h2>{{semester}}</h2>
+    <h2>{{subject}}</h2>
     <form
       action="/teacher/assignment_selected/{{year}}/{{branch}}/{{semester}}/{{subject}}"
       method="post"
@@ -107,7 +108,7 @@
             <th>Roll Number</th>
             <th>Name</th>
             <th>Exam type</th>
-            <th>Marks</th>
+            <th>Marks <h6 id = "maxmarks" style = "display: inline-block;">({{maxmarks}})</h6></th>
           </tr>
         </thead>
         <tbody>
@@ -117,7 +118,7 @@
             <td>{{student[0].rollno}}</td>
             <td>{{student[0].fname}}</td>
             <td>{{assignment.assignment}}</td>
-            <td><input type="text" value = {{student[1].marks}} name = "{{student[0].rollno}}"/></td>
+            <td><input type="text" value = {{student[1].marks}} name = "{{student[0].rollno}}" class = "marks-input-box"/></td>
           </tr>
           {%endfor%}
         </tbody>
@@ -165,6 +166,20 @@
         });
       });
     </script>
+        <script>
+          $(".marks-input-box").each(function () {
+            var ele = $(this);
+            var mmarks = parseInt($("#maxmarks").html());
+            console.log(mmarks);
+            ele.on("change click keyup input paste", function (event) {
+              if ((ele.val() > mmarks) | (isNaN(ele.val()) === true)) {
+                ele.css("color", "red");
+              } else {
+                ele.css("color", "white");
+              }
+            });
+          });
+        </script>
     <script type="text/javascript" src = "/static/teacher_table.js"></script>
     </body>
   </body>

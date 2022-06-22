@@ -179,8 +179,6 @@ th {
   /* top:0; */
   z-index: 1;
   height: 75px;
-  color: white;
-  font-family: "Roboto", sans-serif;
   font-size: larger;
 }
 
@@ -246,7 +244,6 @@ th {
   width: 140px;
   height: 65px;
   padding: 15px;
-  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 2.5px;

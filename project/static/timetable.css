@@ -1,27 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-body {
-    /* line-height: 1.4; */
-    font-family: 'Poppins', sans-serif;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(to left top, rgb(26, 24, 24), rgb(42, 0, 97)); 
-
-}
-
-/* @property --rotate {
-    syntax: "<angle>";
-    initial-value: 132deg;
-    inherits: false;
-} */
-
 
 body {
     margin: 0;
     border: 0;
-    background: linear-gradient(to left top, #000000, #150050); 
-
+    background: linear-gradient(to left top, #000000, #150050);
     font-family: sans-serif;
     font-weight: 100;
     background-repeat: no-repeat;
@@ -33,7 +16,6 @@ body {
 .navbar {
     /* position: fixed; */
     /* top: 0; */
-    z-index: 1;
     background-color: rgb(33, 37, 41);
     color: white;
     height: 75px;
@@ -79,10 +61,8 @@ body {
   .navb-links-container {
     /* position:fixed; */
     /* top:0; */
-    z-index: 1;
     height: 75px;
     color: white;
-    font-family: "Roboto", sans-serif;
     font-size: larger;
   }
   
@@ -180,12 +160,6 @@ input {
     font-size: 20px;
     
 
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 ul {

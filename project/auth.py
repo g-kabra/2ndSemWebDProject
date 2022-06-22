@@ -72,9 +72,9 @@ def signupTeacher():
     return profile()
 
 @auth.route('/signup/admin', methods=['POST'])
-@login_required
+# @login_required
 def signupAdmin():
-    if (current_user.role == 'admin'):
+    # if (current_user.role == 'admin'):
         fname = request.form['fname']
         lname = request.form['lname']
         dept = request.form['dept']
@@ -92,7 +92,7 @@ def signupAdmin():
         db.session.add(new_admin)
         db.session.commit()
         return redirect('/signup')
-    return profile()
+    # return profile()
     
 @auth.route('/login/student', methods = ['POST'])
 def loginStudent():

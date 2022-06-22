@@ -11,7 +11,7 @@
       type="text/css"
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
-    <link rel="stylesheet" href="/static/teacher_table.css"/>
+    <link rel="stylesheet" href="/static/teacher_table.css" />
   </head>
   <body>
     <!-- Navbar shit -->
@@ -49,7 +49,10 @@
         </div>
       </div>
     </nav>
-    <form action="/teacher/edit_marks/{{year}}/{{branch}}/DS/{{semester}}/{{assignment.assignment}}" method="POST">
+    <form
+      action="/teacher/edit_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
+      method="POST"
+    >
       <button class="button">Edit</button>
     </form>
     <div style="overflow-x: auto">
@@ -65,6 +68,7 @@
             <th>Roll Number</th>
             <th>Name</th>
             <th>Assignment</th>
+            <th>Semester</th>
             <th>Marks</th>
             <th>Current CGPA</th>
             <th>Overall CGPA</th>
@@ -77,6 +81,7 @@
             <td>{{student[0].rollno}}</td>
             <td>{{student[0].fname + ' ' + student[0].lname}}</td>
             <td>{{assignment.assignment}}</td>
+            <td>{{semester}}</td>
             <td>{{student[1].marks}}</td>
             <td>Picture baaki hai</td>
             <td>Picture baaki hai</td>
@@ -118,8 +123,6 @@
         });
       });
     </script>
-    
-    <script type="text/javascript" src = "/static/teacher_table.js"></script>
-    </body>
+    <script type="text/javascript" src="/static/teacher_table.js"></script>
   </body>
 </html>
