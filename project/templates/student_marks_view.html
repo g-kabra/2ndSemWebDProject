@@ -11,7 +11,7 @@
       type="text/css"
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
-    <link rel="stylesheet" href="../static/teacher_table.css" />
+    <link rel="stylesheet" href="/static/teacher_table.css" />
   </head>
   <body>
     <!-- Navbar shit -->
@@ -66,10 +66,12 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{marks[0].subject}}</td>
-            <td>{{marks[0].assignment}}</td>
-            <td>{{marks[1].marks}}</td>
-            <td>{{marks[0].max_marks}}</td>
+            {% for mark in marks%}
+            <td>{{mark[0].subject}}</td>
+            <td>{{mark[0].assignment}}</td>
+            <td>{{mark[1].marks}}</td>
+            <td>{{mark[0].max_marks}}</td>
+            {%endfor%}
           </tr>
         </tbody>
       </table>
