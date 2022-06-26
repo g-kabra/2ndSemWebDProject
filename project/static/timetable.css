@@ -199,3 +199,28 @@ ul {
     flex-direction: column;
 } */
 
+.Sub
+{
+  height: 40px;
+  cursor: pointer;
+  width:200px; 
+  font-size: x-large;
+  border-radius: 5px; 
+  border-style: hidden;
+  color: white; 
+  background-color: #00FFFF;
+}
+
+#logout 
+{
+  margin-left: 475px;
+}
+
+#png:hover::after {
+  transition: all 800ms ease;
+  width: 100%;
+}
+
+#png:hover::before {
+  position: absolute;
+}

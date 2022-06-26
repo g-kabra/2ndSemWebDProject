@@ -223,7 +223,7 @@ body {
   letter-spacing: 0.2ch;
   border: 2px solid white;
   border-radius: 0px;
-  padding: 2vh 4vh;
+  padding: 0.8vh 4vh;
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 14px;
   letter-spacing: 1px;
@@ -235,6 +235,38 @@ body {
 .btn:hover {
   color: white;
   box-shadow: inset 0 0 50px 50px rgb(192, 2, 176);
+}
+
+#studentbtn
+{
+  padding-left: 20px;
+  text-align: center;
+}
+
+#teacherbtn
+{
+  padding-left: 21px;
+}
+
+.subbtn {
+  border-color: white;
+  margin: 36px;
+  border-radius: 0;
+  color: white;
+  background-color: #3e3e3e;
+  position: relative;
+  box-shadow: 0 0 0 0 purple;
+  letter-spacing: 0.2ch;
+  border: 2px solid white;
+  border-radius: 0px;
+  padding: 0.8vh 4vh;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 rgb(14, 98, 223);
+  transition: ease-out 0.4s;
+  width : 7vw;
 }
 
 #submit:hover{

@@ -185,3 +185,8 @@ body {
   width: 200px;
   transition: 200ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
 }
+
+#logout 
+{
+  margin-left: 550px;
+}

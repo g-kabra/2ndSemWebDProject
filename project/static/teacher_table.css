@@ -299,3 +299,8 @@ th {
   outline: unset;
   border: 0;
 }
+
+#logout 
+{
+  margin-left: 550px;
+}
