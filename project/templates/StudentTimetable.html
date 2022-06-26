@@ -45,16 +45,17 @@
   </nav>
   <div>
     {%if choose%}
+    <center>
     <div>
-      <form action="/student/timetable/view" method="post">
-        <select name="semester" id="">
+        <form action="/student/timetable/view" method="post">
+        <select name="semester" id="" class="btn" placeholder="Semester">
           {%for tt in tts%}
             <option value="{{tt.semester}}">{{tt.semester}}</option>
           {%endfor%}
-        </select>
-        <button>Submit</button>
+        </select>        
       </form>
     </div>
+  </center>
     {%endif%}
     <table class="center">
         <tr>
@@ -124,6 +125,7 @@
         </tr>
     </table>
     </div>
+    <center><button class="btn" id ="submit_btn">Submit</button></center>
     <footer class="footer">
         <div class="containner">
           <div class="row">
