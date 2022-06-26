@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="/static/timetable.css" />
     <link rel="stylesheet" href="/static/footer.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   </head>
   <body>
     <nav class="navbar-dark navbar-expand-lg navbar">
@@ -31,20 +32,37 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a href="#"><button class="styled-button">Home</button></a>
+              <a href="/"><button class="styled-button">Home</button></a>
             </li>
             <li class="nav-item">
-              <a href="#"><button class="styled-button">Timetable</button></a>
+              <a href="/templates/AdminTimetable.html"><button class="styled-button">Timetable</button></a>
             </li>
             <li class="nav-item">
-              <a href="#"><button class="styled-button">Assignments</button></a>
+              <a href="#"><button class="styled-button">Teacher Assign</button></a>
             </li>
             <li class="nav-item">
               <a href="#"><button class="styled-button">Attendance</button></a>
             </li>
             <li class="nav-item">
-              <a href="#"><button class="styled-button">Reports</button></a>
+              <a href="/templates/signuppage.html"><button class="styled-button">Sign Up</button></a>
             </li>
+            <li class="nav-item" id = "logout">
+              <a href="/templates/homepage.html"><button class="styled-button">Logout</button></a>
+            </li>
+
+            <!-- <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px" y="0px"
+            width="50" height="50"
+            viewBox="0 0 172 172"
+            style=" fill:#26e07f;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" 
+            stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" 
+            stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" 
+            style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path>
+            <g fill="#1fb141"><path d="M21.5,21.5v129h64.5v-32.25v-64.5v-32.25zM86,53.75c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25c-17.7805,0 -32.25,14.4695 -32.25,32.25zM118.25,86c-17.7805,0 -32.25,14.4695 -32.25,32.25c0,17.7805 14.4695,32.25 32.25,32.25c17.7805,0 32.25,-14.4695 32.25,-32.25c0,-17.7805 -14.4695,-32.25 -32.25,-32.25z"></path></g></g>
+            </svg> -->
+
+            <object data = "/static/icons8-logout-50.png" width="50px" height="50px" id="png"></object>
           </ul>
         </div>
       </div>
@@ -60,20 +78,20 @@
           <table>
             <tr>
               <th rowspan="2">DAY</th>
-              <th>1 <sup>st</sup>Hour</th>
-              <th>2 <sup>st</sup>Hour</th>
-              <th>3 <sup>st</sup>Hour</th>
-              <th rowspan="2">12:15pm - 1.15pm</th>
-              <th>4 <sup>st</sup>Hour</th>
-              <th>5 <sup>st</sup>Hour</th>
+              <th>1<sup>st</sup> Hour</th>
+              <th>2<sup>nd</sup> Hour</th>
+              <th>3<sup>rd</sup> Hour</th>
+              <th rowspan="2">12:15pm - 1:15pm</th>
+              <th>4<sup>th</sup> Hour</th>
+              <th>5<sup>th</sup> Hour</th>
             </tr>
 
             <tr>
-              <td>9:00am - 10:00am</td>
-              <td>9:00am - 10:00am</td>
-              <td>9:00am - 10:00am</td>
-              <td>9:00am - 10:00am</td>
-              <td>9:00am - 10:00am</td>
+              <td>9:00 am - 10:00 am</td>
+              <td>10:05 am - 11:10 am</td>
+              <td>11:15 am - 12:15 pm</td>
+              <td>1:15 pm - 2:25 pm</td>
+              <td>2:30 pm - 3:30 pm</td>
             </tr>
 
             <tr>
@@ -352,59 +370,60 @@
                 </select>
               </td>
             </tr>
-            <button>Submit</button>
+            <a href=""><input type="submit" name="Submit" value="Submit" class = "Sub"></a>
           </table>
         </form>
       </div>
     </center>
-    <div>
-      <footer class="footer">
-        <div class="containner">
+    <footer class="footer">
+      <div class="containner">
           <div class="row">
-            <div class="footer-col col-md-3 col-sm-6">
-              <h4>Student</h4>
-              <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Affiliate Program</a></li>
-                <li><a href="#">Hostel</a></li>
-                <li><a href="#">Mess</a></li>
-              </ul>
-            </div>
-            <div class="footer-col col-md-3 col-sm-6">
-              <h4>Get Help</h4>
-              <ul>
-                <li><a href="#">Academic Calender</a></li>
-                <li><a href="#">Course Structure</a></li>
-                <li><a href="#">List of Holidays</a></li>
-                <li><a href="#">Payment Options</a></li>
-              </ul>
-            </div>
-            <div class="footer-col col-md-3 col-sm-6">
-              <h4>Quick Links</h4>
-              <ul>
-                <li><a href="#">Fee Structure</a></li>
-                <li><a href="#">Attendance</a></li>
-                <li><a href="#">Timetable</a></li>
-                <li><a href="#">ID card</a></li>
-              </ul>
-            </div>
-            <div class="footer-col col-md-3 col-sm-6">
-              <h4>Follow Us</h4>
-              <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-reddit"></i></a>
+              <div class="footer-col col-md-3 col-sm-6 ">
+                  <h4>Student</h4>
+                  <ul>
+                      <li><a href="#">About Us</a></li>
+                      <li><a href="#">Our Services</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Affiliate Program</a></li>
+                      <li><a href="#">Hostel</a></li>
+                      <li><a href="/templates/mess.html">Mess</a></li>
+                  </ul>
               </div>
-            </div>
+              <div class="footer-col col-md-3 col-sm-6">
+                  <h4>Get Help</h4>
+                  <ul>
+                      <li><a href="#">Academic Calender</a></li>
+                      <li><a href="#">Course Structure</a></li>
+                      <li><a href="#">List of Holidays</a></li>
+                      <li><a href="#">Payment Options</a></li>
+                  </ul>
+              </div>
+              <div class="footer-col col-md-3 col-sm-6">
+                  <h4>Quick Links</h4>
+                  <ul>
+                      <li><a href="#">Fee Structure</a></li>
+                      <li><a href="#">Attendance</a></li>
+                      <li><a href="#">Timetable</a></li>
+                      <li><a href="#">ID card</a></li>
+                  </ul>
+              </div>
+              <div class="footer-col col-md-3 col-sm-6">
+                  <h4>Follow Us</h4>
+                  <div class="social-links">
+                  
+                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="fab fa-instagram"></i></a>
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a href="#"><i class="fab fa-github"></i></a>
+                      <a href="#"><i class="fab fa-discord"></i></a>
+                      <a href="#"><i class="fab fa-reddit"></i></a>
+                  
+              </div>
+              </div>
           </div>
-        </div>
-      </footer>
-    </div>
+      </div>
+
+  </footer>
   </body>
 </html>
