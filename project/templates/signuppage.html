@@ -10,8 +10,8 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../static/signuppage.css" />
-    <link rel="stylesheet" href="../static/student_profile.css" />
+    <link rel="stylesheet" href="/static/signuppage.css" />
+    <link rel="stylesheet" href="/static/student_profile.css" />
     <title>Register Users</title>
   </head>
   <body>
@@ -50,7 +50,7 @@
       </div>
     </nav>
     <center>
-      <h1 class="header">Register New Users</h1>
+      <h1 class="header">New User's Registration</h1>
       <div class="mainbox">
         <div class="leftmainbox">
           <h1 class="belhead">Signup</h1>
@@ -68,7 +68,7 @@
           </div>
           <div class="teachersignup" id="teachersignup">
             <form action="/signup/teacher" method="post">
-              <h1 class="belhead">Teacher Signup</h1>
+              <h1 class="belhead">Teacher's Signup</h1>
               <table>
                 <tr>
                   <td>
@@ -111,13 +111,13 @@
           
             </table>
               <br />
-              <button class="btn" id="submit">Submit</button>
+              <button class="subbtn" id="submit">Submit</button>
             </form>
           </div>
 
           <div class="studentsignup" id="studentsignup">
             <form action="/signup/student" method="post">
-              <h1 class="belhead">Student Signup</h1>
+              <h1 class="belhead">Student's Signup</h1>
               <table>
                 <tr>
                   <td>
@@ -196,12 +196,12 @@
                 </tr>
               </table>
               <br />
-              <button class = "btn" id ="submit">Submit</button>
+              <button class = "subbtn" id ="submit">Submit</button>
             </form>
           </div>
           <div class="adminsignup" id = "adminsignup">
             <form action="/signup/admin" method="post">
-              <h1 class="belhead">Admin Signup</h1>
+              <h1 class="belhead">Admin's Signup</h1>
               <table>
                 <tr>
                   <td><input type="text" class="admin-input" placeholder="First Name" name = "fname"></td>
@@ -216,7 +216,7 @@
                   <td><input type="password" class="admin-input" placeholder="Password" name = "password"></td>
                 </tr>
               </table>
-              <button class="btn" id="submit">Submit</button>
+              <button class="subbtn" id="submit">Submit</button>
             </form>
           </div>
         </div>
@@ -229,6 +229,6 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
-    <script src="../static/signuppage.js"></script>
+    <script src="/static/signuppage.js"></script>
   </body>
 </html>
