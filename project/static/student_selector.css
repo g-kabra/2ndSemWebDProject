@@ -2,7 +2,7 @@
   body {
     margin: 0;
     border: 0;
-    background: linear-gradient(to right bottom, #610094,#150050); 
+    background: linear-gradient(to right bottom, #000000, #3F0071); 
     font-family: sans-serif;
     font-weight: 100;
     color:white;
@@ -136,7 +136,7 @@
     position: relative;
     letter-spacing: 0.2ch;
     border: 2px solid white;
-    border-radius: 50px;
+    /* border-radius: 50px; */
     padding: 18px 36px;
     display: inline-block;
     font-family: "Lucida Console", Monaco, monospace;
@@ -158,6 +158,10 @@
   #ch_submit:hover {
     box-shadow: 0 0 100px 100px inset rgb(7, 123, 201);
     color: white;
+  }
+  .btn:hover {
+    color:#00FFFF;
+    border-color:#00FFFF;
   } 
   
   .student-selector {
@@ -171,9 +175,10 @@
     margin-bottom: 30vh;
   }
 
+
   #logout 
   {
-    margin-left: 550px;
+    margin-left: 40vw;
   }
   
   
