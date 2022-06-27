@@ -29,7 +29,7 @@
             <a href="/"><button class="styled-button">Home</button></a>
           </li>
           <li class="nav-item">
-            <a href="/templates/StudentTimetable.html"><button class="styled-button">Timetable</button></a>
+            <a href="/student/timetable"><button class="styled-button">Timetable</button></a>
           </li>
           <li class="nav-item">
             <a href="#"><button class="styled-button">Assignments</button></a>
@@ -41,7 +41,7 @@
             <a href="#"><button class="styled-button">Reports</button></a>
           </li>
           <li class="nav-item" id = "logout">
-            <a href="/templates/homepage.html"><button class="styled-button">Logout</button></a>
+            <a href="/logout"><button class="styled-button">Logout</button></a>
           </li>
           <object data = "/static/icons8-logout-50.png" width="50px" height="50px" id="png"></object>
         </ul>
@@ -53,7 +53,7 @@
     <center>
     <div>
         <form action="/student/timetable/view" method="post">
-        <select name="semester" id="" class="btn" placeholder="Semester">
+        <select name="semester" class="btn" placeholder="Semester" id="sem_btn">
           {%for tt in tts%}
             <option value="{{tt.semester}}">{{tt.semester}}</option>
           {%endfor%}
