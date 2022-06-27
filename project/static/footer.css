@@ -14,13 +14,17 @@
 ul{
     list-style: none;
 }
+
+.page-content {
+    position: relative;
+    min-height: 80vh;
+}
 .footer{
-    position:inline-block;
+    position:block;
     bottom: 0px;
     background-color: #161111;
     /* margin-top: 70px; */
     padding-top: 70px;
-    /* height: 32vh; */
     width: 100%;
     /* transform:translateY(140px); */
 }

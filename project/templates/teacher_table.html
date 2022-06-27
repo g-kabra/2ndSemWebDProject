@@ -113,7 +113,7 @@
             <th>Roll Number</th>
             <th>Name</th>
             <th>Exam type</th>
-            <th>Marks <h6 id = "maxmarks" style = "display: inline-block;">({{maxmarks}})</h6></th>
+            <th>Marks (<h6 id = "maxmarks" style = "display: inline-block;">{{maxmarks}}</h6>)</th>
           </tr>
         </thead>
         <tbody>
@@ -226,6 +226,7 @@
             var mmarks = parseInt($("#maxmarks").html());
             console.log(mmarks);
             ele.on("change click keyup input paste", function (event) {
+              console.log(ele.val());
               if ((ele.val() > mmarks) | (isNaN(ele.val()) === true)) {
                 ele.css("color", "red");
               } else {

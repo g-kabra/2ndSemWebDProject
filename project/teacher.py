@@ -75,8 +75,14 @@ def assignment_selected(year, branch, subject, semester):
             branch=branch, year=year, subject=subject, semester=semester).all()
         ass = Assignments.query.filter_by(
             year=year, branch=branch, subject=subject, assignment=assignment, semester=semester).first()
-        results = db.session.query(Student, Marks).join(Marks).filter(
-            Student.branch == branch, Student.year == year, Marks.assignment_id == ass.id).all()
+        # results = db.session.query(Student, Marks).join(Marks).filter(
+        #     Student.branch == branch, Student.year == year, Marks.assignment_id == ass.id).all()
+        results = []
+        for i in students:
+            if(Marks.query.filter_by(assignment_id = ass.id, rollno = i.rollno).first()):
+                results.append((i, Marks.query.filter_by(assignment_id = ass.id, rollno = i.rollno).first()))
+            else:
+                results.append((i, 0))
         for a in results:
             print(a)
         return render_template('teacher_table.html', students=results, assignments=assignments, branch=branch, year=year, subject=subject, assignment=ass, semester=semester, maxmarks=ass.max_marks)
@@ -103,7 +109,8 @@ def add_marks(year, branch, subject, assignment, semester):
             branch=branch, year=year, subject=subject, semester=semester).all()
         results = db.session.query(Student, Marks).join(Marks).filter(
             Student.branch == branch, Student.year == year, Marks.assignment_id == ass.id)
-        return render_template('teacher_table_view.html', results=results, assignments=assignments, branch=branch, year=year, subject=subject, assignment=ass, semester=semester)
+        relative_max = max([i[1].marks for i in results])
+        return render_template('teacher_table_view.html', results=results, assignments=assignments, branch=branch, year=year, subject=subject, assignment=ass, semester=semester, relative_max = relative_max, round = round)
     return profile()
 
 
@@ -117,7 +124,8 @@ def view_marks(year, branch, subject, assignment, semester):
             branch=branch, year=year, subject=subject, semester=semester).all()
         results = db.session.query(Student, Marks).join(Marks).filter(
             Student.branch == branch, Student.year == year, Marks.assignment_id == ass.id).all()
-        return render_template('teacher_table_view.html', results=results, students=students, assignments=assignments, branch=branch, year=year, subject=subject, assignment=ass, semester=semester)
+        relative_max = max([i for i in results[1].marks])
+        return render_template('teacher_table_view.html', results=results, students=students, assignments=assignments, branch=branch, year=year, subject=subject, assignment=ass, semester=semester, relative_max = relative_max)
     return profile()
 
 

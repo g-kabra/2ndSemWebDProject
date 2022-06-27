@@ -12,7 +12,10 @@
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
     <link rel="stylesheet" href="/static/teacher_table.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <link rel="stylesheet" href="/static/footer.css" />
   </head>
   <body>
@@ -36,10 +39,14 @@
               <a href="/"><button class="styled-button">Home</button></a>
             </li>
             <li class="nav-item">
-              <a href="/teacher/view_timetable"><button class="styled-button">Timetable</button></a>
+              <a href="/teacher/view_timetable"
+                ><button class="styled-button">Timetable</button></a
+              >
             </li>
             <li class="nav-item">
-              <a href="/teacher/enter_selection"><button class="styled-button">Assignments</button></a>
+              <a href="/teacher/enter_selection"
+                ><button class="styled-button">Assignments</button></a
+              >
             </li>
             <li class="nav-item">
               <a href="#"><button class="styled-button">Attendance</button></a>
@@ -47,106 +54,109 @@
             <li class="nav-item">
               <a href="#"><button class="styled-button">Reports</button></a>
             </li>
-            <li class="nav-item" id = "logout">
-              <a href="/templates/homepage.html"><button class="styled-button">Logout</button></a>
+            <li class="nav-item" id="logout">
+              <a href="/templates/homepage.html"
+                ><button class="styled-button">Logout</button></a
+              >
             </li>
-            <object data = "/static/icons8-logout-50.png" width="50px" height="50px" id="png"></object>
+            <object
+              data="/static/icons8-logout-50.png"
+              width="50px"
+              height="50px"
+              id="png"
+            ></object>
           </ul>
         </div>
       </div>
     </nav>
-    <form
-      action="/teacher/edit_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
-      method="POST"
-    >
-      <button class="button">Edit</button>
-    </form>
-    <div style="overflow-x: auto">
-      <table
-        id="teacher_table"
-        cellspacing="0"
-        width="100%"
-        class="hover stripe table-view"
+    <div class = "page-content">
+      <form
+        action="/teacher/edit_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
+        method="POST"
       >
-        <thead>
-          <tr>
-            <th>Branch</th>
-            <th>Roll Number</th>
-            <th>Name</th>
-            <th>Assignment</th>
-            <th>Semester</th>
-            <th>Marks</th>
-            <th>Current CGPA</th>
-            <th>Overall CGPA</th>
-          </tr>
-        </thead>
-        <tbody>
-          {%for student in results%}
-          <tr>
-            <td>{{student[0].branch}}</td>
-            <td>{{student[0].rollno}}</td>
-            <td>{{student[0].fname + ' ' + student[0].lname}}</td>
-            <td>{{assignment.assignment}}</td>
-            <td>{{semester}}</td>
-            <td>{{student[1].marks}}</td>
-            <td>Picture baaki hai</td>
-            <td>Picture baaki hai</td>
-          </tr>
-          {%endfor%}
-        </tbody>
-      </table>
+        <button class="button">Edit</button>
+      </form>
+      <div style="overflow-x: auto">
+        <table
+          id="teacher_table"
+          cellspacing="0"
+          width="100%"
+          class="hover stripe table-view"
+        >
+          <thead>
+            <tr>
+              <th>Branch</th>
+              <th>Roll Number</th>
+              <th>Name</th>
+              <th>Assignment</th>
+              <th>Semester</th>
+              <th>Marks</th>
+              <th>Current CGPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for student in results%}
+            <tr>
+              <td>{{student[0].branch}}</td>
+              <td>{{student[0].rollno}}</td>
+              <td>{{student[0].fname + ' ' + student[0].lname}}</td>
+              <td>{{assignment.assignment}}</td>
+              <td>{{semester}}</td>
+              <td>{{student[1].marks}}</td>
+              <td>{{round((student[1].marks/relative_max)*10, 2)}}</td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+      </div>
     </div>
-
     <footer class="footer">
       <div class="containner">
-          <div class="row">
-              <div class="footer-col col-md-3 col-sm-6 ">
-                  <h4>Student</h4>
-                  <ul>
-                      <li><a href="#">About Us</a></li>
-                      <li><a href="#">Our Services</a></li>
-                      <li><a href="#">Privacy Policy</a></li>
-                      <li><a href="#">Affiliate Program</a></li>
-                      <li><a href="#">Hostel</a></li>
-                      <li><a href="#">Mess</a></li>
-                  </ul>
-              </div>
-              <div class="footer-col col-md-3 col-sm-6">
-                  <h4>Get Help</h4>
-                  <ul>
-                      <li><a href="#">Academic Calender</a></li>
-                      <li><a href="#">Course Structure</a></li>
-                      <li><a href="#">List of Holidays</a></li>
-                      <li><a href="#">Payment Options</a></li>
-                  </ul>
-              </div>
-              <div class="footer-col col-md-3 col-sm-6">
-                  <h4>Quick Links</h4>
-                  <ul>
-                      <li><a href="#">Fee Structure</a></li>
-                      <li><a href="#">Attendance</a></li>
-                      <li><a href="#">Timetable</a></li>
-                      <li><a href="#">ID card</a></li>
-                  </ul>
-              </div>
-              <div class="footer-col col-md-3 col-sm-6">
-                  <h4>Follow Us</h4>
-                  <div class="social-links">
-                  
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                      <a href="#"><i class="fab fa-instagram"></i></a>
-                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      <a href="#"><i class="fab fa-github"></i></a>
-                      <a href="#"><i class="fab fa-discord"></i></a>
-                      <a href="#"><i class="fab fa-reddit"></i></a>
-                  
-              </div>
-              </div>
+        <div class="row">
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Student</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Affiliate Program</a></li>
+              <li><a href="#">Hostel</a></li>
+              <li><a href="#">Mess</a></li>
+            </ul>
           </div>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Get Help</h4>
+            <ul>
+              <li><a href="#">Academic Calender</a></li>
+              <li><a href="#">Course Structure</a></li>
+              <li><a href="#">List of Holidays</a></li>
+              <li><a href="#">Payment Options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Fee Structure</a></li>
+              <li><a href="#">Attendance</a></li>
+              <li><a href="#">Timetable</a></li>
+              <li><a href="#">ID card</a></li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-discord"></i></a>
+              <a href="#"><i class="fab fa-reddit"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
-
-  </footer>
+    </footer>
     <script
       type="text/javascript"
       charset="utf8"
