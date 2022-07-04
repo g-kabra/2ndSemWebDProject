@@ -1,444 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mess timetable</title>
-  <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mess timetable</title>
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-  <link rel="stylesheet" href="/static/footer.css">
-  <link rel="stylesheet" href="/static/timetable.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-</head>
+    <link rel="stylesheet" href="/static/footer.css" />
+    <link rel="stylesheet" href="/static/timetable.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
 
-<body>
-  <nav class="navbar-dark navbar-expand-lg navbar">
-    <div class="container-fluid navb-links-container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="/"><button class="styled-button">Home</button></a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/timetable"><button class="styled-button">Timetable</button></a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/teacher_assign"><button class="styled-button">Teacher Assign</button></a>
-          </li>
-          <li class="nav-item">
-            <a href="#"><button class="styled-button">Attendance</button></a>
-          </li>
-          <li class="nav-item">
-            <a href="/templates/signuppage.html"><button class="styled-button">Sign Up</button></a>
-          </li>
-          <li class="nav-item" id = "logout">
-            <a href="/logout"><button class="styled-button">Logout</button></a>
-          </li>
-          <object data = "/static/icons8-logout-50.png" width="50px" height="50px" id="png"></object>
-        </ul>
+  <body>
+    <nav class="navbar-dark navbar-expand-lg navbar">
+      <div class="container-fluid navb-links-container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="/"><button class="styled-button">Home</button></a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/timetable"
+                ><button class="styled-button">Timetable</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/admin/teacher_assign"
+                ><button class="styled-button">Teacher Assign</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#"><button class="styled-button">Attendance</button></a>
+            </li>
+            <li class="nav-item">
+              <a href="/templates/signuppage.html"
+                ><button class="styled-button">Sign Up</button></a
+              >
+            </li>
+            <li class="nav-item" id="logout">
+              <a href="/logout"
+                ><button class="styled-button">Logout</button></a
+              >
+            </li>
+            <object
+              data="/static/icons8-logout-50.png"
+              width="50px"
+              height="50px"
+              id="png"
+            ></object>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <div class="wrapper">
-<center>
-  <table class="mess">
-    <tr>
-      <th rowspan="2">DAY</th>
-      <th>Breakfast</th>
-      <th>Lunch</th>
-      <th>Snacks</th>
-      <th>Dinner</th>
-    </tr>
+    <div class="wrapper">
+      <center>
+        <table class="mess">
+          <tr>
+            <th rowspan="2">DAY</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Snacks</th>
+            <th>Dinner</th>
+          </tr>
 
-    <tr>
-      <td >8:00 am - 10:00 am</td>
-      <td>12:30 pm - 2:30 pm</td>
-      <td>5:00 pm - 6:00 pm</td>
-      <td>7:30 pm - 9:30 pm</td>
-    </tr>
+          <tr>
+            <td>8:00 am - 10:00 am</td>
+            <td>12:30 pm - 2:30 pm</td>
+            <td>5:00 pm - 6:00 pm</td>
+            <td>7:30 pm - 9:30 pm</td>
+          </tr>
 
-    <tr>
-      <td>MONDAY</td>
-      <td>
-        Aloo Paratha
-        <br>
-        Achaar & Sauce
-        <br>
-        Milk & Tea 
-        <br>
-        Banana (1 pc)
-      </td>
+          <tr>
+            <td>MONDAY</td>
+            <td>
+              Aloo Paratha
+              <br />
+              Achaar & Sauce
+              <br />
+              Milk & Tea
+              <br />
+              Banana (1 pc)
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Lauki 
-        <br>
-        Chana Dal Fry 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
+            <td>
+              Salad
+              <br />
+              Lauki
+              <br />
+              Chana Dal Fry
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
 
-      <td>
-        Aloo & Pyaaz Pakodi 
-        <br>
-        Tea
-      </td>
+            <td>
+              Aloo & Pyaaz Pakodi
+              <br />
+              Tea
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Kaddu Sambhar 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
-    </tr>
+            <td>
+              Salad
+              <br />
+              Kaddu Sambhar
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
+          </tr>
 
-    <tr>
-      <td>TUESDAY</td>
-      <td>
-        Pav Bhaji 
-        <br>
-        Bread & Jam 
-        <br>
-        Milk & Tea 
-        <br>
-        Banana (1 pc)
-      </td>
+          <tr>
+            <td>TUESDAY</td>
+            <td>
+              Pav Bhaji
+              <br />
+              Bread & Jam
+              <br />
+              Milk & Tea
+              <br />
+              Banana (1 pc)
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Crunchy Aloo Jeera 
-        <br>
-        Kadhi 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
+            <td>
+              Salad
+              <br />
+              Crunchy Aloo Jeera
+              <br />
+              Kadhi
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
 
-      <td>Noodles 
-        <br>
-        Tomato & Chilli Sauce 
-        <br>
-         Tea
-      </td>
+            <td>
+              Noodles
+              <br />
+              Tomato & Chilli Sauce
+              <br />
+              Tea
+            </td>
 
-      <td>Salad 
-        <br>
-        Turai
-        <br>
-        Masoor Dal Fry 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
-    </tr>
+            <td>
+              Salad
+              <br />
+              Turai
+              <br />
+              Masoor Dal Fry
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
+          </tr>
 
-    <tr>
-      <td>WEDNESDAY</td>
-      <td>
-        Aloo Poori 
-        <br>
-        Sweet Daliya 
-        <br>
-        Milk & Tea 
-        <br>
-        Banana (1 pc)
-      </td>
+          <tr>
+            <td>WEDNESDAY</td>
+            <td>
+              Aloo Poori
+              <br />
+              Sweet Daliya
+              <br />
+              Milk & Tea
+              <br />
+              Banana (1 pc)
+            </td>
 
-      <td>Salad 
-        <br>
-        Chholey 
-        <br>
-        Raita 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
+            <td>
+              Salad
+              <br />
+              Chholey
+              <br />
+              Raita
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
 
-      <td>
-        Samosa 
-        <br>
-        Chutney 
-        <br>
-        Tea
-      </td>
+            <td>
+              Samosa
+              <br />
+              Chutney
+              <br />
+              Tea
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Lauki - Kofte 
-        <br>
-        Mix Dal Fry 
-        <br>
-        Custard / Ice Cream 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
-    </tr>
+            <td>
+              Salad
+              <br />
+              Lauki - Kofte
+              <br />
+              Mix Dal Fry
+              <br />
+              Custard / Ice Cream
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
+          </tr>
 
-    <tr>
-      <td>THURSDAY</td>
-      <td>
-        Methi Paratha 
-        <br>
-        White Matar 
-        <br>
-        Milk & Tea 
-        <br>
-        Banana (1 pc)
-      </td>
+          <tr>
+            <td>THURSDAY</td>
+            <td>
+              Methi Paratha
+              <br />
+              White Matar
+              <br />
+              Milk & Tea
+              <br />
+              Banana (1 pc)
+            </td>
 
-      <td>Salad 
-        <br>
-        Paneer Butter Masala 
-        <br>
-        Arhar Dal Fry 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
+            <td>
+              Salad
+              <br />
+              Paneer Butter Masala
+              <br />
+              Arhar Dal Fry
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
 
-      <td>
-        Toast 
-        <br>
-        Tea
-      </td>
+            <td>
+              Toast
+              <br />
+              Tea
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Aloo Beans 
-        <br>
-        Raita 
-        <br>
-        Khichdi 
-        <br>
-        Roti
-      </td>
-    </tr>
+            <td>
+              Salad
+              <br />
+              Aloo Beans
+              <br />
+              Raita
+              <br />
+              Khichdi
+              <br />
+              Roti
+            </td>
+          </tr>
 
-    <tr>
-      <td>FRIDAY</td>
-      <td>
-        Idli
-        <br>
-        Sambhar 
-        <br>
-        Peanut Chutney 
-        <br>
-        Sweet Daliya 
-        <br>
-        Milk & Tea 
-        <br>
-        Banana (1 pc)
-      </td>
+          <tr>
+            <td>FRIDAY</td>
+            <td>
+              Idli
+              <br />
+              Sambhar
+              <br />
+              Peanut Chutney
+              <br />
+              Sweet Daliya
+              <br />
+              Milk & Tea
+              <br />
+              Banana (1 pc)
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Raajma 
-        <br>
-        Pyaaz - Tamatar Chutney 
-        <br>
-        Veg Pulaao 
-        <br>
-        Roti 
-      </td>
+            <td>
+              Salad
+              <br />
+              Raajma
+              <br />
+              Pyaaz - Tamatar Chutney
+              <br />
+              Veg Pulaao
+              <br />
+              Roti
+            </td>
 
-      <td>
-        Bread Pakora 
-        <br>
-        Tea
-      </td>
+            <td>
+              Bread Pakora
+              <br />
+              Tea
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Masala Bhindi 
-        <br>
-        Lauki - Chana Dal 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
-    </tr>
+            <td>
+              Salad
+              <br />
+              Masala Bhindi
+              <br />
+              Lauki - Chana Dal
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
+          </tr>
 
-    <tr>
-      <td>SATURDAY</td>
-      <td>
-        Aloo Paratha 
-        <br>
-        Dahi 
-        <br>
-        Milk & Tea 
-        <br>
-        Banana (1 pc)
-      </td>
+          <tr>
+            <td>SATURDAY</td>
+            <td>
+              Aloo Paratha
+              <br />
+              Dahi
+              <br />
+              Milk & Tea
+              <br />
+              Banana (1 pc)
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Chholey 
-        <br>
-        Boondi Raita 
-        <br>
-        Bhatoorey 
-        <br>
-        Rice
-      </td>
+            <td>
+              Salad
+              <br />
+              Chholey
+              <br />
+              Boondi Raita
+              <br />
+              Bhatoorey
+              <br />
+              Rice
+            </td>
 
-      <td>
-        Punugulu (South Indian)
-        <br>
-        Green Chutney 
-        <br>
-        Tea
-      </td>
+            <td>
+              Punugulu (South Indian)
+              <br />
+              Green Chutney
+              <br />
+              Tea
+            </td>
 
-      <td>Salad 
-        <br>
-        Kathal 
-        <br>
-        Mix Dal Fry 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
-    </tr>
+            <td>
+              Salad
+              <br />
+              Kathal
+              <br />
+              Mix Dal Fry
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
+          </tr>
 
-    <tr>
-      <td>SUNDAY</td>
-      <td>
-        Utappam 
-        <br>
-        Sambhar 
-        <br>
-        Coconut Chutney 
-        <br>
-        Milk 
-        <br>
-        Tea 
-        <br>
-        Banana (1 pc)
-      </td>
+          <tr>
+            <td>SUNDAY</td>
+            <td>
+              Utappam
+              <br />
+              Sambhar
+              <br />
+              Coconut Chutney
+              <br />
+              Milk
+              <br />
+              Tea
+              <br />
+              Banana (1 pc)
+            </td>
 
-      <td>
-        Salad 
-        <br>
+            <td>
+              Salad
+              <br />
 
-        Vegetable Biryani 
-        <br>
-        Dal Makhani 
-        <br>
-        Tawa Paratha 
-        <br>
-        Raita
-      </td>
+              Vegetable Biryani
+              <br />
+              Dal Makhani
+              <br />
+              Tawa Paratha
+              <br />
+              Raita
+            </td>
 
-      <td>
-        Cutlet 
-        <br>
-        Tomato Sauce 
-        <br>
-        Tea
-      </td>
+            <td>
+              Cutlet
+              <br />
+              Tomato Sauce
+              <br />
+              Tea
+            </td>
 
-      <td>
-        Salad 
-        <br>
-        Matar / Kadhai Paneer 
-        <br>
-        Urad Dal Fry 
-        <br>
-        Gulab Jamun / Jalebi 
-        <br>
-        Roti 
-        <br>
-        Rice
-      </td>
-    </tr>
-
-  </table>
-</center>
-<div>
-  <footer class="footer">
-    <div class="containner">
-      <div class="row">
-        <div class="footer-col col-3 ">
-          <h4>Student</h4>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Services</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Affiliate Program</a></li>
-            <li><a href="#">Hostel</a></li>
-            <li><a href="#">Mess</a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-3">
-          <h4>Get Help</h4>
-          <ul>
-            <li><a href="#">Academic Calender</a></li>
-            <li><a href="#">Course Structure</a></li>
-            <li><a href="#">List of Holidays</a></li>
-            <li><a href="#">Payment Options</a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-3">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#">Fee Structure</a></li>
-            <li><a href="#">Attendance</a></li>
-            <li><a href="#">Timetable</a></li>
-            <li><a href="#">ID card</a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-3">
-          <h4>Follow Us</h4>
-          <div class="social-links">
-
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-discord"></i></a>
-            <a href="#"><i class="fab fa-reddit"></i></a>
-
+            <td>
+              Salad
+              <br />
+              Matar / Kadhai Paneer
+              <br />
+              Urad Dal Fry
+              <br />
+              Gulab Jamun / Jalebi
+              <br />
+              Roti
+              <br />
+              Rice
+            </td>
+          </tr>
+        </table>
+      </center>
+      <div>
+        <footer class="footer">
+          <div class="containner">
+            <div class="row">
+              <div class="footer-col col-3">
+                <h4>Student</h4>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Our Services</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Affiliate Program</a></li>
+                  <li><a href="#">Hostel</a></li>
+                  <li><a href="#">Mess</a></li>
+                </ul>
+              </div>
+              <div class="footer-col col-3">
+                <h4>Get Help</h4>
+                <ul>
+                  <li><a href="#">Academic Calender</a></li>
+                  <li><a href="#">Course Structure</a></li>
+                  <li><a href="#">List of Holidays</a></li>
+                  <li><a href="#">Payment Options</a></li>
+                </ul>
+              </div>
+              <div class="footer-col col-3">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><a href="#">Fee Structure</a></li>
+                  <li><a href="#">Attendance</a></li>
+                  <li><a href="#">Timetable</a></li>
+                  <li><a href="#">ID card</a></li>
+                </ul>
+              </div>
+              <div class="footer-col col-3">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-github"></i></a>
+                  <a href="#"><i class="fab fa-discord"></i></a>
+                  <a href="#"><i class="fab fa-reddit"></i></a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
-
-
-  </footer>
-</div>
-</div>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
