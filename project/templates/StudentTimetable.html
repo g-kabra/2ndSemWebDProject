@@ -55,9 +55,10 @@
         <form action="/student/timetable/view" method="post">
         <select name="semester" class="btn" placeholder="Semester" id="sem_btn">
           {%for tt in tts%}
-            <option value="{{tt.semester}}">{{tt.semester}}</option>
+          <option value="{{tt.semester}}">{{tt.semester}}</option>
           {%endfor%}
         </select>        
+        <button class="btn" id ="submit_btn" style = "z-index: 2;">Submit</button>
       </form>
     </div>
   </center>
@@ -72,7 +73,7 @@
         <th>4<sup>th</sup> Hour</th>
         <th>5<sup>th</sup> Hour</th>
       </tr>
-
+      
       <tr>
         <td>9:00 am - 10:00 am</td>
         <td>10:05 am - 11:10 am</td>
@@ -128,7 +129,6 @@
         </tr>
     </table>
     </div>
-    <center><button class="btn" id ="submit_btn">Submit</button></center>
     <footer class="footer">
       <div class="containner">
           <div class="row">

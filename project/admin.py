@@ -42,7 +42,7 @@ def timetable_choose():
         return render_template('admin_student_selector.html', timetable = 1)
     return profile()
 
-@admin.route('/admin/timetable/selected', methods = ['POST'])
+@admin.route('/admin/timetable/selected', methods = ['POST', 'GET'])
 @login_required
 def timetable_assign():
     if session['role'] == 'admin':

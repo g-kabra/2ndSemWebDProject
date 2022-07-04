@@ -4,7 +4,7 @@ from . import db
 
 main = Blueprint('main', __name__)
 
-@main.route('/')
+@main.route('/', methods = ['POST', 'GET'])
 def index():
     if(current_user.is_authenticated):
         return profile()
