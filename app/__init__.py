@@ -5,10 +5,9 @@ from flask_migrate import Migrate
 
 db = SQLAlchemy()
 migrate = Migrate()
-app = Flask(__name__)
 
-@app.route('/')
 def create_app():
+    app = Flask(__name__)
     from .models import Student, Teacher, Admin
     loginUser = LoginManager(app)
     loginUser.login_view = 'auth.login'
@@ -48,6 +47,5 @@ def create_app():
     
     from .admin import admin as admin_blueprint
     app.register_blueprint(admin_blueprint)
-    
-    
+
     return app 
