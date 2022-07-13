@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, flash
 from flask_login import login_required, current_user
-from .models import Student, Teacher, Assignments, Marks, Admin, Subject, Timetable
+from .models import Student, Teacher, Assignments, Marks, Admin, Subject, Timetable, Branch
 from .main import profile
 from . import db
 
@@ -90,4 +90,24 @@ def add_timetable(branch, year, semester):
         tt = Timetable(branch = branch, year = year, semester = semester, Mon1 = Mon1, Mon2 = Mon2, Mon3 = Mon3, Mon4 = Mon4,Mon5 = Mon5, Tue1 = Tue1, Tue2 = Tue2, Tue3 = Tue3, Tue4 = Tue4, Tue5 = Tue5, Wed1 = Wed1, Wed2 = Wed2, Wed3 = Wed3, Wed4 = Wed4, Wed5 = Wed5, Thu1 = Thu1, Thu2 = Thu2, Thu3 = Thu3, Thu4 = Thu4, Thu5 = Thu5, Fri1 = Fri1, Fri2 = Fri2, Fri3 = Fri3, Fri4 = Fri4, Fri5 = Fri5)
         db.session.add(tt)
         db.session.commit()
+    return profile()
+
+@admin.route('/admin/branch')
+def branch():
+    if session['role'] == 'admin':
+        return render_template('admin_student_selector.html', branch = 1)
+    return profile()
+
+@admin.route('/admin/add_branch', methods = ['POST'])
+def add_branch():
+    if session['role'] == 'admin':
+        branch = request.form['branch']
+        type = request.form['type']
+        year = request.form['year']
+        b = Branch.query.filter_by(branch=branch, year_started = year, type = type).first()
+        if not b:
+            b = Branch(branch = branch, year_started = year, type = type)
+            db.session.add(b)
+            db.session.commit()
+        return render_template('admin_student_selector.html', branch = 1)
     return profile()
