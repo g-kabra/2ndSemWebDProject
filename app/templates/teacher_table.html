@@ -100,6 +100,13 @@
   </center>
     {%if assignment%}
     <div style="overflow-x: auto">
+      <form action="/teacher/add_marks_template/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}" method="post">
+        <button>Download Template</button>
+      </form>
+      <form action="/teacher/add_marks_excel/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}" method="post" enctype="multipart/form-data">
+        <input type="file" name="excel-file" id="">
+        <button>Submit</button>
+      </form>
       <form action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}" method="post">
       <table
         id="teacher_table"
@@ -207,8 +214,8 @@
    <script>
       $(document).ready(function () {
         $("#teacher_table").DataTable({
-          // "paging": false;
-          pagingType: "full_numbers",
+          "paging": false,
+          // pagingType: "full_numbers",
           columnDefs: [
             {
               targets: "_all",
