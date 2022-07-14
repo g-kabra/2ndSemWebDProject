@@ -68,17 +68,19 @@
             <th>Assignment Name</th>
             <th>Marks</th>
             <th>Max Marks</th>
+            <th>Exam CGPA</th>
           </tr>
         </thead>
         <tbody>
+          {%for i in range(len(marks))%}
           <tr>
-            {% for mark in marks%}
-            <td>{{mark[0].subject}}</td>
-            <td>{{mark[0].assignment}}</td>
-            <td>{{mark[1].marks}}</td>
-            <td>{{mark[0].max_marks}}</td>
-            {%endfor%}
+            <td>{{marks[i][0].subject}}</td>
+            <td>{{marks[i][0].assignment}}</td>
+            <td>{{marks[i][1].marks}}</td>
+            <td>{{marks[i][0].max_marks}}</td>
+            <td>{{round((marks[i][1].marks/relative_max_marks[i])*10, 2)}}</td>
           </tr>
+          {%endfor%}
         </tbody>
       </table>
     </div>
