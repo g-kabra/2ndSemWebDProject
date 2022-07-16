@@ -164,33 +164,18 @@
                 />
                 <tr colspan="2">
                   <td>
-                    <input
-                      list="branch"
-                      class="admin-input"
-                      placeholder="Branch"
-                      name="branch"
-                    />
-
-                    <datalist id="branch">
-                      <option value="CSAI"></option>
-                      <option value="CSB"></option>
-                      <option value="CS"></option>
-                      <option value="IT"></option>
-                    </datalist>
+                    <select id="branch" name="branch" class="admin-input">
+                      {%for i in branches%}
+                        <option value="{{i.branch}}">{{i.branch + ' ' + i.type}}</option>
+                      {%endfor%}
+                    </select>
                   </td>
                   <td>
-                    <input
-                      list="year"
-                      class="admin-input"
-                      placeholder="Year"
-                      name="year"
-                    />
-                    <datalist id="year">
-                      <option value="2019"></option>
-                      <option value="2020"></option>
-                      <option value="2021"></option>
-                      <option value="2022"></option>
-                    </datalist>
+                    <select id="year" name="year" class="admin-input">
+                      {%for i in years%}
+                      <option value="{{i}}">{{i}}</option>
+                      {%endfor%}
+                    </select>
                   </td>
                 </tr>
                 <tr colspan="2">

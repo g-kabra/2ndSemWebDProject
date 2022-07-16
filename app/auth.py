@@ -1,10 +1,12 @@
+from multiprocessing.spawn import import_main_path
 from flask import Blueprint, render_template, redirect, request, session, send_file
 from werkzeug.security import generate_password_hash, check_password_hash
-from .models import Student, Teacher, Admin
+from .models import Student, Teacher, Admin, Branch
 from flask_login import login_user, login_required, logout_user, current_user
 from .main import profile
 from . import db
 import pandas as pd
+import datetime
 
 auth = Blueprint('auth', __name__)
 
@@ -18,7 +20,10 @@ def login():
 @login_required
 def signup():
     if (current_user.role == 'admin'):
-        return render_template('signuppage.html')
+        branches = Branch.query.all()
+        years = list(range(2015,datetime.datetime.now().date().year + 1))
+        # print([i.branch for i in branches])
+        return render_template('signuppage.html', branches=branches, years=years)
     return profile()
 
 
@@ -62,15 +67,13 @@ def admin_student_signup_excel():
     object = pd.read_excel(information)
     for i in range(len(object[object.keys()[0]])):
         # print(object.iloc[i])
-        email = object.iloc[i]["email"]
-        fname = object.iloc[i]["fname"]
-        lname = object.iloc[i]["lname"]
-        branch = object.iloc[i]["branch"]
+        email = str(object.iloc[i]["email"])
+        fname = str(object.iloc[i]["fname"])
+        lname = str(object.iloc[i]["lname"])
+        branch = str(object.iloc[i]["branch"])
         year = int(object.iloc[i]["year"])
-        print(year)
-        password = object.iloc[i]["password"]
-        print(password)
-        rollno = object.iloc[i]["rollno"]
+        password = str(object.iloc[i]["password"])
+        rollno = str(object.iloc[i]["rollno"])
         student = Student.query.filter_by(email=email).first()
 
         if student:
@@ -82,13 +85,16 @@ def admin_student_signup_excel():
     db.session.commit()
     return profile()
 
+
 @auth.route('/signup/student-signup-excel-download', methods=['POST'])
 def admin_student_signup_download():
-    keys = {"email": [], "rollno": [], "fname": [],"lname": [],"branch": [],"year": [],"password": [] }
+    keys = {"email": [], "rollno": [], "fname": [],
+            "lname": [], "branch": [], "year": [], "password": []}
     df = pd.DataFrame(data=keys)
     df.to_excel("./app/templates/test1.xlsx")
     # print(df)
     return send_file("./templates/test1.xlsx", attachment_filename='signup_template.xlsx')
+
 
 @auth.route('/signup/teacher', methods=['POST'])
 @login_required
@@ -141,11 +147,10 @@ def signupAdmin():
 
 @auth.route('/login/student', methods=['POST'])
 def loginStudent():
-    email = request.form['email']
+    email = str(request.form['email']).lower()
     password = request.form['password']
 
     student = Student.query.filter_by(email=email).first()
-
     if not student or not check_password_hash(student.password, password):
         return "Kya be"
     session['role'] = 'student'
