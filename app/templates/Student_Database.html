@@ -129,39 +129,16 @@
             </thead>
 
             <tbody>
+                {%for i in studs%}
                 <tr>
-                    <td>LCI2021001</td>
-                    <td>Atharv</td>
-                    <td>Tiwari</td>
-                    <td>CSAI</td>
-                    <td>2021</td>
-                    <td>lci2021001@iiitl.ac.in</td>
+                    <td>{{i.rollno}}</td>
+                    <td>{{i.fname}}</td>
+                    <td>{{i.lname}}</td>
+                    <td>{{i.branch}}</td>
+                    <td>{{i.year}}</td>
+                    <td>{{i.email}}</td>
                 </tr>
-                <tr>
-                    <td>LCI2021002</td>
-                    <td>Harsh</td>
-                    <td>Golchha</td>
-                    <td>CSAI</td>
-                    <td>2021</td>
-                    <td>lci2021002@iiitl.ac.in</td>
-                </tr>
-                <tr>
-                    <td>LCB2021001</td>
-                    <td>Aryaman</td>
-                    <td>Shukla</td>
-                    <td>CSB</td>
-                    <td>2021</td>
-                    <td>lcb2021001@iiitl.ac.in</td>
-                </tr>
-                <tr>
-                    <td>LCI2021017</td>
-                    <td>Prateek</td>
-                    <td>Parmar</td>
-                    <td>CSAI</td>
-                    <td>2021</td>
-                    <td>lci2021017@iiitl.ac.in</td>
-                </tr>
-
+                {%endfor%}
             </tbody>
         </table>
         <hr>

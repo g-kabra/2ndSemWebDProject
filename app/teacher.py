@@ -31,6 +31,8 @@ def enter_marks():
         students = Student.query.filter_by(branch=branch, year=year).all()
         subject = Subject.query.filter_by(
             branch=branch, year=year, teacher_id=current_user.id, semester=semester).first()
+        if not subject:
+            return render_template("Notice_page.html", message="You don't have access to this class, please check your credentials.", back = "/teacher/enter_selection")
         assignments = Assignments.query.filter_by(
             branch=branch, year=year, semester=semester, subject=subject.subject).all()
         return render_template('teacher_table.html', students=students, assignments=assignments, branch=branch, year=year, subject=subject.subject, semester=semester)
@@ -80,8 +82,6 @@ def assignment_selected(year, branch, subject, semester):
             branch=branch, year=year, subject=subject, semester=semester).all()
         ass = Assignments.query.filter_by(
             year=year, branch=branch, subject=subject, assignment=assignment, semester=semester).first()
-        # results = db.session.query(Student, Marks).join(Marks).filter(
-        #     Student.branch == branch, Student.year == year, Marks.assignment_id == ass.id).all()
         results = []
         for i in students:
             if(Marks.query.filter_by(assignment_id=ass.id, rollno=i.rollno).first()):

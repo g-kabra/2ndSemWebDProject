@@ -111,3 +111,8 @@ def add_branch():
             db.session.commit()
         return render_template('admin_student_selector.html', branch = 1)
     return profile()
+
+@admin.route('/admin/show_students', methods = ['POST', 'GET'])
+def show_students():
+    studs = Student.query.all()
+    return render_template('Student_Database.html', studs = studs)
