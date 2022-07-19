@@ -126,11 +126,13 @@ def add_marks_excel(year, subject, semester, assignment, branch):
             year=year, branch=branch, subject=subject, assignment=assignment, semester=semester).first()
         for i in range(len(object[object.keys()[0]])):
             rollno = object.iloc[i]["rollno"]
-            marks = int(object.iloc[i]["marks"])
+            marks = object.iloc[i]["marks"]
             if not marks:
                 marks = 0
+            if(not str(marks).isnumeric() or marks > ass.max_marks):
+                return "Please check the value entered at row number " + str(i+1)
             m = Marks.query.filter_by(assignment_id=ass.id, rollno=rollno).first()
-            m.marks = marks
+            m.marks = int(marks)
         db.session.commit()
         assignments = Assignments.query.filter_by(
             branch=branch, year=year, subject=subject, semester=semester).all()

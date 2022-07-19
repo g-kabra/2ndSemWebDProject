@@ -45,7 +45,8 @@ def signupStudent():
         student = Student.query.filter_by(email=email).first()
 
         if student:
-            return "Kya be"
+            return "This student email has already been signed up."
+            # action: override
 
         new_user = Student(email=email, fname=fname, lname=lname, branch=branch, year=year,
                            password=generate_password_hash(password, method='sha256'), rollno=rollno)
@@ -103,8 +104,8 @@ def signupTeacher():
         teacher = Teacher.query.filter_by(email=email).first()
 
         if teacher:
-            return "Kya be"
-
+            return "This teacher email has already been signed up."
+            # action: override
         new_user = Teacher(email=email, fname=fname, lname=lname,
                            password=generate_password_hash(password, method='sha256'))
 
@@ -128,8 +129,8 @@ def signupAdmin():
     admin = Admin.query.filter_by(email=email).first()
 
     if admin:
-        return "Kya be"
-
+        return "This admin email has already been signed up."
+        # action: override
     new_admin = Admin(email=email, fname=fname, lname=lname, dept=dept,
                       designation=designation, password=generate_password_hash(password, method='sha256'))
 
@@ -147,7 +148,7 @@ def loginStudent():
     student = Student.query.filter_by(email=email).first()
 
     if not student or not check_password_hash(student.password, password):
-        return "Kya be"
+        return "Please check your login details"
     session['role'] = 'student'
     login_user(student)
     print("Logged in", current_user)
@@ -162,7 +163,7 @@ def loginTeacher():
     teacher = Teacher.query.filter_by(email=email).first()
 
     if not teacher or not check_password_hash(teacher.password, password):
-        return "Kya be"
+        return "Please check your login details"
     session['role'] = 'teacher'
     login_user(teacher)
     print("Logged in", current_user)
@@ -177,7 +178,7 @@ def loginAdmin():
     admin = Admin.query.filter_by(email=email).first()
 
     if not admin or not check_password_hash(admin.password, password):
-        return "Kya be"
+        return "Please check your login details."
 
     session['role'] = 'admin'
     login_user(admin)
