@@ -12,8 +12,11 @@ teacher = Blueprint('teacher', __name__)
 @login_required
 def enter_selection():
     if(current_user.role == 'teacher'):
-
-        return render_template('teacher_student_selector.html')
+        assigned = Subject.query.filter_by(teacher_id = current_user.id)
+        options = []
+        for i in assigned:
+            options.append(str(i.year) + " " + str(i.semester) + " " + str(i.branch))
+        return render_template('teacher_student_selector.html', options = options)
     return profile()
 
 
@@ -21,9 +24,10 @@ def enter_selection():
 @login_required
 def enter_marks():
     if(current_user.role == 'teacher'):
-        branch = request.form['branch']
-        year = request.form['year']
-        semester = request.form['semester']
+        choice = request.form["choice"]
+        branch = choice[7:]
+        year = int(choice[:4])
+        semester = int(choice[5:6])
         students = Student.query.filter_by(branch=branch, year=year).all()
         subject = Subject.query.filter_by(
             branch=branch, year=year, teacher_id=current_user.id, semester=semester).first()

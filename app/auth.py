@@ -1,3 +1,4 @@
+from email import message
 from flask import Blueprint, render_template, redirect, request, session, send_file
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import Student, Teacher, Admin
@@ -41,12 +42,14 @@ def signupStudent():
         email = request.form['email']
         password = request.form['password']
         rollno = request.form['rollno']
-
+        force = (request.form.get('force'))
         student = Student.query.filter_by(email=email).first()
 
-        if student:
-            return "This student email has already been signed up."
-            # action: override
+        if student and not force:
+            return render_template('Notice_Page.html', message = "This student has already been registered.", override = "", back = "/signup")
+        if student and force:
+            db.session.delete(student)
+            db.session.commit()
 
         new_user = Student(email=email, fname=fname, lname=lname, branch=branch, year=year,
                            password=generate_password_hash(password, method='sha256'), rollno=rollno)
@@ -55,7 +58,6 @@ def signupStudent():
         db.session.commit()
         return redirect('/signup')
     return profile()
-
 
 @auth.route('/signup/student-signup-excel', methods=['POST'])
 def admin_student_signup_excel():
@@ -100,12 +102,14 @@ def signupTeacher():
         email = request.form['email']
         password = request.form['password']
         # rollno = request.form['rollno']
-
+        force = request.form.get('force')
         teacher = Teacher.query.filter_by(email=email).first()
-
-        if teacher:
-            return "This teacher email has already been signed up."
+        if teacher and not force:
+            return render_template('Notice_page.html', message="This email has already been used. If you'd like to update the details, please use the checkbox", back = "/signup")
             # action: override
+        if teacher and force:
+            db.session.delete(teacher)
+            db.session.commit()
         new_user = Teacher(email=email, fname=fname, lname=lname,
                            password=generate_password_hash(password, method='sha256'))
 
@@ -125,12 +129,15 @@ def signupAdmin():
     designation = request.form['designation']
     email = request.form['email']
     password = request.form['password']
-
+    force = request.form.get('force')
     admin = Admin.query.filter_by(email=email).first()
 
-    if admin:
-        return "This admin email has already been signed up."
+    if admin and not force:
+        return render_template('Notice_page.html', message="This email has already been used. If you'd like to update the details, please use the checkbox", back = "/signup")
         # action: override
+    if admin and force:
+        db.session.delete(admin)
+        db.session.commit()
     new_admin = Admin(email=email, fname=fname, lname=lname, dept=dept,
                       designation=designation, password=generate_password_hash(password, method='sha256'))
 
@@ -148,7 +155,7 @@ def loginStudent():
     student = Student.query.filter_by(email=email).first()
 
     if not student or not check_password_hash(student.password, password):
-        return "Please check your login details"
+        return render_template("Notice_page.html", message="Please check your login details.", back = "/login")
     session['role'] = 'student'
     login_user(student)
     print("Logged in", current_user)
@@ -163,7 +170,7 @@ def loginTeacher():
     teacher = Teacher.query.filter_by(email=email).first()
 
     if not teacher or not check_password_hash(teacher.password, password):
-        return "Please check your login details"
+        return render_template("Notice_page.html", message="Please check your login details.", back = "/login")
     session['role'] = 'teacher'
     login_user(teacher)
     print("Logged in", current_user)
@@ -178,8 +185,7 @@ def loginAdmin():
     admin = Admin.query.filter_by(email=email).first()
 
     if not admin or not check_password_hash(admin.password, password):
-        return "Please check your login details."
-
+        return render_template("Notice_page.html", message="Please check your login details.", back = "/login")
     session['role'] = 'admin'
     login_user(admin)
     print("Logged in", current_user)

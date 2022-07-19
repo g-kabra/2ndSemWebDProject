@@ -64,8 +64,7 @@
           class="student-selector"
         >
           <div class="row">
-            <select name="year" id="ch_year" class="btn col-4">
-              <!-- <option value="" disabled selected>Year</option> -->
+            <!-- <select name="year" id="ch_year" class="btn col-4">
               <option value="2019">2019</option>
               <option value="2020">2020</option>
               <option value="2021">2021</option>
@@ -99,6 +98,13 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
+              </div>
+            </select> -->
+            <select name="choice" class = "btn col-6"  placeholder = "Choose class">
+              <div class="dropdown-content">
+                {%for i in options%}
+                <option value="{{i}}">{{i}}</option>
+                {%endfor%}
               </div>
             </select>
             <button class="btn col-9" id="ch_submit">Submit</button>
