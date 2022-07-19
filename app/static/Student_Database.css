@@ -1,0 +1,25 @@
+body 
+{
+    background-color: rgb(34, 146, 146);
+    /* text-decoration: white; */
+
+    /* To counter sidebar glitch for the time being */
+    /* padding-left: 100px; */
+}
+
+.table
+{
+    padding: 0 50px;
+    color: white;
+}
+
+.tbl 
+{
+    margin-left: 100px;
+}
+
+.footer 
+{
+    position: absolute;
+    bottom: 0;
+}

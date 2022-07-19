@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="/static/sidebar.css" />
+    <link rel="stylesheet" href="/static/footer.css" />
+    <link rel="stylesheet" href="/static/Student_Database.css" />
+    <!-- <link rel="stylesheet" href="https://colorhunt.co/palette/9a86a4b1bce6b7e5ddf1f0c0"> -->
+    <title>Student Database</title>
+</head>
+
+<body>
+
+    <!-- Sidebar 'shit' -->
+
+    <div class="area"></div>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a href="http://justinfarrow.com">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Dashboard
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a href="#">
+                    <i class="fa fa-laptop fa-2x"></i>
+                    <span class="nav-text">
+                        Stars Components
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a href="#">
+                    <i class="fa fa-list fa-2x"></i>
+                    <span class="nav-text">
+                        Forms
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a href="#">
+                    <i class="fa fa-folder-open fa-2x"></i>
+                    <span class="nav-text">
+                        Pages
+                    </span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-bar-chart-o fa-2x"></i>
+                    <span class="nav-text">
+                        Graphs and Statistics
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-font fa-2x"></i>
+                    <span class="nav-text">
+                        Quotes
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-table fa-2x"></i>
+                    <span class="nav-text">
+                        Tables
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <span class="nav-text">
+                        Maps
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-info fa-2x"></i>
+                    <span class="nav-text">
+                        Documentation
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+                <a href="/logout">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Logout
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Content -->
+    <hr>
+    <div class="tbl">
+        <table class="table" id="student_database">
+            <thead>
+                <tr>
+                    <th>Roll No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>LCI2021001</td>
+                    <td>Atharv</td>
+                    <td>Tiwari</td>
+                    <td>CSAI</td>
+                    <td>2021</td>
+                    <td>lci2021001@iiitl.ac.in</td>
+                </tr>
+                <tr>
+                    <td>LCI2021002</td>
+                    <td>Harsh</td>
+                    <td>Golchha</td>
+                    <td>CSAI</td>
+                    <td>2021</td>
+                    <td>lci2021002@iiitl.ac.in</td>
+                </tr>
+                <tr>
+                    <td>LCB2021001</td>
+                    <td>Aryaman</td>
+                    <td>Shukla</td>
+                    <td>CSB</td>
+                    <td>2021</td>
+                    <td>lcb2021001@iiitl.ac.in</td>
+                </tr>
+                <tr>
+                    <td>LCI2021017</td>
+                    <td>Prateek</td>
+                    <td>Parmar</td>
+                    <td>CSAI</td>
+                    <td>2021</td>
+                    <td>lci2021017@iiitl.ac.in</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <hr>
+    </div>
+
+    <!-- Footer -->
+    <div class="tst">
+        <footer class="footer">
+            <div class="containner">
+                <div class="row">
+                    <div class="footer-col col-3">
+                        <h4>Student</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Affiliate Program</a></li>
+                            <li><a href="#">Hostel</a></li>
+                            <li><a href="#">Mess</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-3">
+                        <h4>Get Help</h4>
+                        <ul>
+                            <li><a href="#">Academic Calender</a></li>
+                            <li><a href="#">Course Structure</a></li>
+                            <li><a href="#">List of Holidays</a></li>
+                            <li><a href="#">Payment Options</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-3">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">Fee Structure</a></li>
+                            <li><a href="#">Attendance</a></li>
+                            <li><a href="#">Timetable</a></li>
+                            <li><a href="#">ID card</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-3">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" charset="utf8"
+        src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+
+    <script type="text/javascript" charset="utf8"
+        src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#student_database").DataTable({
+                // pagingType: "full_numbers",
+                columnDefs: [
+                    {
+                        targets: "_all",
+                        createdCell: function (td, cellData, rowData, row, col) {
+                            $(td).css("padding", "15px");
+                        },
+                    },
+                ],
+            });
+        });
+    </script>
+
+
+</body>
