@@ -23,13 +23,7 @@ def show_marks():
         semester = request.form['semester']
         subject = request.form['subject']
         marks = db.session.query(Assignments, Marks).join(Assignments).filter(Marks.rollno == current_user.rollno, Assignments.semester == semester, Assignments.subject == subject).all()
-        # max_marks = max([i[1].marks for i in db.session.query(Assignments, Marks).join(Assignments).filter(Assignments.semester == semester, Assignments.subject == subject).all()])
-        max_marks = []
-        for i in db.session.query(Assignments, Marks).join(Assignments).filter(Marks.rollno == current_user.rollno, Assignments.semester == semester, Assignments.subject == subject).all():
-            mm = max([i[1].marks for i in db.session.query(Assignments, Marks).join(Assignments).filter(Marks.assignment_id == i[0].id, Assignments.semester == semester, Assignments.subject == subject).all()])
-            max_marks.append(mm)
-        print(max_marks)
-        return render_template('student_marks_view.html', marks = marks, relative_max_marks = max_marks, round = round, range = range, len = len)
+        return render_template('student_marks_view.html', marks = marks)
     return profile()
         
 @student.route('/student/timetable', methods=['GET', 'POST'])

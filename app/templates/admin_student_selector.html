@@ -1,114 +1,115 @@
 <html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
-    />
-    <link rel="stylesheet" href="/static/student_selector.css" />
-    <link rel="stylesheet" href="/static/footer.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- Navbar shit -->
-    <nav class="navbar-dark navbar-expand-lg navbar">
-      <div class="container-fluid navb-links-container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a href="/"><button class="styled-button">Home</button></a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/timetable"
-                ><button class="styled-button">Timetable</button></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="/admin/teacher_assign"
-                ><button class="styled-button">Teacher Assign</button></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#"><button class="styled-button">Attendance</button></a>
-            </li>
-            <li class="nav-item">
-              <a href="/signup"
-                ><button class="styled-button">Sign Up</button></a
-              >
-            </li>
-            <li class="nav-item" id="logout">
-              <a href="/logout"
-                ><button class="styled-button">Logout</button></a
-              >
-            </li>
-            <object
-              data="/static/icons8-logout-50.png"
-              width="50px"
-              height="50px"
-              id="png"
-            ></object>
-          </ul>
-        </div>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css" />
+  <link rel="stylesheet" href="/static/student_selector.css" />
+  <link rel="stylesheet" href="/static/footer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Navbar shit -->
+  <nav class="navbar-dark navbar-expand-lg navbar">
+    <div class="container-fluid navb-links-container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="/"><button class="styled-button">Home</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/timetable"><button class="styled-button">Timetable</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/teacher_assign"><button class="styled-button">Teacher Assign</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="#"><button class="styled-button">Attendance</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/signup"><button class="styled-button">Sign Up</button></a>
+          </li>
+          <li class="nav-item" id="logout" style="display: flex; flex-direction: row;">
+            <a href="/logout"><button class="styled-button">Logout</button></a>
+            <!-- <object data="/static/icons8-logout-50.png" width="25px" height="25px" id="png"></object> -->
+          </li>
+
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <div class="center-align">
-      {%if added%}
-      <h2>Added teacher.</h2>
-      {%endif%} {%if teachers%}
-      <form
-        action="/admin/teacher_assign/selected"
-        method="post"
-        class="teacher-selector"
-      >
+  <div class="center-align">
+    {%if added%}
+    <h2>Added teacher.</h2>
+    {%endif%} {%if teachers%}
+    <form action="/admin/teacher_assign/selected" method="post" class="teacher-selector">
+      <div class="row">
+        <select name="year" id="ch_year" class="btn col-3">
+          <!-- <option value="" disabled selected>Year</option> -->
+          <option value="2019" style="background: black">2019</option>
+          <option value="2020" style="background: black">2020</option>
+          <option value="2021" style="background: black">2021</option>
+          <option value="2022" style="background: black">2022</option>
+        </select>
+
+        <select name="branch" id="ch_branch" class="btn col-4" placeholder="Branch">
+          <div class="dropdown-content" id="yes">
+            <option value="CSAI" style="background: black">CSAI</option>
+            <option value="CS" style="background: black">CS</option>
+            <option value="CSB" style="background: black">CSB</option>
+            <option value="IT" style="background: black">IT</option>
+          </div>
+        </select>
+        <select name="semester" id="ch_semester" class="btn col-3" placeholder="Semester">
+          <div class="dropdown-content">
+            <option value="1" style="background: black">1</option>
+            <option value="2" style="background: black">2</option>
+            <option value="3" style="background: black">3</option>
+            <option value="4" style="background: black">4</option>
+            <option value="5" style="background: black">5</option>
+            <option value="6" style="background: black">6</option>
+            <option value="7" style="background: black">7</option>
+            <option value="8" style="background: black">8</option>
+          </div>
+        </select>
+        <select name="teacher">
+          {%for teacher in teachers%}
+          <option value="{{teacher.id}}">
+            {{teacher.fname + ' ' + teacher.lname}}
+          </option>
+          {%endfor%}
+        </select>
+        <input type="text" name="subject" placeholder="Subject" />
+        <button class="btn col-9" id="ch_submit">Submit</button>
+        {%endif%}
+      </div>
+    </form>
+    {%if timetable%}
+    <form action="/admin/timetable/selected" method="POST" class="timetable-selector">
+      <center>
         <div class="row">
-          <select name="year" id="ch_year" class="btn col-3">
+          <select name="year" id="ch_year" class="btn col-2">
             <!-- <option value="" disabled selected>Year</option> -->
-            <option value="2019" style="background: black">2019</option>
-            <option value="2020" style="background: black">2020</option>
-            <option value="2021" style="background: black">2021</option>
-            <option value="2022" style="background: black">2022</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
           </select>
-
-          <select
-            name="branch"
-            id="ch_branch"
-            class="btn col-4"
-            placeholder="Branch"
-          >
-            <div class="dropdown-content" id="yes">
-              <option value="CSAI" style="background: black">CSAI</option>
-              <option value="CS" style="background: black">CS</option>
-              <option value="CSB" style="background: black">CSB</option>
-              <option value="IT" style="background: black">IT</option>
+          <select name="branch" id="ch_branch" class="btn col-4" placeholder="Branch">
+            <div class="dropdown-content">
+              <option value="CSAI">CSAI</option>
+              <option value="CS">CS</option>
+              <option value="CSB">CSB</option>
+              <option value="IT">IT</option>
             </div>
           </select>
-          <select
-            name="semester"
-            id="ch_semester"
-            class="btn col-3"
-            placeholder="Semester"
-          >
+          <select name="semester" id="ch_semester" class="btn col-3" placeholder="Semester">
             <div class="dropdown-content">
               <option value="1" style="background: black">1</option>
               <option value="2" style="background: black">2</option>
@@ -120,150 +121,74 @@
               <option value="8" style="background: black">8</option>
             </div>
           </select>
-          <select name="teacher">
-            {%for teacher in teachers%}
-            <option value="{{teacher.id}}">
-              {{teacher.fname + ' ' + teacher.lname}}
-            </option>
-            {%endfor%}
-          </select>
-          <input type="text" name="subject" placeholder="Subject" />
-          <button class="btn col-9" id="ch_submit">Submit</button>
-          {%endif%}
+          <button class="btn">Submit</button>
         </div>
-      </form>
-      {%if timetable%}
-      <form
-        action="/admin/timetable/selected"
-        method="POST"
-        class="timetable-selector"
-      >
-        <center>
-          <div class="row">
-            <select name="year" id="ch_year" class="btn col-2">
-              <!-- <option value="" disabled selected>Year</option> -->
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-            </select>
-            <select
-              name="branch"
-              id="ch_branch"
-              class="btn col-4"
-              placeholder="Branch"
-            >
-              <div class="dropdown-content">
-                <option value="CSAI">CSAI</option>
-                <option value="CS">CS</option>
-                <option value="CSB">CSB</option>
-                <option value="IT">IT</option>
-              </div>
-            </select>
-            <select
-              name="semester"
-              id="ch_semester"
-              class="btn col-3"
-              placeholder="Semester"
-            >
-              <div class="dropdown-content">
-                <option value="1" style="background: black">1</option>
-                <option value="2" style="background: black">2</option>
-                <option value="3" style="background: black">3</option>
-                <option value="4" style="background: black">4</option>
-                <option value="5" style="background: black">5</option>
-                <option value="6" style="background: black">6</option>
-                <option value="7" style="background: black">7</option>
-                <option value="8" style="background: black">8</option>
-              </div>
-            </select>
-            <button class="btn">Submit</button>
-          </div>
-        </center>
-      </form>
-      {%endif%}
-    </div>
-    {%if branch%}
-    <form action="/admin/add_branch" method="POST" class="timetable-selector">
-      <div class="row">
-        <input
-          type="text"
-          name="branch"
-          class="btn col-3"
-          placeholder="Branch Name"
-        />
-        <input
-          type="text"
-          name="type"
-          class="btn col-3"
-          placeholder="Study Type"
-        />
-        <input
-          type="text"
-          name="year"
-          class="btn col-3"
-          placeholder="Year Started"
-        />
-        <button class="btn">Submit</button>
-      </div>
+      </center>
     </form>
     {%endif%}
-    <footer class="footer">
-      <div class="containner">
-        <div class="row">
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Student</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Services</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Affiliate Program</a></li>
-              <li><a href="#">Hostel</a></li>
-              <li><a href="#">Mess</a></li>
-            </ul>
-          </div>
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Get Help</h4>
-            <ul>
-              <li><a href="#">Academic Calender</a></li>
-              <li><a href="#">Course Structure</a></li>
-              <li><a href="#">List of Holidays</a></li>
-              <li><a href="#">Payment Options</a></li>
-            </ul>
-          </div>
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#">Fee Structure</a></li>
-              <li><a href="#">Attendance</a></li>
-              <li><a href="#">Timetable</a></li>
-              <li><a href="#">ID card</a></li>
-            </ul>
-          </div>
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Follow Us</h4>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fab fa-discord"></i></a>
-              <a href="#"><i class="fab fa-reddit"></i></a>
-            </div>
+  </div>
+  {%if branch%}
+  <form action="/admin/add_branch" method="POST" class="timetable-selector">
+    <div class="row">
+      <input type="text" name="branch" class="btn col-3" placeholder="Branch Name" />
+      <input type="text" name="type" class="btn col-3" placeholder="Study Type" />
+      <input type="text" name="year" class="btn col-3" placeholder="Year Started" />
+      <button class="btn">Submit</button>
+    </div>
+  </form>
+  {%endif%}
+  <footer class="footer">
+    <div class="containner">
+      <div class="row">
+        <div class="footer-col col-md-3 col-sm-6">
+          <h4>Student</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate Program</a></li>
+            <li><a href="#">Hostel</a></li>
+            <li><a href="#">Mess</a></li>
+          </ul>
+        </div>
+        <div class="footer-col col-md-3 col-sm-6">
+          <h4>Get Help</h4>
+          <ul>
+            <li><a href="#">Academic Calender</a></li>
+            <li><a href="#">Course Structure</a></li>
+            <li><a href="#">List of Holidays</a></li>
+            <li><a href="#">Payment Options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col col-md-3 col-sm-6">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Fee Structure</a></li>
+            <li><a href="#">Attendance</a></li>
+            <li><a href="#">Timetable</a></li>
+            <li><a href="#">ID card</a></li>
+          </ul>
+        </div>
+        <div class="footer-col col-md-3 col-sm-6">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-reddit"></i></a>
           </div>
         </div>
       </div>
-    </footer>
-    <script
-      type="text/javascript"
-      charset="utf8"
-      src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    </div>
+  </footer>
+  <script type="text/javascript" charset="utf8"
+    src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

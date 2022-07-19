@@ -28,8 +28,9 @@ a {
 }
 body {
   height: 100vh;
-  background: linear-gradient(to left top, rgb(26, 24, 24), rgb(42, 0, 97)); 
+  /* background: linear-gradient(to left top, rgb(26, 24, 24), rgb(42, 0, 97));  */
   /* background: linear-gradient(#141e30, #243b55);; */
+  background-color: #E0C097;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
@@ -78,7 +79,7 @@ body {
   left: 50%; */
   width: 400px;
   padding: 5vh;
-  background: linear-gradient(to left top, #150050, #3F0071); 
+  /* background: linear-gradient(to left top, #150050, #3F0071);  */
   /* box-sizing: border-box; */
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;

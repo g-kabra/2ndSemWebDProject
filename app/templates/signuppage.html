@@ -53,7 +53,7 @@
                 ><button class="styled-button">Sign Up</button></a
               >
             </li>
-            <li class="nav-item" id="logout">
+            <!-- <li class="nav-item" id="logout">
               <a href="/logout"
                 ><img
                   src="/static/icons8-logout-50.png"
@@ -61,7 +61,7 @@
                   height="50px"
                   href="/logout"
               /></a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -164,18 +164,33 @@
                 />
                 <tr colspan="2">
                   <td>
-                    <select id="branch" name="branch" class="admin-input">
-                      {%for i in branches%}
-                        <option value="{{i.branch}}">{{i.branch + ' ' + i.type}}</option>
-                      {%endfor%}
-                    </select>
+                    <input
+                      list="branch"
+                      class="admin-input"
+                      placeholder="Branch"
+                      name="branch"
+                    />
+
+                    <datalist id="branch">
+                      <option value="CSAI"></option>
+                      <option value="CSB"></option>
+                      <option value="CS"></option>
+                      <option value="IT"></option>
+                    </datalist>
                   </td>
                   <td>
-                    <select id="year" name="year" class="admin-input">
-                      {%for i in years%}
-                      <option value="{{i}}">{{i}}</option>
-                      {%endfor%}
-                    </select>
+                    <input
+                      list="year"
+                      class="admin-input"
+                      placeholder="Year"
+                      name="year"
+                    />
+                    <datalist id="year">
+                      <option value="2019"></option>
+                      <option value="2020"></option>
+                      <option value="2021"></option>
+                      <option value="2022"></option>
+                    </datalist>
                   </td>
                 </tr>
                 <tr colspan="2">
@@ -317,8 +332,8 @@
               <a href="#"><i class="fab fa-instagram"></i></a>
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
               <a href="#"><i class="fab fa-github"></i></a>
-              <a href="#"><i class="fab fa-discord"></i></a>
-              <a href="#"><i class="fab fa-reddit"></i></a>
+              <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
+              <!-- <a href="#"><i class="fab fa-reddit"></i></a> -->
             </div>
           </div>
         </div>
