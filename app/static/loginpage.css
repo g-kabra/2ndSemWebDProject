@@ -29,8 +29,8 @@ a {
 body {
   height: 100vh;
   /* background: linear-gradient(to left top, rgb(26, 24, 24), rgb(42, 0, 97));  */
-  /* background: linear-gradient(#141e30, #243b55);; */
-  background-color: #E0C097;
+  background: linear-gradient(to left bottom,#2A6171,rgb(183, 183, 183));
+  /* background-color: #E0C097; */
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
@@ -79,7 +79,7 @@ body {
   left: 50%; */
   width: 400px;
   padding: 5vh;
-  /* background: linear-gradient(to left top, #150050, #3F0071);  */
+  background:  #2A6171;
   /* box-sizing: border-box; */
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -110,6 +110,16 @@ body {
   outline: none;
   background: transparent;
 }
+
+.login-box .user-box input:-webkit-autofill,
+.login-box .user-box input:-webkit-autofill:hover, 
+.login-box .user-box input:-webkit-autofill:focus, 
+.login-box .user-box input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #2A6171 inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+
 .login-box .user-box label {
   position: absolute;
   top:0;
@@ -123,20 +133,17 @@ body {
 
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color:  teal;
-  font-size: 16px;
+  display: none;
 }
 
 .login-box form .subbtn {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  border: 1px solid teal;
+  border: 1px solid white;
   background-color: transparent;
   border-radius: 8px;
-  color:  teal;
+  color:  white;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -148,11 +155,11 @@ body {
 }
 
 .login-box .subbtn:hover {
-  background:  teal;
-  color: #fff;
+  background:  white;
+  color: black;
   border-radius: 8px;
-  box-shadow: 0 0 2px  teal,
-              0 0 10px  teal,
+  box-shadow: 0 0 2px  white,
+              0 0 10px  white,
 }
 
 .login-back {
@@ -193,7 +200,7 @@ body {
   font-family: sans-serif;
   font-weight: bold;
   font-size: 30px;
-  margin-top: -80px;
+  margin-top: -6vh;
   height: 40px;
 }
 
@@ -209,6 +216,10 @@ body {
 }
 .title-white {
   color: white;
+  height: max-content;
+}
+.title-yes{
+  color: white
   height: max-content;
 }
 

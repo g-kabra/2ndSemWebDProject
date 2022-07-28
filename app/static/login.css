@@ -61,7 +61,7 @@ html {
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color:  teal;
+    color:  white;
     font-size: 16px;
   }
   
@@ -69,7 +69,7 @@ html {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color:  teal;
+    color:  white;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -80,11 +80,11 @@ html {
   }
   
   .login-box a:hover {
-    background:  teal;
+    background:  white;
     color: #fff;
     border-radius: 2px;
-    box-shadow: 0 0 2px  teal,
-                0 0 10px  teal,
+    box-shadow: 0 0 2px  white,
+                0 0 10px  white,
   }
   
 
