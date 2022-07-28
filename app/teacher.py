@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, send_file
 from flask_login import login_required, current_user
-from .models import Student, Teacher, Assignments, Marks, Subject, Timetable
+from .models import Student, Teacher, Assignments, Marks, Subject, Timetable, Grades
 from .main import profile
 from . import db
 import pandas as pd
@@ -16,7 +16,7 @@ def enter_selection():
         options = []
         for i in assigned:
             options.append(str(i.year) + " " + str(i.semester) + " " + str(i.branch))
-        return render_template('teacher_student_selector.html', options = options)
+        return render_template('teacher_student_selector.html', options = options, link = '/teacher/enter_marks')
     return profile()
 
 
@@ -54,7 +54,7 @@ def add_assignment():
             assignment=assignment, branch=branch, subject=subject, year=year, semester=semester).first()
         students = Student.query.filter_by(branch=branch, year=year)
         if ass:
-            return "Kya be"
+            return render_template('Notice_page.html', message = "This assignment already exists.", back = "/teacher/enter_selection")
         new_ass = Assignments(year=year, branch=branch, subject=subject,
                               assignment=assignment, max_marks=max_marks, semester=semester)
         db.session.add(new_ass)
@@ -381,3 +381,65 @@ def view_timetable():
                 str(Fri5.year) + " " + str(Fri5.semester)
         return render_template('StudentTimetable.html', Mon1=Mon1, Mon2=Mon2, Mon3=Mon3, Mon4=Mon4, Mon5=Mon5, Tue1=Tue1, Tue2=Tue2, Tue3=Tue3, Tue4=Tue4, Tue5=Tue5, Wed1=Wed1, Wed2=Wed2, Wed3=Wed3, Wed4=Wed4, Wed5=Wed5, Thu1=Thu1, Thu2=Thu2, Thu3=Thu3, Thu4=Thu4, Thu5=Thu5, Fri1=Fri1, Fri2=Fri2, Fri3=Fri3, Fri4=Fri4, Fri5=Fri5)
     return profile()
+
+
+@teacher.route('/teacher/grades_student_select')
+def grades_student_select():
+    if (current_user.role == 'teacher'):
+        assigned = Subject.query.filter_by(teacher_id = current_user.id)
+        options = []
+        for i in assigned:
+            options.append(str(i.year) + " " + str(i.semester) + " " + str(i.branch))
+        return render_template('teacher_student_selector.html', link = "/teacher/enter_grades", options = options)
+    return profile()
+
+@teacher.route('/teacher/enter_grades', methods = ['POST'])
+def enter_grades():
+    if (current_user.role == 'teacher'):
+        choice = request.form["choice"]
+        branch = choice[7:]
+        year = int(choice[:4])
+        semester = int(choice[5:6])
+        return render_template('grades.html', branch = branch, year = year, semester = semester)
+    return profile()
+
+@teacher.route('/teacher/add_grades/<string:branch>/<int:year>/<int:semester>', methods = ['POST'])
+def add_grades(branch, year, semester):
+    if (current_user.role == 'teacher'):
+        aplus = request.form['A+']
+        a = request.form['A']
+        b = request.form['B']
+        c = request.form['C']
+        f = 0
+        grade = Grades.query.filter_by(branch = branch, year = year, semester = semester).first()
+        if grade:
+            db.session.delete(grade)
+            db.session.commit()
+        grade = Grades(A1 = aplus, A = a, B = b, C = c, F = f, branch = branch, year = year, semester = semester)
+        db.session.add(grade)
+        db.session.commit()
+        ass = Assignments.query.filter_by(branch = branch, year = year, semester = semester).all()
+        studs = Student.query.filter_by(branch = branch, year = year).all()       
+        marks = []
+        grade = Grades.query.filter_by(branch = branch, year = year, semester = semester).first()
+        for stud in studs:
+            mark = []
+            mark.append(stud.rollno)
+            mark.append(stud.fname + " " + stud.lname)
+            for i in ass:
+                mark.append(Marks.query.filter_by(rollno = stud.rollno, assignment_id = i.id).first().marks)
+            mark.append(sum(mark[2:]))
+            if(mark[-1] >= grade.A1):
+                mark.append("A+")
+            elif(mark[-1] >= grade.A):
+                mark.append("A")
+            elif(mark[-1] >= grade.B):
+                mark.append("B")
+            elif(mark[-1] >= grade.C):
+                mark.append("C")
+            else:
+                mark.append("F")
+            marks.append(mark)
+        return render_template('teacher_marksheet.html', assignments = ass, marks = marks)
+    return profile()
+    

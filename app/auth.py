@@ -120,31 +120,31 @@ def signupTeacher():
 
 
 @auth.route('/signup/admin', methods=['POST'])
-# @login_required
+@login_required
 def signupAdmin():
-    # if (current_user.role == 'admin'):
-    fname = request.form['fname']
-    lname = request.form['lname']
-    dept = request.form['dept']
-    designation = request.form['designation']
-    email = request.form['email']
-    password = request.form['password']
-    force = request.form.get('force')
-    admin = Admin.query.filter_by(email=email).first()
+    if (current_user.role == 'admin'):
+        fname = request.form['fname']
+        lname = request.form['lname']
+        dept = request.form['dept']
+        designation = request.form['designation']
+        email = request.form['email']
+        password = request.form['password']
+        force = request.form.get('force')
+        admin = Admin.query.filter_by(email=email).first()
 
-    if admin and not force:
-        return render_template('Notice_page.html', message="This email has already been used. If you'd like to update the details, please use the checkbox", back = "/signup")
-        # action: override
-    if admin and force:
-        db.session.delete(admin)
+        if admin and not force:
+            return render_template('Notice_page.html', message="This email has already been used. If you'd like to update the details, please use the checkbox", back = "/signup")
+            # action: override
+        if admin and force:
+            db.session.delete(admin)
+            db.session.commit()
+        new_admin = Admin(email=email, fname=fname, lname=lname, dept=dept,
+                        designation=designation, password=generate_password_hash(password, method='sha256'))
+
+        db.session.add(new_admin)
         db.session.commit()
-    new_admin = Admin(email=email, fname=fname, lname=lname, dept=dept,
-                      designation=designation, password=generate_password_hash(password, method='sha256'))
-
-    db.session.add(new_admin)
-    db.session.commit()
-    return redirect('/signup')
-    # return profile()
+        return redirect('/signup')
+    return profile()
 
 
 @auth.route('/login/student', methods=['POST'])

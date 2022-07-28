@@ -101,4 +101,13 @@ class Timetable(db.Model):
     Fri4 = db.Column(db.Integer)
     Fri5 = db.Column(db.Integer)
     
-
+class Grades(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    branch = db.Column(db.String(4), db.ForeignKey('branch.branch'))
+    year = db.Column(db.Integer)
+    semester = db.Column(db.Integer)
+    A1 = db.Column(db.Integer)
+    A = db.Column(db.Integer)
+    B = db.Column(db.Integer)
+    C = db.Column(db.Integer)
+    F = db.Column(db.Integer)
