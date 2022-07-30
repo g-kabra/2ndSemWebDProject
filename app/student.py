@@ -2,7 +2,7 @@ from crypt import methods
 from locale import currency
 from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
-from .models import Student, Subject, Teacher, Assignments, Marks, Timetable
+from .models import Student, Subject, Teacher, Assignments, Marks, Timetable, Notice
 from .main import profile
 from . import db
 
@@ -143,3 +143,12 @@ def view_timetable():
             Fri5 = ""
         return render_template('StudentTimetable.html', Mon1 = Mon1, Mon2 = Mon2, Mon3 = Mon3, Mon4 = Mon4, Mon5 = Mon5, Tue1 = Tue1, Tue2 = Tue2, Tue3 = Tue3, Tue4 = Tue4, Tue5 = Tue5, Wed1 = Wed1, Wed2 = Wed2, Wed3 = Wed3, Wed4 = Wed4, Wed5 = Wed5, Thu1 = Thu1, Thu2 = Thu2, Thu3 = Thu3, Thu4 = Thu4, Thu5 = Thu5, Fri1 = Fri1, Fri2 = Fri2, Fri3 = Fri3, Fri4 = Fri4, Fri5 = Fri5, choose = True, tts = tts)
         
+@student.route('/student/notice')
+def notice():
+    notices = Notice.query.all()
+    n = []
+    l = 1
+    for i in notices:
+        n.append([l, i.heading, i.content])
+        l += 1
+    return render_template('notice_board.html', notices=n)

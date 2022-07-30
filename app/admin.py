@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, flash
 from flask_login import login_required, current_user
-from .models import Student, Teacher, Assignments, Marks, Admin, Subject, Timetable, Branch
+from .models import Student, Teacher, Assignments, Marks, Admin, Subject, Timetable, Branch, Notice
 from .main import profile
 from . import db
 
@@ -116,3 +116,32 @@ def add_branch():
 def show_students():
     studs = Student.query.all()
     return render_template('Student_Database.html', studs = studs)
+
+@admin.route('/admin/notices')
+def notices():
+    if(session['role'] == 'admin'):
+        notices = Notice.query.all()
+        return render_template("admin_notice.html", notices = notices)
+    return profile()    
+        
+@admin.route('/admin/add_notice', methods = ['POST'])
+def add_notice():
+    if(session['role'] == 'admin'):
+        heading = request.form["heading"]
+        content = request.form["content"]
+        notif = Notice(heading=heading, content=content)
+        db.session.add(notif)
+        db.session.commit()
+        notices = Notice.query.all()
+        return render_template("admin_notice.html", notices = notices)
+    return profile()
+
+@admin.route('/admin/delete_notice/<int:id>', methods = ['POST'])
+def delete_notice(id):
+    if(session['role'] == 'admin'):
+        notif = Notice.query.filter_by(id=id).first()
+        db.session.delete(notif)
+        db.session.commit()
+        notices = Notice.query.all()
+        return render_template("admin_notice.html", notices = notices)
+    return profile()
