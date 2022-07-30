@@ -111,3 +111,8 @@ class Grades(db.Model):
     B = db.Column(db.Integer)
     C = db.Column(db.Integer)
     F = db.Column(db.Integer)
+    
+class Notice(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    heading = db.Column(db.String(30))
+    content = db.Column(db.String(300))

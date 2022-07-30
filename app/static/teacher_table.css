@@ -251,9 +251,8 @@ th {
 }
 
 .button {
-  width: 140px;
   height: 65px;
-  padding: 15px;
+  padding: 20px;
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -267,7 +266,7 @@ th {
   cursor: pointer;
   outline: none;
   transform: translateY(1px);
-  margin: 4vh;
+  margin: 1vh 4vh;
   align-self: center;
   }
   #add-assignment{
@@ -275,7 +274,6 @@ th {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-   
   }
 
 .button:hover {

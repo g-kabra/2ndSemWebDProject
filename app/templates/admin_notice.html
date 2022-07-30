@@ -68,29 +68,31 @@
       </div>
     </nav>
 
-    <center>
-      <div class="mainbox">
-        <div class="leftmainbox">
-          <h1 class="belhead">Welcome</h1>
-          <img
-            src="/static/blank-profile-picture-973460__480.webp"
-            class="leftimg"
-          />
-          <h1 class="belhead">Admin</h1>
-        </div>
-        <div class="rightmainbox">
-          <h1 class="belhead">Information</h1>
-          <hr />
-          <div class="infobox row">
-            <h1 class="belhead col-12">Name : {{name}}</h1>
-            <h1 class="belhead col-12">Email : {{email}}</h1>
-            <h1 class="belhead col-12">Department : {{dept}}</h1>
-            <h1 class="belhead col-12">Designation : {{designation}}</h1>
-          </div>
-        </div>
-      </div>
-    </center>
-
+    <form action="/admin/add_notice" method="post">
+      <input type="text" name="heading" required/>
+      <input type="text" name="content" required/>
+      <button>Add Notice</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Heading</th>
+                <th>Content</th>
+                <th>Remove?</th>
+            </tr>
+        </thead>
+      {%for i in notices%}
+      <tr>
+        <td>{{i.heading}}</td>
+        <td>{{i.content}}</td>
+        <td>
+          <form action="/admin/delete_notice/{{i.id}}" method="post">
+            <button>Delete</button>
+          </form>
+        </td>
+      </tr>
+      {%endfor%}
+    </table>
     <footer class="footer">
       <div class="containner">
         <div class="row">

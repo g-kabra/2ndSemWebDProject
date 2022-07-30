@@ -7,8 +7,8 @@
       crossorigin="anonymous"
     />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
     <link rel="stylesheet" href="/static/teacher_table.css" />
     <link rel="stylesheet" href="/static/footer.css" />
@@ -67,19 +67,80 @@
       </div>
     </nav>
     <center>
-      <div>
-      <p style="margin-top: 5vh;font-weight: 550;font-size: 48px;">{{branch}} {{year}} 
-        <button type="button" id="add-assignment" class="button" style="display:inline; margin-right: 5vw;">
-        Add Assignment
-        <i class="fa-solid fa-file-circle-plus" style="font-size: 30px"></i>
-      </button>
-    </p>
-      <h3 style="margin-top: 2vh;"> {{subject}}</h3>
-      <h3>Semester : {{semester}}</h3>
+      <div
+        style="
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          margin: 6vh 0;
+        "
+      >
+        <form
+          action="/teacher/assignment_selected/{{year}}/{{branch}}/{{semester}}/{{subject}}"
+          method="post"
+          id="assignment-selector-form"
+        >
+          <select name="assignment" id="assignment-selector" class="button" placeholder="Select Assignment">
+            <option value="" disabled selected>Select Assignment</option>
+            {%for a in assignments%}
+            <option value="{{a.assignment}}">{{a.assignment}}</option>
+            {%endfor%}
+          </select>
+        </form>
+        <div
+          style="
+            font-weight: 550;
+            font-size: 48px;
+            grid-column: 2/3;
+            margin: auto;
+          "
+        >
+          <p>{{branch}} {{year}}</p>
+          <h3 style="margin-top: 2vh">{{subject}}</h3>
+          <h3>Semester : {{semester}}</h3>
+        </div>
+        <div
+          style="
+            display: inline;
+            margin-right: 5vw;
+            grid-column: 3/4;
+            margin-top: 3vh;
+          "
+        >
+          <button type="button" id="add-assignment" class="button">
+            Add Assignment
+            <i class="fa-solid fa-file-circle-plus" style="font-size: 30px"></i>
+          </button>
+          {%if assignment%}
+          <form
+            action="/teacher/delete_assignment/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
+            method="post"
+          >
+            <button class="button">Delete Assignment<i></i></button>
+          </form>
+          {%endif%}
+        </div>
       </div>
-      
-      
-  
+
+      {%if assignment%}
+      <div style="grid-column: 1/2; padding-top: 3vh; margin: auto">
+        <form
+          action="/teacher/add_marks_template/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
+          method="post"
+        >
+          <button>Download Template</button>
+        </form>
+        <form
+          action="/teacher/add_marks_excel/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <input type="file" name="excel-file" id="" />
+          <button class="button">Submit</button>
+        </form>
+      </div>
+      {%endif%}
+
       <div id="add-assignment-form">
         <form action="/teacher/add_assignment" method="post" class="box">
           <select name="year" id="">
@@ -94,94 +155,60 @@
           <select name="semester" id="">
             <option value="{{semester}}">{{semester}}</option>
           </select>
-          <input type="text" placeholder="Assignment Name" name="assignment" />
-          <input type="text" placeholder="Maximum Marks" name="maxmarks" />
+          <input type="text" placeholder="Assignment Name" name="assignment" required/>
+          <input type="text" placeholder="Maximum Marks" name="maxmarks" required/>
           <button class="button">Submit</button>
         </form>
         <button id="add-assignment-back">Back</button>
       </div>
-      
-      <form
-        action="/teacher/assignment_selected/{{year}}/{{branch}}/{{semester}}/{{subject}}"
-        method="post"
-      >
-        <select name="assignment" id="" class="button">
-          {%for a in assignments%}
-          <option value="{{a.assignment}}">{{a.assignment}}</option>
-          {%endfor%}
-        </select>
-        <button class="button">Submit</button>
-      </form>
     </center>
     {%if assignment%}
-   
-    <div>
-      <form
-        action="/teacher/add_marks_template/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
-        method="post"
+    <form
+      action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
+      method="post"
+      onsubmit="return validateMyForm();"
+    >
+      <table
+        id="teacher_table"
+        cellspacing="0"
+        width="100%"
+        class="hover stripe"
       >
-        <button>Download Template</button>
-      </form>
-      <form
-        action="/teacher/add_marks_excel/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <input type="file" name="excel-file" id="" />
-        <button class="button">Submit</button>
-      </form>
-      <form action="/teacher/delete_assignment/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}" method="post">
-        <button class="button">Submit</button>
-      </form>
-      <form
-        action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
-        method="post"
-        onsubmit="return validateMyForm();"
-      >
-    </div>
-        <table
-          id="teacher_table"
-          cellspacing="0"
-          width="100%"
-          class="hover stripe"
-        >
-          <thead>
-            <tr>
-              <th>Branch</th>
-              <th>Roll Number</th>
-              <th>Name</th>
-              <th>Exam type</th>
-              <th>
-                Marks (
-                <h6 id="maxmarks" style="display: inline-block">
-                  {{maxmarks}}
-                </h6>
-                )
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {%for student in students%}
-            <tr>
-              <td>{{student[0].branch}}</td>
-              <td>{{student[0].rollno}}</td>
-              <td>{{student[0].fname}}</td>
-              <td>{{assignment.assignment}}</td>
-              <td>
-                <input
-                  type="text"
-                  value="{{student[1].marks}}"
-                  name="{{student[0].rollno}}"
-                  class="marks-input-box"
-                />
-              </td>
-            </tr>
-            {%endfor%}
-          </tbody>
-        </table>
-        <center><button class="button">Submit</button></center>
-      </form>
-    </div>
+        <thead>
+          <tr>
+            <th>Branch</th>
+            <th>Roll Number</th>
+            <th>Name</th>
+            <th>Exam type</th>
+            <th>
+              Marks (
+              <h6 id="maxmarks" style="display: inline-block">{{maxmarks}}</h6>
+              )
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for student in students%}
+          <tr>
+            <td>{{student[0].branch}}</td>
+            <td>{{student[0].rollno}}</td>
+            <td>{{student[0].fname}}</td>
+            <td>{{assignment.assignment}}</td>
+            <td>
+              <input
+                type="text"
+                value="{{student[1].marks}}"
+                name="{{student[0].rollno}}"
+                class="marks-input-box"
+              />
+            </td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+      <center><button class="button">Submit</button></center>
+    </form>
+
     {%endif%}
 
     <footer class="footer">
@@ -304,6 +331,11 @@
           }
         });
       });
+    </script>
+    <script>
+      $("#assignment-selector").on("change", function() {
+        $("#assignment-selector-form").submit();
+      })
     </script>
     <script type="text/javascript" src="/static/teacher_table.js"></script>
     <script
