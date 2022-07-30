@@ -126,6 +126,9 @@
         <input type="file" name="excel-file" id="" />
         <button class="button">Submit</button>
       </form>
+      <form action="/teacher/delete_assignment/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}" method="post">
+        <button class="button">Submit</button>
+      </form>
       <form
         action="/teacher/add_marks/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
         method="post"
