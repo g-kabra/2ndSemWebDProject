@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, send_file
+from flask import Blueprint, render_template, request, send_file, redirect
 from flask_login import login_required, current_user
 from .models import Student, Teacher, Assignments, Marks, Subject, Timetable, Grades
 from .main import profile
@@ -12,11 +12,12 @@ teacher = Blueprint('teacher', __name__)
 @login_required
 def enter_selection():
     if(current_user.role == 'teacher'):
-        assigned = Subject.query.filter_by(teacher_id = current_user.id)
+        assigned = Subject.query.filter_by(teacher_id=current_user.id)
         options = []
         for i in assigned:
-            options.append(str(i.year) + " " + str(i.semester) + " " + str(i.branch))
-        return render_template('teacher_student_selector.html', options = options, link = '/teacher/enter_marks')
+            options.append(str(i.year) + " " +
+                           str(i.semester) + " " + str(i.branch))
+        return render_template('teacher_student_selector.html', options=options, link='/teacher/enter_marks')
     return profile()
 
 
@@ -135,7 +136,8 @@ def add_marks_excel(year, subject, semester, assignment, branch):
                 marks = 0
             if(not str(marks).isnumeric() or marks > ass.max_marks):
                 return "Please check the value entered at row number " + str(i+1)
-            m = Marks.query.filter_by(assignment_id=ass.id, rollno=rollno).first()
+            m = Marks.query.filter_by(
+                assignment_id=ass.id, rollno=rollno).first()
             m.marks = int(marks)
         db.session.commit()
         assignments = Assignments.query.filter_by(
@@ -169,6 +171,20 @@ def add_marks(year, branch, subject, assignment, semester):
             Student.branch == branch, Student.year == year, Marks.assignment_id == ass.id)
         relative_max = max([i[1].marks for i in results])
         return render_template('teacher_table_view.html', results=results, assignments=assignments, branch=branch, year=year, subject=subject, assignment=ass, semester=semester, relative_max=relative_max, round=round)
+    return profile()
+
+
+@teacher.route('/teacher/delete_assignment/<int:year>/<string:branch>/<string:subject>/<int:semester>/<string:assignment>', methods=["GET", "POST"])
+def delete_assignment(year, branch, semester, assignment, subject):
+    if (current_user.role == 'teacher'):
+        ass = Assignments.query.filter_by(
+            year=year, branch=branch, subject=subject, assignment=assignment, semester=semester).first()
+        marks = Marks.query.filter_by(assignment_id=ass.id).all()
+        for mark in marks:
+            db.session.delete(mark)
+        db.session.delete(ass)
+        db.session.commit()
+        return redirect("/teacher/enter_selection")
     return profile()
 
 
@@ -386,24 +402,27 @@ def view_timetable():
 @teacher.route('/teacher/grades_student_select')
 def grades_student_select():
     if (current_user.role == 'teacher'):
-        assigned = Subject.query.filter_by(teacher_id = current_user.id)
+        assigned = Subject.query.filter_by(teacher_id=current_user.id)
         options = []
         for i in assigned:
-            options.append(str(i.year) + " " + str(i.semester) + " " + str(i.branch))
-        return render_template('teacher_student_selector.html', link = "/teacher/enter_grades", options = options)
+            options.append(str(i.year) + " " +
+                           str(i.semester) + " " + str(i.branch))
+        return render_template('teacher_student_selector.html', link="/teacher/enter_grades", options=options)
     return profile()
 
-@teacher.route('/teacher/enter_grades', methods = ['POST'])
+
+@teacher.route('/teacher/enter_grades', methods=['POST'])
 def enter_grades():
     if (current_user.role == 'teacher'):
         choice = request.form["choice"]
         branch = choice[7:]
         year = int(choice[:4])
         semester = int(choice[5:6])
-        return render_template('grades.html', branch = branch, year = year, semester = semester)
+        return render_template('grades.html', branch=branch, year=year, semester=semester)
     return profile()
 
-@teacher.route('/teacher/add_grades/<string:branch>/<int:year>/<int:semester>', methods = ['POST'])
+
+@teacher.route('/teacher/add_grades/<string:branch>/<int:year>/<int:semester>', methods=['POST'])
 def add_grades(branch, year, semester):
     if (current_user.role == 'teacher'):
         aplus = request.form['A+']
@@ -411,23 +430,28 @@ def add_grades(branch, year, semester):
         b = request.form['B']
         c = request.form['C']
         f = 0
-        grade = Grades.query.filter_by(branch = branch, year = year, semester = semester).first()
+        grade = Grades.query.filter_by(
+            branch=branch, year=year, semester=semester).first()
         if grade:
             db.session.delete(grade)
             db.session.commit()
-        grade = Grades(A1 = aplus, A = a, B = b, C = c, F = f, branch = branch, year = year, semester = semester)
+        grade = Grades(A1=aplus, A=a, B=b, C=c, F=f,
+                       branch=branch, year=year, semester=semester)
         db.session.add(grade)
         db.session.commit()
-        ass = Assignments.query.filter_by(branch = branch, year = year, semester = semester).all()
-        studs = Student.query.filter_by(branch = branch, year = year).all()       
+        ass = Assignments.query.filter_by(
+            branch=branch, year=year, semester=semester).all()
+        studs = Student.query.filter_by(branch=branch, year=year).all()
         marks = []
-        grade = Grades.query.filter_by(branch = branch, year = year, semester = semester).first()
+        grade = Grades.query.filter_by(
+            branch=branch, year=year, semester=semester).first()
         for stud in studs:
             mark = []
             mark.append(stud.rollno)
             mark.append(stud.fname + " " + stud.lname)
             for i in ass:
-                mark.append(Marks.query.filter_by(rollno = stud.rollno, assignment_id = i.id).first().marks)
+                mark.append(Marks.query.filter_by(
+                    rollno=stud.rollno, assignment_id=i.id).first().marks)
             mark.append(sum(mark[2:]))
             if(mark[-1] >= grade.A1):
                 mark.append("A+")
@@ -440,6 +464,5 @@ def add_grades(branch, year, semester):
             else:
                 mark.append("F")
             marks.append(mark)
-        return render_template('teacher_marksheet.html', assignments = ass, marks = marks)
+        return render_template('teacher_marksheet.html', assignments=ass, marks=marks)
     return profile()
-    
