@@ -42,9 +42,6 @@
               <a href="/teacher/enter_selection"><button class="styled-button">Assignments</button></a>
             </li>
             <li class="nav-item">
-              <a href="#"><button class="styled-button">Attendance</button></a>
-            </li>
-            <li class="nav-item">
               <a href="#"><button class="styled-button">Reports</button></a>
             </li>
             <li class="nav-item" id = "logout">
@@ -63,51 +60,17 @@
           method="post"
           class="student-selector"
         >
-          <div class="row">
-            <!-- <select name="year" id="ch_year" class="btn col-4">
-              <option value="2019">2019</option>
-              <option value="2020">2020</option>
-              <option value="2021">2021</option>
-              <option value="2022">2022</option>
-            </select>
-            <select
-              name="branch"
-              id="ch_branch"
-              class="btn col-4"
-              placeholder="Branch"
-            >
-              <div class="dropdown-content">
-                <option value="CSAI">CSAI</option>
-                <option value="CS">CS</option>
-                <option value="CSB">CSB</option>
-                <option value="IT">IT</option>
-              </div>
-            </select>
-            <select
-              name="semester"
-              id="ch_semester"
-              class="btn col-4"
-              placeholder="Semester"
-            >
-              <div class="dropdown-content">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-              </div>
-            </select> -->
-            <select name="choice" class = "btn col-6"  placeholder = "Choose class">
+          <div class="box">
+            <h2 style="color: white;font-size:28px;margin-top: 6vh; font-weight:545;">SELECT CLASS</h2>
+            <select name="choice" class = "button"  placeholder = "Choose class">
               <div class="dropdown-content">
                 {%for i in options%}
                 <option value="{{i}}">{{i}}</option>
                 {%endfor%}
               </div>
             </select>
-            <button class="btn col-9" id="ch_submit">Submit</button>
+
+            <button class="submit">Submit</button>
           </div>
         </form>
       </div>

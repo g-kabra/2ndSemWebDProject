@@ -31,8 +31,8 @@ body {
 
 th,
 td {
-  /* padding: 15px; */
-  /* background-color:rgba(136, 110, 168, 0.582); */
+  padding: 15px;
+  background-color:#2a6071ce;
   color: #fff;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -40,9 +40,7 @@ td {
   align-items: center;
 
 }
-thead {
-  background-color: #5C3D2E;
-}
+
 
 th {
   text-align: center;
@@ -228,12 +226,21 @@ th {
   height: 70vh;
   border-radius: 40px;
   background-color: #3e3e3e;
-  transition: 0.4s;
-  transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 2;
+  margin: 30px auto;
+  width: 40vh;
+  height: 40vh;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  color: black;
+  transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
+  background:  #2A6171;
 }
 /* navbar end */
 .wrap {
@@ -261,6 +268,7 @@ th {
   outline: none;
   transform: translateY(1px);
   margin: 4vh;
+  align-self: center;
   }
   #add-assignment{
     width: 300px;
@@ -271,7 +279,7 @@ th {
   }
 
 .button:hover {
-  background-color: #2EE59D;
+  background-color: #2193b6ce;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-1px);

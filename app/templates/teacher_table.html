@@ -7,16 +7,16 @@
       crossorigin="anonymous"
     />
     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/static/teacher_table.css" />
+    <link rel="stylesheet" href="/static/footer.css" />
+    <link
       rel="stylesheet"
       type="text/css"
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="/static/teacher_table.css" />
-    <link rel="stylesheet" href="/static/footer.css" />
   </head>
   <body>
     <!-- Navbar shit -->
@@ -49,9 +49,6 @@
               >
             </li>
             <li class="nav-item">
-              <a href="#"><button class="styled-button">Attendance</button></a>
-            </li>
-            <li class="nav-item">
               <a href="#"><button class="styled-button">Reports</button></a>
             </li>
             <li class="nav-item" id="logout">
@@ -70,10 +67,19 @@
       </div>
     </nav>
     <center>
-      <button type="button" id="add-assignment" class="button">
+      <div>
+      <p style="margin-top: 5vh;font-weight: 550;font-size: 48px;">{{branch}} {{year}} 
+        <button type="button" id="add-assignment" class="button" style="display:inline; margin-right: 5vw;">
         Add Assignment
         <i class="fa-solid fa-file-circle-plus" style="font-size: 30px"></i>
       </button>
+    </p>
+      <h3 style="margin-top: 2vh;"> {{subject}}</h3>
+      <h3>Semester : {{semester}}</h3>
+      </div>
+      
+      
+  
       <div id="add-assignment-form">
         <form action="/teacher/add_assignment" method="post" class="box">
           <select name="year" id="">
@@ -94,10 +100,7 @@
         </form>
         <button id="add-assignment-back">Back</button>
       </div>
-      <h2>{{year}}</h2>
-      <h2>{{branch}}</h2>
-      <h2>{{semester}}</h2>
-      <h2>{{subject}}</h2>
+      
       <form
         action="/teacher/assignment_selected/{{year}}/{{branch}}/{{semester}}/{{subject}}"
         method="post"
@@ -111,7 +114,8 @@
       </form>
     </center>
     {%if assignment%}
-    <div style="overflow-x: auto">
+   
+    <div>
       <form
         action="/teacher/add_marks_template/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
         method="post"
@@ -131,6 +135,7 @@
         method="post"
         onsubmit="return validateMyForm();"
       >
+    </div>
         <table
           id="teacher_table"
           cellspacing="0"
@@ -171,7 +176,7 @@
             {%endfor%}
           </tbody>
         </table>
-        <button class="button">Submit</button>
+        <center><button class="button">Submit</button></center>
       </form>
     </div>
     {%endif%}

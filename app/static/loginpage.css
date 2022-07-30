@@ -117,8 +117,8 @@ body {
 .login-box .user-box input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px #2A6171 inset !important;
     -webkit-text-fill-color: white !important;
+ 
 }
-
 
 .login-box .user-box label {
   position: absolute;
@@ -133,7 +133,10 @@ body {
 
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
-  display: none;
+  top: -20px;
+  left: 0;
+  color:  white;
+  font-size: 14px;
 }
 
 .login-box form .subbtn {
@@ -218,10 +221,7 @@ body {
   color: white;
   height: max-content;
 }
-.title-yes{
-  color: white
-  height: max-content;
-}
+
 
 @media all and (max-width: 500px) {
   .boxs-list {
