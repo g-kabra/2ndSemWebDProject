@@ -66,9 +66,9 @@
                 ><button class="styled-button">Add Notice</button></a
               >
             </li>
-            <li  id = "logout"> 
-            <a href="/logout">
-              <button class = "styled-button">Logout</button>
+            <li id="logout">
+              <a href="/logout">
+                <button class="styled-button">Logout</button>
               </a>
             </li>
           </ul>
@@ -89,9 +89,9 @@
         </div>
         <div class="rightmainbox">
           <div class="signupchoice">
-            <div class="btn" id="studentbtn" ">STUDENT</div>
-            <div class="btn" id="teacherbtn" ">TEACHER</div>
-            <div class="btn" id="adminbtn" ">ADMIN</div>
+            <div class="btn" id="studentbtn">STUDENT</div>
+            <div class="btn" id="teacherbtn">TEACHER</div>
+            <div class="btn" id="adminbtn">ADMIN</div>
           </div>
           <div class="teachersignup" id="teachersignup">
             <form action="/signup/teacher" method="post">
@@ -141,8 +141,10 @@
               <input type="checkbox" name="force" id="" /><label for="checkbox"
                 >Override existing data?</label
               >
-              <br>  
-              <button id="submit" class="btn" style="margin: 2vh;">Submit</button>
+              <br />
+              <button id="submit" class="btn" style="margin: 2vh">
+                Submit
+              </button>
             </form>
           </div>
 
@@ -230,21 +232,26 @@
                 >Override existing data?</label
               >
               <br />
-              <button class="btn" id="submit" style="margin: 2vh;">Submit</button>
+              <button class="btn" id="submit" style="margin: 2vh">
+                Submit
+              </button>
             </form>
             <div class="box">
-            <form action="/signup/student-signup-excel-download" method="post">
-              <button class="btn">Download Template</button>
-            </form>
-            <form
-              action="/signup/student-signup-excel"
-              method="POST"
-              enctype="multipart/form-data"
-            >
-              <input type="file" name="excel-file" id="" />
-              <button class="btn">Submit</button>
-            </form>
-          </div>
+              <form
+                action="/signup/student-signup-excel-download"
+                method="post"
+              >
+                <button class="btn">Download Template</button>
+              </form>
+              <form
+                action="/signup/student-signup-excel"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input type="file" name="excel-file" id="" />
+                <button class="btn">Submit</button>
+              </form>
+            </div>
           </div>
           <div class="adminsignup" id="adminsignup">
             <form action="/signup/admin" method="post">
@@ -305,12 +312,15 @@
                   </td>
                 </tr>
               </table>
-              <input type="hidden" name="force" value = "0"/>
-              <input type="checkbox" name="force" value="1"/><label for="checkbox"
+              <input type="hidden" name="force" value="0" />
+              <input type="checkbox" name="force" value="1" /><label
+                for="checkbox"
                 >Override existing data?</label
               >
-              <br>
-              <button class="btn" id="submit" style="margin:2vh;">Submit</button>
+              <br />
+              <button class="btn" id="submit" style="margin: 2vh">
+                Submit
+              </button>
             </form>
           </div>
         </div>

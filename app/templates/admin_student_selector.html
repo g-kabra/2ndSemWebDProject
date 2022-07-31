@@ -1,240 +1,309 @@
 <html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
+    />
+    <link rel="stylesheet" href="/static/student_selector.css" />
+    <link rel="stylesheet" href="/static/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css" />
-  <link rel="stylesheet" href="/static/student_selector.css" />
-  <link rel="stylesheet" href="/static/footer.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-</head>
+  <body>
+    <nav class="navbar-dark navbar-expand-lg navbar">
+      <div class="container-fluid navb-links-container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="/"><button class="styled-button">Home</button></a>
+            </li>
+            <li class="nav-item">
+              <a href="/admin/timetable"
+                ><button class="styled-button">Timetable</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/admin/teacher_assign"
+                ><button class="styled-button">Teacher Assign</button></a
+              >
+            </li>
 
-<body>
-  <nav class="navbar-dark navbar-expand-lg navbar">
-    <div class="container-fluid navb-links-container">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+            <li class="nav-item">
+              <a href="/signup"
+                ><button class="styled-button">Sign Up</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/admin/branch"
+                ><button class="styled-button">Add Branch</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/admin/show_students"
+                ><button class="styled-button">Show Students</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/admin/notices"
+                ><button class="styled-button">Add Notice</button></a
+              >
+            </li>
+            <li id="logout">
+              <a href="/logout">
+                <button class="styled-button">Logout</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="center-align">
+      {%if added%}
+      <center><h2 style="font-family: Roboto">Added teacher.</h2></center>
+      {%endif%} {%if teachers%}
+      <div class="box" id="adminbox" style="width: 24vw; height: 60vh">
+        <form
+          action="/admin/teacher_assign/selected"
+          method="post"
+          class="teacher-selector"
+        >
+          <center>
+            <table>
+              <tr>
+                <td>
+                  <select
+                    name="year"
+                    class="button"
+                    style="width: 6vw; margin: 4vh 1vw"
+                  >
+                    <!-- <option value="" disabled selected>Year</option> -->
+                    <option value="2019" style="text-align: center">
+                      2019
+                    </option>
+                    <option value="2020" style="text-align: center">
+                      2020
+                    </option>
+                    <option value="2021" style="text-align: center">
+                      2021
+                    </option>
+                    <option value="2022" style="text-align: center">
+                      2022
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  <select
+                    name="branch"
+                    class="button"
+                    placeholder="Branch"
+                    style="width: 6vw; margin: 4vh 1vw"
+                  >
+                    <div class="dropdown-content" id="branch">
+                      <option value="CSAI" style="text-align: center">
+                        CSAI
+                      </option>
+                      <option value="CS" style="text-align: center">CS</option>
+                      <option value="CSB" style="text-align: center">
+                        CSB
+                      </option>
+                      <option value="IT" style="text-align: center">IT</option>
+                    </div>
+                  </select>
+                </td>
+                <td>
+                  <select
+                    name="semester"
+                    class="button"
+                    placeholder="Semester"
+                    style="width: 6vw; margin: 4vh 1vw"
+                  >
+                    <div class="dropdown-content">
+                      <option value="1" style="text-align: center">1</option>
+                      <option value="2" style="text-align: center">2</option>
+                      <option value="3" style="text-align: center">3</option>
+                      <option value="4" style="text-align: center">4</option>
+                      <option value="5" style="text-align: center">5</option>
+                      <option value="6" style="text-align: center">6</option>
+                      <option value="7" style="text-align: center">7</option>
+                      <option value="8" style="text-align: center">8</option>
+                    </div>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+              </tr>
+            </table>
+          </center>
+          <center>
+            <select name="teacher" class="button" style="width: 15vw">
+              {%for teacher in teachers%}
+              <option value="{{teacher.id}}">
+                {{teacher.fname + ' ' + teacher.lname}}
+              </option>
+              {%endfor%}
+            </select>
+
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              class="button"
+              style="width: 15vw"
+            />
+            <button class="submit" style="margin-top: 10vh">Submit</button>
+          </center>
+          {%endif%}
+        </form>
+      </div>
+      {%if timetable%}
+
+      <form
+        action="/admin/timetable/selected"
+        method="POST"
+        class="timetable-selector"
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a href="/"><button class="styled-button">Home</button></a>
-          </li>
-          <li class="nav-item">
-            <a href="/admin/timetable"
-              ><button class="styled-button">Timetable</button></a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="/admin/teacher_assign"
-              ><button class="styled-button">Teacher Assign</button></a
-            >
-          </li>
-
-          <li class="nav-item">
-            <a href="/signup"
-              ><button class="styled-button">Sign Up</button></a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="/admin/branch"
-              ><button class="styled-button">Add Branch</button></a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="/admin/show_students"
-              ><button class="styled-button">Show Students</button></a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="/admin/notices"
-              ><button class="styled-button">Add Notice</button></a
-            >
-          </li>
-          <li  id = "logout"> 
-          <a href="/logout">
-            <button class = "styled-button">Logout</button>
-            </a>
-          </li>
-        </ul>
+        <center>
+          <div class="box" id="adminbox">
+            <select name="year" class="button">
+              <!-- <option value="" disabled selected>Year</option> -->
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+            </select>
+            <select name="branch" class="button" placeholder="Branch">
+              <div class="dropdown-content">
+                <option value="CSAI">CSAI</option>
+                <option value="CS">CS</option>
+                <option value="CSB">CSB</option>
+                <option value="IT">IT</option>
+              </div>
+            </select>
+            <select name="semester" class="button" placeholder="Semester">
+              <div class="dropdown-content">
+                <option value="1" style="text-align: center">1</option>
+                <option value="2" style="text-align: center">2</option>
+                <option value="3" style="text-align: center">3</option>
+                <option value="4" style="text-align: center">4</option>
+                <option value="5" style="text-align: center">5</option>
+                <option value="6" style="text-align: center">6</option>
+                <option value="7" style="text-align: center">7</option>
+                <option value="8" style="text-align: center">8</option>
+              </div>
+            </select>
+            <button class="submit" style="margin-top: 8vh">Submit</button>
+          </div>
+        </center>
+      </form>
+      {%endif%} {%if branch%}
+      <div class="box" style="width: 22vw; height: 50vh">
+        <form
+          action="/admin/add_branch"
+          method="POST"
+          class="timetable-selector"
+        >
+          <center>
+            <input
+              type="text"
+              name="branch"
+              class="button"
+              placeholder="Branch Name"
+            />
+            <input
+              type="text"
+              name="type"
+              class="button"
+              placeholder="Study Type"
+            />
+            <input
+              type="text"
+              name="year"
+              class="button"
+              placeholder="Year Started"
+            />
+            <button class="submit">Submit</button>
+          </center>
+        </form>
       </div>
+      {%endif%}
     </div>
-  </nav>
-
-
-
-  <div class="center-align">
-    {%if added%}  
-    <center><h2 style="font-family:Roboto;">Added teacher.</h2></center>
-    {%endif%} {%if teachers%}
-    <div class="box" id = "adminbox" style="width: 24vw; height:60vh">
-    <form action="/admin/teacher_assign/selected" method="post" class="teacher-selector">
-      <center>
-      <table>
-        <tr>
-        <td>
-        <select name="year" class="button"  style="width: 6vw; margin:4vh 1vw">
-          <!-- <option value="" disabled selected>Year</option> -->
-          <option value="2019" style="text-align: center;">2019</option>
-          <option value="2020" style="text-align: center;">2020</option>
-          <option value="2021" style="text-align: center;">2021</option>
-          <option value="2022" style="text-align: center;">2022</option>
-        </select>
-      </td>
-      <td>
-        <select name="branch"  class="button" placeholder="Branch" style="width: 6vw; margin: 4vh 1vw;">
-          <div class="dropdown-content" id="branch">
-            <option value="CSAI" style="text-align: center;">CSAI</option>
-            <option value="CS" style="text-align: center;">CS</option>
-            <option value="CSB" style="text-align: center;">CSB</option>
-            <option value="IT" style="text-align: center;">IT</option>
+    <footer class="footer">
+      <div class="containner">
+        <div class="row">
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Student</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Affiliate Program</a></li>
+              <li><a href="#">Hostel</a></li>
+              <li><a href="#">Mess</a></li>
+            </ul>
           </div>
-        </select>
-      </td>
-        <td>
-        <select name="semester" class="button" placeholder="Semester" style="width: 6vw;margin:4vh 1vw">
-          <div class="dropdown-content">
-            <option value="1" style="text-align: center;">1</option>
-            <option value="2" style="text-align: center;">2</option>
-            <option value="3" style="text-align: center;">3</option>
-            <option value="4" style="text-align: center;">4</option>
-            <option value="5" style="text-align: center;">5</option>
-            <option value="6" style="text-align: center;">6</option>
-            <option value="7" style="text-align: center;">7</option>
-            <option value="8" style="text-align: center;">8</option>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Get Help</h4>
+            <ul>
+              <li><a href="#">Academic Calender</a></li>
+              <li><a href="#">Course Structure</a></li>
+              <li><a href="#">List of Holidays</a></li>
+              <li><a href="#">Payment Options</a></li>
+            </ul>
           </div>
-        </select>
-      </td>
-      </tr>
-      <tr>
-      <td>
-      </td>
-    </tr>
-  </table>
-</center>
-  <center><select name="teacher" class="button" style="width: 15vw;">
-    {%for teacher in teachers%}
-    <option value="{{teacher.id}}">
-      {{teacher.fname + ' ' + teacher.lname}}
-    </option>
-    {%endfor%}
-  </select>
-
-  <input type="text" name="subject" placeholder="Subject" class="button" style="width: 15vw;" />
-   <button class="submit" style="margin-top: 10vh;">Submit</button></center>
-    {%endif%}
-  </form>
-  </div>
-    {%if timetable%}
-
-    <form action="/admin/timetable/selected" method="POST" class="timetable-selector">
-      <center>
-        <div class="box" id="adminbox">
-          <select name="year" class="button">
-            <!-- <option value="" disabled selected>Year</option> -->
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-          </select>
-          <select name="branch" class="button" placeholder="Branch">
-            <div class="dropdown-content">
-              <option value="CSAI">CSAI</option>
-              <option value="CS">CS</option>
-              <option value="CSB">CSB</option>
-              <option value="IT">IT</option>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Fee Structure</a></li>
+              <li><a href="#">Attendance</a></li>
+              <li><a href="#">Timetable</a></li>
+              <li><a href="#">ID card</a></li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
             </div>
-          </select>
-          <select name="semester" class="button" placeholder="Semester">
-            <div class="dropdown-content">
-              <option value="1" style="text-align: center;">1</option>
-              <option value="2" style="text-align: center;">2</option>
-              <option value="3" style="text-align: center;">3</option>
-              <option value="4" style="text-align: center;">4</option>
-              <option value="5" style="text-align: center;">5</option>
-              <option value="6" style="text-align: center;">6</option>
-              <option value="7" style="text-align: center;">7</option>
-              <option value="8" style="text-align: center;">8</option>
-            </div>
-          </select>
-          <button class="submit" style="margin-top:8vh;">Submit</button>
-        </div>
-      </center>
-    </form>
-    {%endif%}
-
-  {%if branch%}
-  <div class="box" style="width:22vw;height: 50vh;margin-bottom: 30vh;" >
-  <form action="/admin/add_branch" method="POST" class="timetable-selector">
-      <center>
-      <input type="text" name="branch" class="button" placeholder="Branch Name" />
-      <input type="text" name="type" class="button" placeholder="Study Type" />
-      <input type="text" name="year" class="button" placeholder="Year Started" />
-      <button class="submit">Submit</button></center>
-   
-  </form>
-</div>
-  {%endif%}
-  <footer class="footer">
-    <div class="containner">
-      <div class="row">
-        <div class="footer-col col-md-3 col-sm-6">
-          <h4>Student</h4>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Services</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Affiliate Program</a></li>
-            <li><a href="#">Hostel</a></li>
-            <li><a href="#">Mess</a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-md-3 col-sm-6">
-          <h4>Get Help</h4>
-          <ul>
-            <li><a href="#">Academic Calender</a></li>
-            <li><a href="#">Course Structure</a></li>
-            <li><a href="#">List of Holidays</a></li>
-            <li><a href="#">Payment Options</a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-md-3 col-sm-6">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#">Fee Structure</a></li>
-            <li><a href="#">Attendance</a></li>
-            <li><a href="#">Timetable</a></li>
-            <li><a href="#">ID card</a></li>
-          </ul>
-        </div>
-        <div class="footer-col col-md-3 col-sm-6">
-          <h4>Follow Us</h4>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
-            <!-- <a href="#"><i class="fab fa-reddit"></i></a> -->
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <script type="text/javascript" charset="utf8"
-    src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
-</body>
-
+    </footer>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
