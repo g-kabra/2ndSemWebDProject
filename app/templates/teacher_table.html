@@ -92,7 +92,7 @@
           "
         >
           <p>{{branch}} {{year}}</p>
-          <h3 styl{{subject}}</h3>
+          <h3>{{subject}}</h3>
           <h3>Semester : {{semester}}</h3>
         </div>
         <div
@@ -119,12 +119,12 @@
       </div>
 
       {%if assignment%}
-      <div class="box1" style="padding:1vh;";">
-        <form action="/signup/student-signup-excel-download" method="post">
+      <div class="box1" style="padding:1vh;";>
+        <form action="/teacher/add_marks_template/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}" method="post">
           <button class="btn1">Download Template</button>
         </form>
         <form 
-          action="/signup/student-signup-excel"
+          action="/teacher/add_marks_excel/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
           method="POST"
           enctype="multipart/form-data"
         >
@@ -250,8 +250,6 @@
               <a href="#"><i class="fab fa-instagram"></i></a>
               <a href="#"><i class="fab fa-linkedin-in"></i></a>
               <a href="#"><i class="fab fa-github"></i></a>
-              <!-- <a href="#"><i class="fab fa-discord"></i></a>
-                      <a href="#"><i class="fab fa-reddit"></i></a> -->
             </div>
           </div>
         </div>
@@ -278,7 +276,6 @@
       $(document).ready(function () {
         $("#teacher_table").DataTable({
           paging: false,
-          // pagingType: "full_numbers",
           columnDefs: [
             {
               targets: "_all",
@@ -320,7 +317,6 @@
       }
       $(document).ready(function () {
         $(".marks-input-box").each(function () {
-          // console.log($(this).val());
           var ele = $(this);
           var mmarks = parseInt($("#maxmarks").html());
           if ((ele.val() > mmarks) | (isNaN(ele.val()) === true)) {
