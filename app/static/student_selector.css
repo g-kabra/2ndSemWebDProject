@@ -129,7 +129,6 @@
     height: 7vh;
     padding: 15px;
     font-size: 18px;
-    text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
     color: #000;
@@ -163,7 +162,6 @@
     color:  white;
     font-size: 16px;
     text-decoration: none;
-    text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
     margin-top: 10vh;
