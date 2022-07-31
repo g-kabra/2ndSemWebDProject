@@ -68,14 +68,14 @@
           </tr>
         </thead>
         <tbody>
+          {% for mark in marks%}
           <tr>
-            {% for mark in marks%}
             <td>{{mark[0].subject}}</td>
             <td>{{mark[0].assignment}}</td>
             <td>{{mark[1].marks}}</td>
             <td>{{mark[0].max_marks}}</td>
-            {%endfor%}
           </tr>
+          {%endfor%}
         </tbody>
       </table>
     </div>
