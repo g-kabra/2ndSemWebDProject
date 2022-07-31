@@ -19,9 +19,88 @@
 
   {%if teacher%}
   <!-- insert teacher navbar in here -->
+  <nav class="navbar-dark navbar-expand-lg navbar">
+    <div class="container-fluid navb-links-container">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="/"><button class="styled-button">Home</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/teacher/view_timetable"
+              ><button class="styled-button">Timetable</button></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="/teacher/enter_selection"
+              ><button class="styled-button">Assignments</button></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="/teacher/view_grade_selector"><button class="styled-button">View Grades</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/teacher/grades_student_select"><button class="styled-button">Add Grades</button></a>
+          </li>
+          <li  id = "logout"> 
+            <a href="/logout">
+              <button class = "styled-button">Logout</button>
+              </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   {%endif%}
   {%if student%}
   <!-- insert student navbar in here -->
+  <nav class="navbar-dark navbar-expand-lg navbar">
+    <div class="container-fluid navb-links-container">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="/"><button class="styled-button">Home</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/student/timetable"><button class="styled-button">Timetable</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/student/enter_selection"><button class="styled-button">Assignments</button></a>
+          </li>
+          <li class="nav-item">
+            <a href="/student/notice"><button class="styled-button">Notices</button></a>
+          </li>
+          <li  id = "logout"> 
+            <a href="/logout">
+              <button class = "styled-button">Logout</button>
+              </a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   {%endif%}
   <div>
     {%if choose%}
@@ -145,8 +224,8 @@
                       <a href="#"><i class="fab fa-instagram"></i></a>
                       <a href="#"><i class="fab fa-linkedin-in"></i></a>
                       <a href="#"><i class="fab fa-github"></i></a>
-                      <a href="#"><i class="fab fa-discord"></i></a>
-                      <a href="#"><i class="fab fa-reddit"></i></a>
+                      <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
+                      <!-- <a href="#"><i class="fab fa-reddit"></i></a> -->
                   
               </div>
               </div>
