@@ -7,6 +7,8 @@
 }
 body {
   background: linear-gradient(to left bottom, #2a6171, rgb(183, 183, 183));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .container {
   position: relative;

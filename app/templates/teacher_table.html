@@ -51,17 +51,13 @@
             <li class="nav-item">
               <a href="#"><button class="styled-button">Reports</button></a>
             </li>
-            <li class="nav-item" id="logout">
-              <a href="/logout"
-                ><button class="styled-button">Logout</button></a
-              >
-            </li>
+            <a href="/logout">
             <object
               data="/static/icons8-logout-50.png"
-              width="50px"
-              height="50px"
+             style="position: absolute;right:30px"
               id="png"
             ></object>
+            </a>
           </ul>
         </div>
       </div>
@@ -96,7 +92,7 @@
           "
         >
           <p>{{branch}} {{year}}</p>
-          <h3 style="margin-top: 2vh">{{subject}}</h3>
+          <h3 styl{{subject}}</h3>
           <h3>Semester : {{semester}}</h3>
         </div>
         <div
@@ -123,43 +119,46 @@
       </div>
 
       {%if assignment%}
-      <div style="grid-column: 1/2; padding-top: 3vh; margin: auto">
-        <form
-          action="/teacher/add_marks_template/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
-          method="post"
-        >
-          <button>Download Template</button>
+      <div class="box1" style="padding:1vh;";">
+        <form action="/signup/student-signup-excel-download" method="post">
+          <button class="btn1">Download Template</button>
         </form>
-        <form
-          action="/teacher/add_marks_excel/{{year}}/{{branch}}/{{subject}}/{{semester}}/{{assignment.assignment}}"
-          method="post"
+        <form 
+          action="/signup/student-signup-excel"
+          method="POST"
           enctype="multipart/form-data"
         >
           <input type="file" name="excel-file" id="" />
-          <button class="button">Submit</button>
+          <button class="btn1">Submit</button>
         </form>
       </div>
       {%endif%}
 
-      <div id="add-assignment-form">
-        <form action="/teacher/add_assignment" method="post" class="box">
-          <select name="year" id="">
+      <div id = "add-assignment-form-div">
+        <form action="/teacher/add_assignment" method="post" id="add-assignment-form">
+          <div>
+          <select class="btn1" name="year" id="" >
             <option value="{{year}}">{{year}}</option>
           </select>
-          <select name="branch" id="">
+
+          <select class="btn1" name="branch" id="" .5vh;";">
             <option value="{{branch}}">{{branch}}</option>
           </select>
-          <select name="subject" id="">
-            <option value="{{subject}}">{{subject}}</option>
-          </select>
-          <select name="semester" id="">
+          <select class="btn1" name="semester" id="" .5vh;";">
             <option value="{{semester}}">{{semester}}</option>
           </select>
-          <input type="text" placeholder="Assignment Name" name="assignment" required/>
-          <input type="text" placeholder="Maximum Marks" name="maxmarks" required/>
+        </div>
+          <select class="btn1" name="subject" id="" ";">
+            <option value="{{subject}}">{{subject}}</option>
+          </select>
+         
+          <input class="btn1" type="text" placeholder="Assignment Name" name="assignment" required/>
+          
+          <input class="btn1" type="text" placeholder="Maximum Marks" name="maxmarks"required/>
+        
           <button class="button">Submit</button>
         </form>
-        <button id="add-assignment-back">Back</button>
+        <button class="btn1"id="add-assignment-back">Back</button>
       </div>
     </center>
     {%if assignment%}
@@ -206,7 +205,7 @@
           {%endfor%}
         </tbody>
       </table>
-      <center><button class="button">Submit</button></center>
+      <center><button class="button" style="margin: 6vh;">Submit</button></center>
     </form>
 
     {%endif%}

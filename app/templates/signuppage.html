@@ -45,20 +45,22 @@
                 ><button class="styled-button">Teacher Assign</button></a
               >
             </li>
+
             <li class="nav-item">
               <a href="/signup"
                 ><button class="styled-button">Sign Up</button></a
               >
             </li>
-            <!-- <li class="nav-item" id="logout">
-              <a href="/logout"
-                ><img
-                  src="/static/icons8-logout-50.png"
-                  width="50px"
-                  height="50px"
-                  href="/logout"
-              /></a>
-            </li> -->
+            <li class="nav-item">
+              <a href="/admin/branch"
+                ><button class="styled-button">Add Branch</button></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/admin/show_students"
+                ><button class="styled-button">Show Students</button></a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -76,9 +78,9 @@
         </div>
         <div class="rightmainbox">
           <div class="signupchoice">
-            <div class="btn" id="studentbtn">STUDENT</div>
-            <div class="btn" id="teacherbtn">TEACHER</div>
-            <div class="btn" id="adminbtn">ADMIN</div>
+            <div class="btn" id="studentbtn" ">STUDENT</div>
+            <div class="btn" id="teacherbtn" ">TEACHER</div>
+            <div class="btn" id="adminbtn" ">ADMIN</div>
           </div>
           <div class="teachersignup" id="teachersignup">
             <form action="/signup/teacher" method="post">
@@ -128,7 +130,8 @@
               <input type="checkbox" name="force" id="" /><label for="checkbox"
                 >Override existing data?</label
               >
-              <button class="subbtn" id="submit">Submit</button>
+              <br>  
+              <button id="submit" class="btn" style="margin: 2vh;">Submit</button>
             </form>
           </div>
 
@@ -216,10 +219,11 @@
                 >Override existing data?</label
               >
               <br />
-              <button class="subbtn" id="submit">Submit</button>
+              <button class="btn" id="submit" style="margin: 2vh;">Submit</button>
             </form>
+            <div class="box">
             <form action="/signup/student-signup-excel-download" method="post">
-              <button>Download Template</button>
+              <button class="btn">Download Template</button>
             </form>
             <form
               action="/signup/student-signup-excel"
@@ -227,8 +231,9 @@
               enctype="multipart/form-data"
             >
               <input type="file" name="excel-file" id="" />
-              <button>Submit</button>
+              <button class="btn">Submit</button>
             </form>
+          </div>
           </div>
           <div class="adminsignup" id="adminsignup">
             <form action="/signup/admin" method="post">
@@ -293,7 +298,8 @@
               <input type="checkbox" name="force" value="1"/><label for="checkbox"
                 >Override existing data?</label
               >
-              <button class="subbtn" id="submit">Submit</button>
+              <br>
+              <button class="btn" id="submit" style="margin:2vh;">Submit</button>
             </form>
           </div>
         </div>

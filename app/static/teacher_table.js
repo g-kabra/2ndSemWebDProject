@@ -1,4 +1,4 @@
-const addAssignmentForm = document.getElementById("add-assignment-form");
+const addAssignmentForm = document.getElementById("add-assignment-form-div");
 const addAssignmentBtn = document.getElementById("add-assignment");
 const removeAddAssignmentForm = document.getElementById("add-assignment-back");
 
