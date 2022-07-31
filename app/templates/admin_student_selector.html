@@ -10,11 +10,17 @@
 </head>
 
 <body>
-  <!-- Navbar shit -->
   <nav class="navbar-dark navbar-expand-lg navbar">
     <div class="container-fluid navb-links-container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,34 +29,47 @@
             <a href="/"><button class="styled-button">Home</button></a>
           </li>
           <li class="nav-item">
-            <a href="/admin/timetable"><button class="styled-button">Timetable</button></a>
+            <a href="/admin/timetable"
+              ><button class="styled-button">Timetable</button></a
+            >
           </li>
           <li class="nav-item">
-            <a href="/admin/teacher_assign"><button class="styled-button">Teacher Assign</button></a>
-          </li>
-          <li class="nav-item">
-            <a href="/signup"><button class="styled-button">Sign Up</button></a>
-          </li>
-          <li class="nav-item" id="logout" style="display: flex; flex-direction: row;">
-            <a href="/logout"><button class="styled-button">Logout</button></a>
-            <!-- <object data="/static/icons8-logout-50.png" width="25px" height="25px" id="png"></object> -->
+            <a href="/admin/teacher_assign"
+              ><button class="styled-button">Teacher Assign</button></a
+            >
           </li>
 
+          <li class="nav-item">
+            <a href="/signup"
+              ><button class="styled-button">Sign Up</button></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="/admin/branch"
+              ><button class="styled-button">Add Branch</button></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="/admin/show_students"
+              ><button class="styled-button">Show Students</button></a
+            >
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
   <div class="center-align">
-    {%if added%}
-    <h2>Added teacher.</h2>
+    {%if added%}  
+    <center><h2 style="font-family:Roboto;">Added teacher.</h2></center>
     {%endif%} {%if teachers%}
-    <div class="box" id = "adminbox" style="width: 60vh; height:60vh">
+    <div class="box" id = "adminbox" style="width: 24vw; height:60vh">
     <form action="/admin/teacher_assign/selected" method="post" class="teacher-selector">
+      <center>
       <table>
         <tr>
         <td>
-        <select name="year" class="button">
+        <select name="year" class="button"  style="width: 6vw; margin:4vh 1vw">
           <!-- <option value="" disabled selected>Year</option> -->
           <option value="2019" style="text-align: center;">2019</option>
           <option value="2020" style="text-align: center;">2020</option>
@@ -59,7 +78,7 @@
         </select>
       </td>
       <td>
-        <select name="branch"  class="button" placeholder="Branch">
+        <select name="branch"  class="button" placeholder="Branch" style="width: 6vw; margin: 4vh 1vw;">
           <div class="dropdown-content" id="branch">
             <option value="CSAI" style="text-align: center;">CSAI</option>
             <option value="CS" style="text-align: center;">CS</option>
@@ -68,10 +87,8 @@
           </div>
         </select>
       </td>
-      </tr>
-      <tr>
         <td>
-        <select name="semester" class="button" placeholder="Semester">
+        <select name="semester" class="button" placeholder="Semester" style="width: 6vw;margin:4vh 1vw">
           <div class="dropdown-content">
             <option value="1" style="text-align: center;">1</option>
             <option value="2" style="text-align: center;">2</option>
@@ -84,19 +101,23 @@
           </div>
         </select>
       </td>
-      <td>
-        <select name="teacher" class="button">
-          {%for teacher in teachers%}
-          <option value="{{teacher.id}}">
-            {{teacher.fname + ' ' + teacher.lname}}
-          </option>
-          {%endfor%}
-        </select>
-        </td>
       </tr>
-    </table>
-    <input type="text" name="subject" placeholder="Subject" />
-    <center><button class="submit">Submit</button></center>
+      <tr>
+      <td>
+      </td>
+    </tr>
+  </table>
+</center>
+  <center><select name="teacher" class="button" style="width: 15vw;">
+    {%for teacher in teachers%}
+    <option value="{{teacher.id}}">
+      {{teacher.fname + ' ' + teacher.lname}}
+    </option>
+    {%endfor%}
+  </select>
+
+  <input type="text" name="subject" placeholder="Subject" class="button" style="width: 15vw;" />
+   <button class="submit" style="margin-top: 10vh;">Submit</button></center>
     {%endif%}
   </form>
   </div>
@@ -139,12 +160,13 @@
     {%endif%}
 
   {%if branch%}
+  <div class="box" style="width:22vw;height: 50vh;margin-bottom: 30vh;" >
   <form action="/admin/add_branch" method="POST" class="timetable-selector">
-    
+      <center>
       <input type="text" name="branch" class="button" placeholder="Branch Name" />
       <input type="text" name="type" class="button" placeholder="Study Type" />
       <input type="text" name="year" class="button" placeholder="Year Started" />
-      <button class="submit">Submit</button>
+      <button class="submit">Submit</button></center>
    
   </form>
 </div>

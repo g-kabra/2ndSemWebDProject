@@ -25,7 +25,7 @@
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-targewidtht="#navbarSupportedContent"
+          data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -50,10 +50,13 @@
             <li class="nav-item">
               <a href="#"><button class="styled-button">Reports</button></a>
             </li>
-            <li class="nav-item" id = "logout">
-              <a href="/logout"><button class="styled-button">Logout</button></a>
-            </li>
-            <object data = "/static/icons8-logout-50.png" width="50px" height="50px" id="png"></object>
+            <a href="/logout">
+            <object
+              data="/static/icons8-logout-50.png"
+             style="position: absolute;right:30px"
+              id="png"
+            ></object>
+            </a>
           </ul>
         </div>
       </div>

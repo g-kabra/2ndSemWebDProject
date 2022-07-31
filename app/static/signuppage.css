@@ -84,7 +84,7 @@ body {
 }
 
 .leftmainbox {
-  background-color: rgba(214, 0, 214, 0.407);
+  background: linear-gradient(#2A6171,black);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   display: flex;
@@ -216,65 +216,76 @@ body {
   margin-right : 1vh;
 }
 
-.btn {
-  border-color: white;
-  margin: 36px;
-  border-radius: 0;
-  color: white;
-  position: relative;
-  box-shadow: 0 0 0 0 purple;
-  letter-spacing: 0.2ch;
-  border: 2px solid white;
-  border-radius: 0px;
-  padding: 0.8vh 4vh;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 0 #d80286;
-  transition: ease-out 0.4s;
-  width : 7vw;
+.signupchoice{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 6vh;
 }
-.btn:hover {
-  color: white;
-  box-shadow: inset 0 0 50px 50px rgb(192, 2, 176);
-}
-
 #studentbtn
 {
   padding-left: 20px;
   text-align: center;
+  
+
 }
 
 #teacherbtn
 {
   padding-left: 21px;
 }
-
-.subbtn {
-  border-color: white;
-  margin: 36px;
-  border-radius: 0;
-  color: white;
-  background-color: #3e3e3e;
-  position: relative;
-  box-shadow: 0 0 0 0 purple;
-  letter-spacing: 0.2ch;
-  border: 2px solid white;
-  border-radius: 0px;
-  padding: 0.8vh 4vh;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 14px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: inset 0 0 0 0 rgb(14, 98, 223);
-  transition: ease-out 0.4s;
-  width : 7vw;
+.box{
+  margin:auto;
+    width: fit-content;
+    height: 6vh;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+      -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    transition: 0.4s;
+    color: black;
+    padding: 0.4vh;
+    transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
+    background:  #2A6171;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
 }
-
+#submit{
+  letter-spacing: 4px;
+  border-radius: 8px;
+}
 #submit:hover{
-  box-shadow: 0 0 50px 50px inset rgb(14, 98, 223);
+  background:  white;
+color: black;
+box-shadow: 0 0 2px  white,
+            0 0 10px  white,
 }
+.btn{
+position: relative;
+/* display:flex;
+flex-direction: column; */
+padding: 10px 20px;
+border: 1px solid white;
+background-color: transparent;
+border-radius: 40px;
+color:  white;
+font-size: 16px;
+text-decoration: none;
+text-transform: uppercase;
+overflow: hidden;
+transition: .5s;
+/* margin-top: 10vh; */
+letter-spacing: 4px;
+cursor: pointer;
+margin-bottom: 1vh;
+}
+.btn:hover {
+background:  white;
+color: black;
+box-shadow: 0 0 2px  white,
+            0 0 10px  white,
+} 
 .rightmainbox table {
   width: 90%;
 }

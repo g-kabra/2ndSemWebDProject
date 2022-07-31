@@ -23,13 +23,13 @@
     <nav class="navbar-dark navbar-expand-lg navbar">
       <div class="container-fluid navb-links-container">
         <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,35 +40,29 @@
             </li>
             <li class="nav-item">
               <a href="/teacher/view_timetable"
-              ><button class="styled-button">Timetable</button></a
+                ><button class="styled-button">Timetable</button></a
               >
             </li>
             <li class="nav-item">
               <a href="/teacher/enter_selection"
-              ><button class="styled-button">Assignments</button></a
+                ><button class="styled-button">Assignments</button></a
               >
-            </li>
-            <li class="nav-item">
-              <a href="#"><button class="styled-button">Attendance</button></a>
             </li>
             <li class="nav-item">
               <a href="#"><button class="styled-button">Reports</button></a>
             </li>
-            <li class="nav-item" id="logout">
-              <a href="/logout"
-              ><button class="styled-button">Logout</button></a
-              >
-            </li>
+            <a href="/logout">
             <object
               data="/static/icons8-logout-50.png"
-              width="50px"
-              height="50px"
+             style="position: absolute;right:30px"
               id="png"
-              ></object>
-            </ul>
+            ></object>
+            </a>
+          </ul>
         </div>
       </div>
     </nav>
+    
     <div class="page-content">
       <table
       id="teacher_table"
