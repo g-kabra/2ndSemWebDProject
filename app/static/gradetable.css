@@ -238,5 +238,6 @@ ul {
 
   #logout 
   {
-    margin-left: 40vw;
+    position: absolute;
+    right:0;
   }

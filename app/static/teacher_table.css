@@ -368,5 +368,6 @@ margin-bottom: 1vh;
 
 #logout 
 {
-  margin-left: 32vw;
+  position: absolute;
+  right:0;
 }
