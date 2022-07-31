@@ -13,7 +13,18 @@
     />
     <link rel="stylesheet" href="/static/student_selector.css" />
     <link rel="stylesheet" href="/static/footer.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar shit -->
@@ -46,31 +57,39 @@
               >
             </li>
             <li class="nav-item">
-              <a href="/teacher/view_grade_selector"><button class="styled-button">View Grades</button></a>
+              <a href="/teacher/view_grade_selector"
+                ><button class="styled-button">View Grades</button></a
+              >
             </li>
             <li class="nav-item">
-              <a href="/teacher/grades_student_select"><button class="styled-button">Add Grades</button></a>
+              <a href="/teacher/grades_student_select"
+                ><button class="styled-button">Add Grades</button></a
+              >
             </li>
-            <li  id = "logout"> 
+            <li id="logout">
               <a href="/logout">
-                <button class = "styled-button">Logout</button>
-                </a>
-              </li>
+                <button class="styled-button">Logout</button>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-
     <center>
       <div class="center-align">
-        <form
-          action="{{link}}"
-          method="post"
-          class="student-selector"
-        >
+        <form action="{{link}}" method="post" class="student-selector">
           <div class="box">
-            <h2 style="color: white;font-size:28px;margin-top: 6vh; font-weight:545;">SELECT CLASS</h2>
-            <select name="choice" class = "button"  placeholder = "Choose class">
+            <h2
+              style="
+                color: white;
+                font-size: 28px;
+                margin-top: 6vh;
+                font-weight: 545;
+              "
+            >
+              SELECT CLASS
+            </h2>
+            <select name="choice" class="button" placeholder="Choose class">
               <div class="dropdown-content">
                 {%for i in options%}
                 <option value="{{i}}">{{i}}</option>
@@ -83,57 +102,53 @@
         </form>
       </div>
     </center>
-
     <footer class="footer">
       <div class="containner">
-          <div class="row">
-              <div class="footer-col col-md-3 col-sm-6 ">
-                  <h4>Student</h4>
-                  <ul>
-                      <li><a href="#">About Us</a></li>
-                      <li><a href="#">Our Services</a></li>
-                      <li><a href="#">Privacy Policy</a></li>
-                      <li><a href="#">Affiliate Program</a></li>
-                      <li><a href="#">Hostel</a></li>
-                      <li><a href="#">Mess</a></li>
-                  </ul>
-              </div>
-              <div class="footer-col col-md-3 col-sm-6">
-                  <h4>Get Help</h4>
-                  <ul>
-                      <li><a href="#">Academic Calender</a></li>
-                      <li><a href="#">Course Structure</a></li>
-                      <li><a href="#">List of Holidays</a></li>
-                      <li><a href="#">Payment Options</a></li>
-                  </ul>
-              </div>
-              <div class="footer-col col-md-3 col-sm-6">
-                  <h4>Quick Links</h4>
-                  <ul>
-                      <li><a href="#">Fee Structure</a></li>
-                      <li><a href="#">Attendance</a></li>
-                      <li><a href="#">Timetable</a></li>
-                      <li><a href="#">ID card</a></li>
-                  </ul>
-              </div>
-              <div class="footer-col col-md-3 col-sm-6">
-                  <h4>Follow Us</h4>
-                  <div class="social-links">
-                  
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                      <a href="#"><i class="fab fa-instagram"></i></a>
-                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      <a href="#"><i class="fab fa-github"></i></a>
-                      <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
-                      <!-- <a href="#"><i class="fab fa-reddit"></i></a> -->
-                  
-              </div>
-              </div>
+        <div class="row">
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Student</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Services</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Affiliate Program</a></li>
+              <li><a href="#">Hostel</a></li>
+              <li><a href="#">Mess</a></li>
+            </ul>
           </div>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Get Help</h4>
+            <ul>
+              <li><a href="#">Academic Calender</a></li>
+              <li><a href="#">Course Structure</a></li>
+              <li><a href="#">List of Holidays</a></li>
+              <li><a href="#">Payment Options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Fee Structure</a></li>
+              <li><a href="#">Attendance</a></li>
+              <li><a href="#">Timetable</a></li>
+              <li><a href="#">ID card</a></li>
+            </ul>
+          </div>
+          <div class="footer-col col-md-3 col-sm-6">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
+              <!-- <a href="#"><i class="fab fa-reddit"></i></a> -->
+            </div>
+          </div>
+        </div>
       </div>
-
-  </footer>
+    </footer>
     <script
       type="text/javascript"
       charset="utf8"
