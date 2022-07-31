@@ -4,6 +4,7 @@ from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
 from .models import Student, Subject, Teacher, Assignments, Marks, Timetable, Notice
 from .main import profile
+import numpy as np
 from . import db
 
 student = Blueprint('student', __name__)
@@ -15,7 +16,12 @@ def enter_selection():
     if(current_user.role == 'student'):
         marks = db.session.query(Assignments, Marks).join(
             Assignments).filter(Marks.rollno == current_user.rollno).all()
-        return render_template('student_sub_selector.html', results=marks)
+        results = []
+        for i in marks:
+            results.append([str(i[0].semester) + " " + str(i[0].subject)])
+        results = np.array(results)
+        results = np.unique(results)
+        return render_template('student_sub_selector.html', results=results)
     return profile()
 
 
@@ -23,8 +29,9 @@ def enter_selection():
 @login_required
 def show_marks():
     if(current_user.role == 'student'):
-        semester = request.form['semester']
-        subject = request.form['subject']
+        response = request.form['subject']
+        semester = response[0:1]
+        subject = response[2:]
         marks = db.session.query(Assignments, Marks).join(Assignments).filter(
             Marks.rollno == current_user.rollno, Assignments.semester == semester, Assignments.subject == subject).all()
         return render_template('student_marks_view.html', marks=marks)

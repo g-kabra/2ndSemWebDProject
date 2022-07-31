@@ -62,12 +62,6 @@
           class="student-selector"
         >
           <div class="row">
-            <select name="semester" id="ch_semester" class="btn col-4">
-              <!-- <option value="" disabled selected>Year</option> -->
-              {%for i in results%}
-              <option value="{{i[0].semester}}">{{i[0].semester}}</option>
-              {%endfor%}
-            </select>
             <select
               name="subject"
               id="ch_subject"
@@ -76,7 +70,7 @@
             >
               <div class="dropdown-content">
                 {%for i in results%}
-                <option value="{{i[0].subject}}">{{i[0].subject}}</option>
+                  <option value="{{i}}">{{i}}</option>
                 {%endfor%}
               </div>
             </select>
