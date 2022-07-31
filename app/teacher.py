@@ -33,7 +33,7 @@ def enter_marks():
         subject = Subject.query.filter_by(
             branch=branch, year=year, teacher_id=current_user.id, semester=semester).first()
         if not subject:
-            return render_template("Notice_Page.html", message="You don't have access to this class, please check your credentials.", back="/teacher/enter_selection")
+            return render_template("Notice_page.html", message="You don't have access to this class, please check your credentials.", back="/teacher/enter_selection")
         assignments = Assignments.query.filter_by(
             branch=branch, year=year, semester=semester, subject=subject.subject).all()
         return render_template('teacher_table.html', students=students, assignments=assignments, branch=branch, year=year, subject=subject.subject, semester=semester)
@@ -55,7 +55,7 @@ def add_assignment():
             assignment=assignment, branch=branch, subject=subject, year=year, semester=semester).first()
         students = Student.query.filter_by(branch=branch, year=year)
         if ass:
-            return render_template('Notice_Page.html', message="This assignment already exists.", back="/teacher/enter_selection")
+            return render_template('Notice_page.html', message="This assignment already exists.", back="/teacher/enter_selection")
         new_ass = Assignments(year=year, branch=branch, subject=subject,
                               assignment=assignment, max_marks=max_marks, semester=semester)
         db.session.add(new_ass)

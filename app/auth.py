@@ -46,7 +46,7 @@ def signupStudent():
         student = Student.query.filter_by(email=email).first()
 
         if student and not force:
-            return render_template('Notice_Page.html', message = "This student has already been registered.", override = "", back = "/signup")
+            return render_template('Notice_page.html', message = "This student has already been registered.", override = "", back = "/signup")
         if student and force:
             db.session.delete(student)
             db.session.commit()
