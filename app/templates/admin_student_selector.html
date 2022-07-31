@@ -1,11 +1,11 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="/static/footer.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css" />
   <link rel="stylesheet" href="/static/student_selector.css" />
-  <link rel="stylesheet" href="/static/footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 
@@ -44,62 +44,80 @@
   <div class="center-align">
     {%if added%}
     <h2>Added teacher.</h2>
+<<<<<<< HEAD
     {%endif%} 
     {%if teachers%}
+=======
+    {%endif%} {%if teachers%}
+    <div class="box" id = "adminbox" style="width: 60vh; height:60vh">
+>>>>>>> cf403e39c9f9a64fa3810588dca236d3f599e8f7
     <form action="/admin/teacher_assign/selected" method="post" class="teacher-selector">
-      <div class="row">
-        <select name="year" id="ch_year" class="btn col-3">
+      <table>
+        <tr>
+        <td>
+        <select name="year" class="button">
           <!-- <option value="" disabled selected>Year</option> -->
-          <option value="2019" style="background: black">2019</option>
-          <option value="2020" style="background: black">2020</option>
-          <option value="2021" style="background: black">2021</option>
-          <option value="2022" style="background: black">2022</option>
+          <option value="2019" style="text-align: center;">2019</option>
+          <option value="2020" style="text-align: center;">2020</option>
+          <option value="2021" style="text-align: center;">2021</option>
+          <option value="2022" style="text-align: center;">2022</option>
         </select>
-
-        <select name="branch" id="ch_branch" class="btn col-4" placeholder="Branch">
-          <div class="dropdown-content" id="yes">
-            <option value="CSAI" style="background: black">CSAI</option>
-            <option value="CS" style="background: black">CS</option>
-            <option value="CSB" style="background: black">CSB</option>
-            <option value="IT" style="background: black">IT</option>
+      </td>
+      <td>
+        <select name="branch"  class="button" placeholder="Branch">
+          <div class="dropdown-content" id="branch">
+            <option value="CSAI" style="text-align: center;">CSAI</option>
+            <option value="CS" style="text-align: center;">CS</option>
+            <option value="CSB" style="text-align: center;">CSB</option>
+            <option value="IT" style="text-align: center;">IT</option>
           </div>
         </select>
-        <select name="semester" id="ch_semester" class="btn col-3" placeholder="Semester">
+      </td>
+      </tr>
+      <tr>
+        <td>
+        <select name="semester" class="button" placeholder="Semester">
           <div class="dropdown-content">
-            <option value="1" style="background: black">1</option>
-            <option value="2" style="background: black">2</option>
-            <option value="3" style="background: black">3</option>
-            <option value="4" style="background: black">4</option>
-            <option value="5" style="background: black">5</option>
-            <option value="6" style="background: black">6</option>
-            <option value="7" style="background: black">7</option>
-            <option value="8" style="background: black">8</option>
+            <option value="1" style="text-align: center;">1</option>
+            <option value="2" style="text-align: center;">2</option>
+            <option value="3" style="text-align: center;">3</option>
+            <option value="4" style="text-align: center;">4</option>
+            <option value="5" style="text-align: center;">5</option>
+            <option value="6" style="text-align: center;">6</option>
+            <option value="7" style="text-align: center;">7</option>
+            <option value="8" style="text-align: center;">8</option>
           </div>
         </select>
-        <select name="teacher">
+      </td>
+      <td>
+        <select name="teacher" class="button">
           {%for teacher in teachers%}
           <option value="{{teacher.id}}">
             {{teacher.fname + ' ' + teacher.lname}}
           </option>
           {%endfor%}
         </select>
-        <input type="text" name="subject" placeholder="Subject" />
-        <button class="btn col-9" id="ch_submit">Submit</button>
-        {%endif%}
-      </div>
-    </form>
+        </td>
+      </tr>
+    </table>
+    <input type="text" name="subject" placeholder="Subject" />
+    <center><button class="submit">Submit</button></center>
+    {%endif%}
+  </form>
+  </div>
     {%if timetable%}
+
     <form action="/admin/timetable/selected" method="POST" class="timetable-selector">
       <center>
-        <div class="row">
-          <select name="year" id="ch_year" class="btn col-2">
+        <div class="box" id="adminbox">
+          <select name="year" class="button">
             <!-- <option value="" disabled selected>Year</option> -->
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
           </select>
-          <select name="branch" id="ch_branch" class="btn col-4" placeholder="Branch">
+          <select name="branch" class="button" placeholder="Branch">
             <div class="dropdown-content">
               <option value="CSAI">CSAI</option>
               <option value="CS">CS</option>
@@ -107,33 +125,34 @@
               <option value="IT">IT</option>
             </div>
           </select>
-          <select name="semester" id="ch_semester" class="btn col-3" placeholder="Semester">
+          <select name="semester" class="button" placeholder="Semester">
             <div class="dropdown-content">
-              <option value="1" style="background: black">1</option>
-              <option value="2" style="background: black">2</option>
-              <option value="3" style="background: black">3</option>
-              <option value="4" style="background: black">4</option>
-              <option value="5" style="background: black">5</option>
-              <option value="6" style="background: black">6</option>
-              <option value="7" style="background: black">7</option>
-              <option value="8" style="background: black">8</option>
+              <option value="1" style="text-align: center;">1</option>
+              <option value="2" style="text-align: center;">2</option>
+              <option value="3" style="text-align: center;">3</option>
+              <option value="4" style="text-align: center;">4</option>
+              <option value="5" style="text-align: center;">5</option>
+              <option value="6" style="text-align: center;">6</option>
+              <option value="7" style="text-align: center;">7</option>
+              <option value="8" style="text-align: center;">8</option>
             </div>
           </select>
-          <button class="btn">Submit</button>
+          <button class="submit" style="margin-top:8vh;">Submit</button>
         </div>
       </center>
     </form>
     {%endif%}
-  </div>
+
   {%if branch%}
   <form action="/admin/add_branch" method="POST" class="timetable-selector">
-    <div class="row">
-      <input type="text" name="branch" class="btn col-3" placeholder="Branch Name" />
-      <input type="text" name="type" class="btn col-3" placeholder="Study Type" />
-      <input type="text" name="year" class="btn col-3" placeholder="Year Started" />
-      <button class="btn">Submit</button>
-    </div>
+    
+      <input type="text" name="branch" class="button" placeholder="Branch Name" />
+      <input type="text" name="type" class="button" placeholder="Study Type" />
+      <input type="text" name="year" class="button" placeholder="Year Started" />
+      <button class="submit">Submit</button>
+   
   </form>
+</div>
   {%endif%}
   <footer class="footer">
     <div class="containner">

@@ -3,7 +3,7 @@
     margin: 0;
     border: 0;
     /* background: linear-gradient(to right bottom, #000000, #3F0071);  */
-    background-color: #e3e0e0;
+    background: linear-gradient(to left bottom,#2A6171,rgb(183, 183, 183));
     font-family: sans-serif;
     font-weight: 100;
     color:white;
@@ -116,7 +116,12 @@
     transition: 400ms cubic-bezier(0.075, 0.82, 0.165, 1) all;
     background:  #2A6171;
   }
-  
+  #adminbox {
+    width: 50vh;
+    height: 50vh;
+    margin-bottom: 20vh;
+    padding: 0.02vh;
+  }  
   /* navbar end */
   .button {
     width: 12vw;
