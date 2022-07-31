@@ -16,6 +16,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
+    />
     <title>Register Users</title>
   </head>
   <body>
@@ -69,18 +74,18 @@
     </nav>
 
     <form action="/admin/add_notice" method="post">
-      <input type="text" name="heading" required/>
-      <input type="text" name="content" required/>
+      <input type="text" name="heading" required />
+      <input type="text" name="content" required />
       <button>Add Notice</button>
     </form>
-    <table>
-        <thead>
-            <tr>
-                <th>Heading</th>
-                <th>Content</th>
-                <th>Remove?</th>
-            </tr>
-        </thead>
+    <table id = "existing-notices">
+      <thead>
+        <tr>
+          <th>Heading</th>
+          <th>Content</th>
+          <th>Remove?</th>
+        </tr>
+      </thead>
       {%for i in notices%}
       <tr>
         <td>{{i.heading}}</td>
@@ -93,6 +98,7 @@
       </tr>
       {%endfor%}
     </table>
+
     <footer class="footer">
       <div class="containner">
         <div class="row">
@@ -147,5 +153,38 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"
+    ></script>
+
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"
+    ></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#existing-notices").DataTable({
+          paging: false,
+          // pagingType: "full_numbers",
+          columnDefs: [
+            {
+              targets: "_all",
+              createdCell: function (td, cellData, rowData, row, col) {
+                $(td).css("padding", "15px");
+              },
+            },
+          ],
+        });
+      });
+    </script>
   </body>
 </html>

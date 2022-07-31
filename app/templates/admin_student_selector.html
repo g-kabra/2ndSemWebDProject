@@ -44,7 +44,8 @@
   <div class="center-align">
     {%if added%}
     <h2>Added teacher.</h2>
-    {%endif%} {%if teachers%}
+    {%endif%} 
+    {%if teachers%}
     <form action="/admin/teacher_assign/selected" method="post" class="teacher-selector">
       <div class="row">
         <select name="year" id="ch_year" class="btn col-3">
