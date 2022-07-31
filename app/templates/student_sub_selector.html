@@ -55,17 +55,16 @@
     </nav>
 
     <center>
-      <div class="center-align">
+      <div class="box" style="margin:20vh;">
         <form
           action="/student/marks_selected"
           method="post"
           class="student-selector"
         >
-          <div class="row">
+          <div class="column">
             <select
               name="subject"
-              id="ch_subject"
-              class="btn col-4"
+              class="submit"
               placeholder="Subject"
             >
               <div class="dropdown-content">
@@ -74,7 +73,7 @@
                 {%endfor%}
               </div>
             </select>
-            <button class="btn col-9" id="ch_submit">Submit</button>
+            <button class="submit">Submit</button>
           </div>
         </form>
       </div>
