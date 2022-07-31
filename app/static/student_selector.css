@@ -146,26 +146,25 @@ body {
   flex-direction: column;
   text-align: center;
 }
-
+  
 .submit {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 20px;
-  border: 1px solid white;
-  background-color: transparent;
-  border-radius: 8px;
-  color: white;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: 0.5s;
-  margin-top: 10vh;
-  letter-spacing: 4px;
-  cursor: pointer;
-  margin-bottom: 1vh;
-}
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border: 1px solid white;
+    background-color: transparent;
+    border-radius: 8px;
+    color:  white;
+    font-size: 16px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 10vh;
+    letter-spacing: 4px;
+    cursor: pointer;
+    margin-bottom: 1vh;
+  }
 .submit:hover {
   background: white;
   color: black;
