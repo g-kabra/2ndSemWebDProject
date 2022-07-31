@@ -223,6 +223,8 @@ ul {
   }
 
 
-  #logout{
-    margin-left: 40;
+  #logout 
+  {
+    position: absolute;
+    right:0;
   }

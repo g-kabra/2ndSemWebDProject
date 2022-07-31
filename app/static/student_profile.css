@@ -235,7 +235,8 @@ body {
 
 #logout 
   {
-    margin-left: 32vw;
+    position: absolute;
+    right:0;
   }
 
 /* notice board */

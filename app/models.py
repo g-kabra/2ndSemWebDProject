@@ -106,6 +106,8 @@ class Grades(db.Model):
     branch = db.Column(db.String(4), db.ForeignKey('branch.branch'))
     year = db.Column(db.Integer)
     semester = db.Column(db.Integer)
+    subject = db.Column(db.String(30))
+    teacher_id = db.Column(db.Integer)
     A1 = db.Column(db.Integer)
     A = db.Column(db.Integer)
     B = db.Column(db.Integer)
