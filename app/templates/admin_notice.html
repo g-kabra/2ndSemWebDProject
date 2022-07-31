@@ -22,6 +22,65 @@
       href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"
     />
     <title>Register Users</title>
+    <style>
+      #existing-notices thead {
+        background-color: rgb(40, 76, 99);
+      }
+
+      #notice-add-form {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #notice-add-form input {
+        border-radius: 8px;
+        background-color: transparent;
+        box-shadow: 0;
+        width: 50%;
+        height: 70px;
+        border: 1px solid whitesmoke;
+        font-size: 60px;
+        margin: 10px;
+        text-align: center;
+        color: white;
+      }
+
+      #notice-add-form input::placeholder {
+        color: rgba(245, 245, 245, 0.261);
+      }
+
+      #notice-add-form input:nth-last-of-type(1) {
+        font-size: 40px;
+      }
+
+      #existing-notices button, #notice-add-form button  {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        border: 1px solid white;
+        background-color: transparent;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: 0.2s;
+        letter-spacing: 4px;
+        cursor: pointer;
+        margin-bottom: 1vh;
+      }
+      #existing-notices button:hover, #notice-add-form button:hover  {
+        background: white;
+        color: black;
+        border-radius: 8px;
+        box-shadow: 0 0 2px white, 0 0 10px white;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar-dark navbar-expand-lg navbar">
@@ -68,9 +127,9 @@
                 ><button class="styled-button">Show Students</button></a
               >
             </li>
-            <li  id = "logout"> 
-            <a href="/logout">
-              <button class = "styled-button">Logout</button>
+            <li id="logout">
+              <a href="/logout">
+                <button class="styled-button">Logout</button>
               </a>
             </li>
           </ul>
@@ -78,13 +137,12 @@
       </div>
     </nav>
 
-
-    <form action="/admin/add_notice" method="post">
-      <input type="text" name="heading" required />
-      <input type="text" name="content" required />
+    <form action="/admin/add_notice" method="post" id="notice-add-form">
+      <input type="text" name="heading" required placeholder="Heading" />
+      <input type="text" name="content" required placeholder="Content" />
       <button>Add Notice</button>
     </form>
-    <table id = "existing-notices">
+    <table id="existing-notices">
       <thead>
         <tr>
           <th>Heading</th>
