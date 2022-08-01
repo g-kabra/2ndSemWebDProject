@@ -25,6 +25,14 @@
     <style>
       #existing-notices thead {
         background-color: rgb(40, 76, 99);
+        /* font-size: 100px; */
+      }
+      #existing-notices{
+        padding-bottom: 120px;
+      }
+
+      #existing-notices td {
+        font-size: 20px;
       }
 
       #notice-add-form {
@@ -56,7 +64,8 @@
         font-size: 40px;
       }
 
-      #existing-notices button, #notice-add-form button  {
+      #existing-notices button,
+      #notice-add-form button {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -74,7 +83,8 @@
         cursor: pointer;
         margin-bottom: 1vh;
       }
-      #existing-notices button:hover, #notice-add-form button:hover  {
+      #existing-notices button:hover,
+      #notice-add-form button:hover {
         background: white;
         color: black;
         border-radius: 8px;
@@ -83,138 +93,142 @@
     </style>
   </head>
   <body>
-    <nav class="navbar-dark navbar-expand-lg navbar">
-      <div class="container-fluid navb-links-container">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a href="/"><button class="styled-button">Home</button></a>
-            </li>
-            <li class="nav-item">
-              <a href="/admin/timetable"
-                ><button class="styled-button">Timetable</button></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="/admin/teacher_assign"
-                ><button class="styled-button">Teacher Assign</button></a
-              >
-            </li>
+    <div width="100vw">
+      <nav class="navbar-dark navbar-expand-lg navbar">
+        <div class="container-fluid navb-links-container">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="/"><button class="styled-button">Home</button></a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/timetable"
+                  ><button class="styled-button">Timetable</button></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/admin/teacher_assign"
+                  ><button class="styled-button">Teacher Assign</button></a
+                >
+              </li>
 
-            <li class="nav-item">
-              <a href="/signup"
-                ><button class="styled-button">Sign Up</button></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="/admin/branch"
-                ><button class="styled-button">Add Branch</button></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="/admin/show_students"
-                ><button class="styled-button">Show Students</button></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="/admin/notices"
-                ><button class="styled-button">Add Notice</button></a
-              >
-            </li>
-            <li  id = "logout"> 
-            <a href="/logout">
-              <button class = "styled-button">Logout</button>
-              </a>
-            </li>
-          </ul>
+              <li class="nav-item">
+                <a href="/signup"
+                  ><button class="styled-button">Sign Up</button></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/admin/branch"
+                  ><button class="styled-button">Add Branch</button></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/admin/show_students"
+                  ><button class="styled-button">Show Students</button></a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/admin/notices"
+                  ><button class="styled-button">Add Notice</button></a
+                >
+              </li>
+              <li id="logout">
+                <a href="/logout">
+                  <button class="styled-button">Logout</button>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-
-    <form action="/admin/add_notice" method="post" id="notice-add-form">
-      <input type="text" name="heading" required placeholder="Heading" />
-      <input type="text" name="content" required placeholder="Content" />
-      <button>Add Notice</button>
-    </form>
-    <table id="existing-notices">
-      <thead>
+      </nav>
+    </div>
+    <div>
+      <form action="/admin/add_notice" method="post" id="notice-add-form">
+        <input type="text" name="heading" required placeholder="Heading" />
+        <input type="text" name="content" required placeholder="Content" />
+        <button>Add Notice</button>
+      </form>
+      <table id="existing-notices">
+        <thead>
+          <tr>
+            <th>Heading</th>
+            <th>Content</th>
+            <th>Remove?</th>
+          </tr>
+        </thead>
+        {%for i in notices%}
         <tr>
-          <th>Heading</th>
-          <th>Content</th>
-          <th>Remove?</th>
+          <td>{{i.heading}}</td>
+          <td>{{i.content}}</td>
+          <td>
+            <form action="/admin/delete_notice/{{i.id}}" method="post">
+              <button>Delete</button>
+            </form>
+          </td>
         </tr>
-      </thead>
-      {%for i in notices%}
-      <tr>
-        <td>{{i.heading}}</td>
-        <td>{{i.content}}</td>
-        <td>
-          <form action="/admin/delete_notice/{{i.id}}" method="post">
-            <button>Delete</button>
-          </form>
-        </td>
-      </tr>
-      {%endfor%}
-    </table>
-
-    <footer class="footer">
-      <div class="containner">
-        <div class="row">
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Student</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Services</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Affiliate Program</a></li>
-              <li><a href="#">Hostel</a></li>
-              <li><a href="#">Mess</a></li>
-            </ul>
-          </div>
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Get Help</h4>
-            <ul>
-              <li><a href="#">Academic Calender</a></li>
-              <li><a href="#">Course Structure</a></li>
-              <li><a href="#">List of Holidays</a></li>
-              <li><a href="#">Payment Options</a></li>
-            </ul>
-          </div>
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#">Fee Structure</a></li>
-              <li><a href="#">Attendance</a></li>
-              <li><a href="#">Timetable</a></li>
-              <li><a href="#">ID card</a></li>
-            </ul>
-          </div>
-          <div class="footer-col col-md-3 col-sm-6">
-            <h4>Follow Us</h4>
-            <div class="social-links">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-              <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
-              <!-- <a href="#"><i class="fab fa-reddit"></i></a> -->
+        {%endfor%}
+      </table>
+    </div>
+    <div width="100vw">
+      <footer class="footer">
+        <div class="containner">
+          <div class="row">
+            <div class="footer-col col-md-3 col-sm-6">
+              <h4>Student</h4>
+              <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Affiliate Program</a></li>
+                <li><a href="#">Hostel</a></li>
+                <li><a href="#">Mess</a></li>
+              </ul>
+            </div>
+            <div class="footer-col col-md-3 col-sm-6">
+              <h4>Get Help</h4>
+              <ul>
+                <li><a href="#">Academic Calender</a></li>
+                <li><a href="#">Course Structure</a></li>
+                <li><a href="#">List of Holidays</a></li>
+                <li><a href="#">Payment Options</a></li>
+              </ul>
+            </div>
+            <div class="footer-col col-md-3 col-sm-6">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#">Fee Structure</a></li>
+                <li><a href="#">Attendance</a></li>
+                <li><a href="#">Timetable</a></li>
+                <li><a href="#">ID card</a></li>
+              </ul>
+            </div>
+            <div class="footer-col col-md-3 col-sm-6">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <!-- <a href="#"><i class="fab fa-discord"></i></a> -->
+                <!-- <a href="#"><i class="fab fa-reddit"></i></a> -->
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
     <!-- scripts -->
     <!-- JavaScript Bundle with Popper -->
     <script
